@@ -11,7 +11,7 @@ tags:
 
 # Handover Log
 
-This log records material handover lifecycle events. Full handover content belongs in [[02_current_handover]] while active and `90_records/` after preservation.
+This log records material handover lifecycle events. Full handover content belongs in [current handover](02_current_handover.md) while active and `90_records/` after preservation.
 
 ## Lifecycle events
 

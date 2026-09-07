@@ -5,10 +5,10 @@ aliases:
   - Evidence-Led Execution Framework
 type: framework
 status: active
-version: "3.4.0"
+version: "3.5.0"
 specification: ELAEF
-spec_version: "3.4.0"
-updated: 2026-09-01
+spec_version: "3.5.0"
+updated: 2026-09-08
 compatibility: ">=2.1"
 conformance_profile: core
 naming_profile: obsidian_portable_v1
@@ -26,12 +26,13 @@ tags:
 **Build by Evidence, One Gate at a Time**
 
 > [!abstract] Specification status
-> **Version:** 3.4.0  
+> **Version:** 3.5.0  
 > **Status:** Active specification  
 > **Compatibility:** Projects created under v2.1 remain valid; adopt v3 record identifiers, policy profiles, and migration records progressively.  
 > **Normative language:** **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** indicate requirement strength.
 
 > [!tip] Start here
+> For routine use, start with [[#93. Efficient Execution Contract]] and the distribution's `01_quick_start.md`. Optional offline tools can initialize a small P0 hub or the P1/P2 starter and run repeatable structural checks. Read the full specification progressively as the current activity requires.
 > For a new project, use [[#64. Minimum Viable Implementation]], select a [[#65. Conformance Profiles|conformance profile]], adopt [[#80. Filename and Path Governance|the naming rules]] and [[#91. Numbered Project Profile]], create records from [[#74. Obsidian-Native Templates]], and pass the [[#84. Project Activation Gate]] before execution. Use [[#86. Handover Reference System]] for session, agent, phase, pause, or ownership transitions. Existing projects should use [[#72. Upgrade and Migration Protocol]].
 
 ## Purpose
@@ -1595,6 +1596,8 @@ An activity MUST enter `ready` only when its readiness criteria are satisfied. I
 
 `not-assessed -> assessment-ready -> passed | conditionally-passed | failed | deferred | expired`
 
+The starter serializes the initial gate state as `not_assessed`; both spellings represent the same initial state. Preserve older records and normalize only through a recorded migration. `passed` maps to activation outcome `READY`; `conditionally-passed` maps to `READY WITH CONDITIONS`.
+
 Only the authorized approver may set `passed` or `conditionally-passed`. A conditional pass MUST identify conditions, owner, deadline, and consequence of non-closure. A passed gate MAY expire when evidence or circumstances become stale.
 
 ### Decision
@@ -2414,6 +2417,8 @@ A visible edit, successful command, generated file, or agent report is not suffi
 
 No project should enter autonomous execution merely because files or plans exist. The project MUST first pass an activation assessment proportionate to its conformance profile.
 
+An applicable owner request to initialize or improve the project permits scoped setup: reading supplied information, preparing its charter and records, mapping references, and preparing the activation assessment. These setup activities prepare the gate; they MUST NOT be modeled as requiring that same gate to have passed. The gate controls the subsequent commitment. A clean structural check does not pass the activation gate.
+
 ### 84.1 Gate identity
 
 Recommended gate ID:
@@ -3068,3 +3073,79 @@ Migration from v3.3.0:
 6. Record migration results and remaining exceptions in the handover.
 
 This release changes project navigation paths but does not change stable record identity, evidence meaning, gate state, decision authority, or authorization envelopes.
+
+## 93. Efficient Execution Contract
+
+Efficiency means reaching a validated useful result with proportionate reading, research, coordination, and record maintenance.
+
+The agent SHOULD begin with the project hub, authoritative state, current activity, relevant authority, and any material handover. It SHOULD load additional evidence and specification sections only when needed to decide or execute the current activity. Reusable templates and the full framework need not be reread in every cycle.
+
+Each material cycle SHOULD identify:
+
+- The current constraint and smallest useful output
+- The evidence and authorization needed for that output
+- A proportionate effort limit or stopping condition
+- The checks needed to support the completion claim
+- The authoritative record that will capture the result
+
+Use one active execution activity per write owner by default. Parallel work remains appropriate only where independent scopes justify coordination. Plan the immediate activity in detail and keep later work coarse until evidence supports it.
+
+Carry valid authorization forward within its recorded scope and expiry. Do not ask again merely because a new session begins. Seek new human input when an unresolved material choice, authority conflict, expired approval, or expanded commitment requires it. A blocker on one action does not block independent authorized work.
+
+Reuse evidence while its scope, integrity, and freshness remain suitable. Stop research when the current decision has sufficient support or a defined limit is reached; record the remaining uncertainty. After two unchanged failures without new evidence, change the method or report the exact dependency. Before retrying an external action whose outcome is uncertain, check its final state and use a supported idempotency mechanism where available.
+
+Update only materially affected records. Keep one authoritative location for each fact or decision and use references in summaries. Full handovers belong at material transitions; routine checkpoints may be concise. Report the useful result, validation, remaining uncertainty, and next action without mandatory ceremonial headings.
+
+## 94. Optional Tooling and Validation Contract
+
+The framework remains usable with plain Markdown. The optional reference implementation provides offline `init`, `check`, `inventory`, and `drift` commands using the Python standard library.
+
+Initialization MUST preview or describe intended files, accept an explicit target and supplied identity values, refuse an existing destination, and preserve unknown facts as unresolved. It MUST NOT grant approvals, mark activation passed, or accept a handover. A lightweight profile SHOULD produce a lightweight project rather than require the full P1/P2 structure.
+
+Structural diagnostics SHOULD distinguish reusable template, setup, and active-project modes. Templates may retain placeholders; setup findings identify missing information; active-record findings identify unresolved fields requiring resolution or an assessed exception. Report the checks actually performed and the checks not implemented. A tool result MUST NOT be represented as full conformance, evidence truth, authority, or receiver acceptance.
+
+Tool-checkable record-per-note implementations MAY add scalar-list fields:
+
+| Record | Optional fields | Meaning |
+|---|---|---|
+| Activity | `outputs`, `validation_evidence` | Locators for delivered artifacts and checks supporting completion |
+| Gate / decision | `authorization_evidence` | Reference to the applicable approval |
+| Conditional gate | `conditions`, `conditions_due` | Conditions and ISO deadline; owner and consequence remain required in the record |
+| Handover | `acceptance_evidence` | Reference to receiver acknowledgment |
+
+Existing section-based records remain valid; prose and tables require review when the validator cannot interpret them. Tool-specific fields do not replace the canonical record model. Unsupported formats should be reported explicitly.
+
+Private/raw source contents SHOULD be excluded from general structural scanning unless explicitly in scope. Relative Markdown links are preferred in copyable starters so several projects can share an Obsidian vault without ambiguous note-name lookup. Wikilinks remain supported. External-link availability, permission checks, semantic evidence assessment, and gate approval remain separate verification tasks.
+
+The reference implementation uses `.gitignore`, Python cache conventions, and `.github/workflows/` as tool-required naming exceptions. Numbered Markdown files and stable IDs remain governed by `numbered_project_v1`. An ignore rule is not an access boundary and does not remove already tracked data.
+
+## 95. Baselines, Drift, and Upgrade Efficiency
+
+An initialized project MAY carry `00_elaef_manifest.json` with `schema_version`, `framework_version`, source paths, source hashes, and rendered-file baseline hashes. The manifest is tool metadata, not an authoritative project-state or approval record. It is not a backup.
+
+An upgrade review SHOULD distinguish:
+
+1. Local project changes since the recorded baseline
+2. Changes to source templates in the candidate release
+3. Files changed on both sides that require reconciliation
+4. Added, removed, or moved records requiring reference checks
+
+Comparison SHOULD be read-only. Do not overwrite project-specific content, rewrite historical decisions, or switch versions merely because a newer release exists. Where no verified baseline exists, use inventory, version history, and an explicit migration map. Do not manufacture historical hashes or approval evidence.
+
+After a reviewed migration, validate affected records and links, record compatibility exceptions and rollback information, and update the declared project version. Preserve the original baseline and separate migration evidence until a verified replacement baseline is intentionally established. The reference CLI reports drift but does not merge, migrate, or rebase baselines automatically.
+
+## 96. v3.5 Change Record
+
+**Release:** 3.5.0  
+**Date:** 2026-09-08  
+**Compatibility:** Additive to v3.4.0. Existing record IDs, file numbers, evidence meaning, and authorization remain valid. Tools and structured validation fields are optional.
+
+Added: a concise execution contract, minimal P0 generator, offline initialization/check/inventory/drift tools, versioned baseline manifest, regression fixtures, repeatable release validation, quick-start instructions, and migration guidance.
+
+Changed: the starter uses relative Markdown links; setup activities explicitly prepare rather than depend on activation; routine reading and reporting are proportional to the current activity; both initial gate-state spellings are documented.
+
+Deprecated or removed: none. Older templates remain usable within their declared version and documented exceptions.
+
+Migration: follow [[#72. Upgrade and Migration Protocol]] and the distribution's `02_upgrade_guide.md`. Review existing project instructions and current authority before adopting the revised contract. Do not copy blank starter records over an active project.
+
+Known limitations: automated checks cover a documented structural subset, not full YAML, all Markdown syntax, prose/table semantics, domain policies, evidence truth, remote access, gate approval, or handover acceptance. Live-project efficiency and receiver resumption require a pilot; fixture success alone does not establish them.

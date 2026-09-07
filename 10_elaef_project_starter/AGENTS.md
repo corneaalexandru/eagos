@@ -1,14 +1,26 @@
 # Agent Operating Contract
 
-This project uses ELAEF v3.4.0 with `obsidian_portable_v1` and `numbered_project_v1`.
+This project uses ELAEF v3.5.0 with `obsidian_portable_v1` and `numbered_project_v1`.
 
 ## Before acting
 
-1. Read `README.md`, `00_control/01_project_state.md`, `00_control/02_project_activation.md`, and the records relevant to the current activity.
-2. Confirm the current activity is `ready`, inside scope, and inside the authorization envelope.
+1. Read `README.md`, then the authoritative state, activation, and activity records it identifies. P0 may keep these as sections in `README.md`.
+2. Confirm the activity is ready and authorized. During setup, preparation of the charter, records, references, and activation assessment is permitted within the owner's setup request; those activities do not depend on passing the gate they prepare.
 3. Confirm predecessors, inputs, evidence, and gates.
 4. Identify the authoritative record and current write owner before changing project truth.
-5. When resuming or accepting a handover, read `50_handover/02_current_handover.md` and verify it against the authoritative state and `50_handover/01_reference_map.md`.
+5. When resuming, read the current handover and reference map (or P0 hub sections), check the cutoff against current records, and verify the next action.
+
+## Efficient execution
+
+- Load the hub, current state, relevant authority, and the current activity first. Read further specification sections or evidence only when the work requires them.
+- Use one active execution activity per write owner by default. Keep future work coarse until inputs are available.
+- State the expected result, necessary checks, and a stopping condition before a material cycle. Reuse current evidence when its scope and freshness still fit.
+- Carry valid authorization forward within its scope and expiry. Ask again only when a material choice, conflict, or expanded commitment requires it.
+- Do useful authorized work that is independent of a blocked action. After two identical failures without new information, change the method or report the specific dependency; do not repeat an uncertain external action before checking its final state.
+- Update only records affected by material changes. Summaries and handovers point to authoritative records; they do not become additional copies of project truth.
+- Self-check reversible work in proportion to its consequence. Independent review is reserved for the cases that require it.
+- Report the result, evidence, remaining uncertainty, and next action concisely. The fields below describe information to preserve, not mandatory headings for every reply.
+- A structural validator cannot approve a gate, verify a source's truth, grant authority, or record receiver acceptance.
 
 ## Classification
 

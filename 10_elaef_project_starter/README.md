@@ -4,7 +4,7 @@ title: "{{PROJECT_NAME}}"
 type: project
 status: setup
 framework: ELAEF
-framework_version: 3.4.0
+framework_version: 3.5.0
 conformance_profile: "{{P0_P1_OR_P2}}"
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -18,8 +18,10 @@ tags:
 
 # {{PROJECT_NAME}}
 
+The [charter](00_control/00_project_charter.md) and [state](00_control/01_project_state.md) own project definition and current execution truth. This hub is navigation and a concise summary; reconcile it after material changes instead of maintaining independent decisions here.
+
 > [!warning] Template state
-> This project remains in `setup` until all material placeholders are replaced and [[00_control/02_project_activation|Project Activation]] is assessed. Folder creation is not project activation.
+> This project remains in `setup` until all material placeholders are replaced and [Project Activation](00_control/02_project_activation.md) is assessed. Folder creation is not project activation.
 
 ## Purpose
 
@@ -56,7 +58,7 @@ tags:
 - **Phase:** Setup
 - **Current workstream:** Project initialization
 - **Current activity:** Complete activation prerequisites
-- **Next ready activity:** Determine from [[00_control/02_project_activation]]
+- **Next ready activity:** Determine from [project activation](00_control/02_project_activation.md)
 - **Critical blocker:** Unassessed activation gate
 - **Active gate:** `{{PROJECT_CODE}}-GAT-ACTIVATION`
 - **Major risk:** {{MAJOR_RISK_OR_UNKNOWN}}
@@ -80,20 +82,20 @@ tags:
 
 ## Authoritative records
 
-- **Charter:** [[00_control/00_project_charter]]
-- **State:** [[00_control/01_project_state]]
-- **Execution and dependencies:** [[00_control/03_execution_plan]]
-- **Evidence:** [[00_control/04_evidence_register]]
-- **Decisions:** [[00_control/05_decision_log]]
-- **Risks:** [[00_control/06_risk_register]]
-- **Gates:** [[00_control/07_gate_register]]
-- **Activation:** [[00_control/02_project_activation]]
-- **Material changes:** [[00_control/08_change_log]]
-- **Agent operating contract:** [[AGENTS]]
-- **Handover system:** [[50_handover/00_handover_hub]]
-- **Reference map:** [[50_handover/01_reference_map]]
-- **Current handover:** [[50_handover/02_current_handover]]
-- **Handover lifecycle:** [[50_handover/03_handover_log]]
+- **Charter:** [project charter](00_control/00_project_charter.md)
+- **State:** [project state](00_control/01_project_state.md)
+- **Execution and dependencies:** [execution plan](00_control/03_execution_plan.md)
+- **Evidence:** [evidence register](00_control/04_evidence_register.md)
+- **Decisions:** [decision log](00_control/05_decision_log.md)
+- **Risks:** [risk register](00_control/06_risk_register.md)
+- **Gates:** [gate register](00_control/07_gate_register.md)
+- **Activation:** [project activation](00_control/02_project_activation.md)
+- **Material changes:** [change log](00_control/08_change_log.md)
+- **Agent operating contract:** [AGENTS](AGENTS.md)
+- **Handover system:** [handover hub](50_handover/00_handover_hub.md)
+- **Reference map:** [reference map](50_handover/01_reference_map.md)
+- **Current handover:** [current handover](50_handover/02_current_handover.md)
+- **Handover lifecycle:** [handover log](50_handover/03_handover_log.md)
 
 ## Current focus
 
@@ -101,4 +103,4 @@ Complete the activation assessment without inferring facts, decisions, or author
 
 ## Next justified action
 
-Replace project-definition placeholders in [[00_control/00_project_charter]].
+Replace project-definition placeholders in [project charter](00_control/00_project_charter.md).

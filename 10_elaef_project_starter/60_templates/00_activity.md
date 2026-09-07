@@ -12,6 +12,8 @@ reversibility: R1
 created: "{{YYYY-MM-DD}}"
 updated: "{{YYYY-MM-DD}}"
 revision: 0
+outputs: []
+validation_evidence: []
 tags:
   - elaef/activity
 ---
@@ -63,6 +65,9 @@ tags:
 - **Authorized envelope:** {{SCOPE}}
 
 ## Execution record
+
+- **Effort limit / stopping condition:** {{TIME_COST_ATTEMPTS_OR_EVIDENCE_THRESHOLD}}
+- **Retry rule:** Check final state before repeating an action with uncertain external consequences; change method after two identical failures without new information.
 
 - **Observed:**
 - **Interpreted:**

@@ -10,7 +10,8 @@ intended_receiver: "{{RECEIVER_OR_UNASSIGNED}}"
 prepared_at: "{{YYYY-MM-DDTHHMMSSZ}}"
 state_cutoff: "{{YYYY-MM-DDTHHMMSSZ}}"
 expires_on:
-framework_version: 3.4.0
+acceptance_evidence: []
+framework_version: 3.5.0
 tags:
   - elaef/handover
 ---
@@ -22,14 +23,14 @@ tags:
 
 ## Identity
 
-- **Project:** [[../README|{{PROJECT_NAME}}]]
+- **Project:** [{{PROJECT_NAME}}](../README.md)
 - **Project ID:** `{{PROJECT_CODE}}-PRJ-001`
 - **Handover type:** {{TYPE}}
 - **Outgoing:** {{OUTGOING}}
 - **Intended receiver:** {{RECEIVER}}
 - **Prepared:** {{TIMESTAMP}}
 - **State cutoff:** {{TIMESTAMP}}
-- **Reference map:** [[01_reference_map]]
+- **Reference map:** [reference map](01_reference_map.md)
 
 ## Trusted-state anchor
 
@@ -40,11 +41,11 @@ tags:
 
 ## Required reading order
 
-1. [[../README]]
-2. [[../00_control/01_project_state]]
-3. [[../00_control/02_project_activation]]
-4. [[../00_control/03_execution_plan]]
-5. [[01_reference_map]]
+1. [README](../README.md)
+2. [project state](../00_control/01_project_state.md)
+3. [project activation](../00_control/02_project_activation.md)
+4. [execution plan](../00_control/03_execution_plan.md)
+5. [reference map](01_reference_map.md)
 6. {{PROJECT_SPECIFIC_CRITICAL_RECORDS}}
 
 ## Current execution state

@@ -15,22 +15,16 @@ tags:
 
 ## Active gates
 
-### {{PROJECT_CODE}}-GAT-ACTIVATION — Project Activation
+### Project Activation — reference to authoritative assessment
 
-- **State:** `not_assessed`
-- **Commitment controlled:** Transition from setup into scoped project execution.
-- **Approver:** {{APPROVAL_OWNER}}
-- **Required evidence:** [[02_project_activation]] criteria and linked control records
-- **Required evidence level:** Proportionate to profile and intended envelope
-- **Unresolved exceptions:** Project not instantiated
-- **Reversibility:** R2
-- **Actions authorized by passage:** Only those in the recorded activation envelope
-- **Actions remaining prohibited:** All unrecorded external or material commitments
-- **Assessment record:** [[02_project_activation]]
+- **Stable ID:** `{{PROJECT_CODE}}-GAT-ACTIVATION`
+- **Authoritative record:** [project activation](02_project_activation.md)
+- **Commitment controlled:** Transition from setup into scoped project execution
+- **Current state, approver, evidence, conditions, and envelope:** Read the assessment record; do not maintain a second mutable copy here
 
 ## Passed or conditionally passed gates
 
-None.
+Consult the linked assessment records for current outcomes. Add subsequent gates here as references or as inline authoritative records, with one definition per ID.
 
 ## Failed, deferred, or expired gates
 

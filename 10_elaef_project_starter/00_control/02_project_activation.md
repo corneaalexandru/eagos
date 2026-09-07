@@ -6,6 +6,9 @@ status: not_assessed
 approver: "{{APPROVAL_OWNER}}"
 assessed:
 review_on:
+authorization_evidence: []
+conditions: []
+conditions_due:
 tags:
   - elaef/control
   - elaef/gate
@@ -16,6 +19,8 @@ tags:
 ## Commitment controlled
 
 Transition from setup into evidence gathering, testing, or execution under a defined authorization envelope.
+
+Preparing this assessment and the supporting setup records is allowed by an applicable project-initialization request. A structural check is supporting evidence only; the approver assesses readiness and records the decision.
 
 ## Intended activation envelope
 
@@ -36,20 +41,21 @@ Transition from setup into evidence gathering, testing, or execution under a def
 - [ ] Sensitive-data and access requirements defined where relevant
 - [ ] Instruction provenance and untrusted-content rules active
 - [ ] Version history, backup, or recovery method available
-- [ ] Project root and authoritative records mapped in [[../50_handover/01_reference_map]]
+- [ ] Project root and authoritative records mapped in [reference map](../50_handover/01_reference_map.md)
 - [ ] Handover ownership, cutoff, and acceptance rules active
 - [ ] First activity has readiness and completion criteria
 - [ ] Final-state evidence can be produced for authorized external actions
+- [ ] Any unresolved fields affecting the intended envelope are resolved or recorded as explicit conditions
 
 ## Evidence reviewed
 
-- [[00_project_charter]]
-- [[01_project_state]]
-- [[03_execution_plan]]
-- [[06_risk_register]]
-- [[07_gate_register]]
-- [[../AGENTS]]
-- [[../50_handover/01_reference_map]]
+- [project charter](00_project_charter.md)
+- [project state](01_project_state.md)
+- [execution plan](03_execution_plan.md)
+- [risk register](06_risk_register.md)
+- [gate register](07_gate_register.md)
+- [AGENTS](../AGENTS.md)
+- [reference map](../50_handover/01_reference_map.md)
 
 ## Exceptions and conditions
 

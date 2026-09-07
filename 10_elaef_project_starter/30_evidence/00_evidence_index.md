@@ -14,7 +14,7 @@ tags:
 
 ## Purpose
 
-Navigate source evidence, semantic derivatives, and the authoritative [[../00_control/04_evidence_register|Evidence Register]].
+Navigate source evidence, semantic derivatives, and the authoritative [Evidence Register](../00_control/04_evidence_register.md).
 
 ## Structure
 

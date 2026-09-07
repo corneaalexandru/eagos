@@ -35,7 +35,7 @@ tags:
 - **Limitations:** Not yet instantiated
 - **Review on:** {{DATE_OR_TRIGGER}}
 - **Access:** Internal
-- **Affected record:** [[00_project_charter]]
+- **Affected record:** [project charter](00_project_charter.md)
 
 ## Contradictory evidence
 

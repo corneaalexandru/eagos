@@ -1,0 +1,28 @@
+name: Validate ELAEF
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: elaef-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the release
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned
+        with:
+          persist-credentials: false
+      - name: Verify toolkit behavior
+        run: python3 30_tests/01_test_elaef.py -v
+      - name: Validate starter structure
+        run: python3 20_tools/00_elaef.py check 10_elaef_project_starter --mode template --fail-on-warnings

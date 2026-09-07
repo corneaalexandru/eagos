@@ -22,22 +22,22 @@ tags:
 | Reference ID | Type | Name | Record ID | Location | Authority | Owner | Access | Last verified | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | `{{PROJECT_CODE}}-REF-ROOT` | project_root | Project root | `{{PROJECT_CODE}}-PRJ-001` | `{{PROJECT_ROOT_WITH_ENVIRONMENT_CONTEXT}}` | authoritative | {{PROJECT_OWNER}} | internal | not_verified | unknown |
-| `{{PROJECT_CODE}}-REF-HUB` | note | Project hub | `{{PROJECT_CODE}}-PRJ-001` | [[../README]] | authoritative | {{PROJECT_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-AGENTS` | note | Agent operating contract | — | [[../AGENTS]] | authoritative | {{PROJECT_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-HUB` | note | Project hub | `{{PROJECT_CODE}}-PRJ-001` | [README](../README.md) | authoritative | {{PROJECT_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-AGENTS` | note | Agent operating contract | — | [AGENTS](../AGENTS.md) | authoritative | {{PROJECT_OWNER}} | internal | {{YYYY-MM-DD}} | active |
 
 ## Authoritative control records
 
 | Reference ID | Type | Name | Record ID | Location | Authority | Owner | Access | Last verified | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| `{{PROJECT_CODE}}-REF-CHARTER` | note | Project charter | `{{PROJECT_CODE}}-CTL-CHARTER` | [[../00_control/00_project_charter]] | authoritative | {{PROJECT_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-STATE` | note | Project state | `{{PROJECT_CODE}}-CTL-STATE` | [[../00_control/01_project_state]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-EXECUTION` | note | Execution plan | `{{PROJECT_CODE}}-CTL-EXECUTION` | [[../00_control/03_execution_plan]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-EVIDENCE` | note | Evidence register | `{{PROJECT_CODE}}-CTL-EVIDENCE` | [[../00_control/04_evidence_register]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-DECISIONS` | note | Decision log | `{{PROJECT_CODE}}-CTL-DECISIONS` | [[../00_control/05_decision_log]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-RISKS` | note | Risk register | `{{PROJECT_CODE}}-CTL-RISKS` | [[../00_control/06_risk_register]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-GATES` | note | Gate register | `{{PROJECT_CODE}}-CTL-GATES` | [[../00_control/07_gate_register]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-ACTIVATION` | note | Activation gate | `{{PROJECT_CODE}}-GAT-ACTIVATION` | [[../00_control/02_project_activation]] | authoritative | {{APPROVAL_OWNER}} | internal | {{YYYY-MM-DD}} | active |
-| `{{PROJECT_CODE}}-REF-CHANGES` | note | Change log | `{{PROJECT_CODE}}-CTL-CHANGES` | [[../00_control/08_change_log]] | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-CHARTER` | note | Project charter | `{{PROJECT_CODE}}-CTL-CHARTER` | [project charter](../00_control/00_project_charter.md) | authoritative | {{PROJECT_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-STATE` | note | Project state | `{{PROJECT_CODE}}-CTL-STATE` | [project state](../00_control/01_project_state.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-EXECUTION` | note | Execution plan | `{{PROJECT_CODE}}-CTL-EXECUTION` | [execution plan](../00_control/03_execution_plan.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-EVIDENCE` | note | Evidence register | `{{PROJECT_CODE}}-CTL-EVIDENCE` | [evidence register](../00_control/04_evidence_register.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-DECISIONS` | note | Decision log | `{{PROJECT_CODE}}-CTL-DECISIONS` | [decision log](../00_control/05_decision_log.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-RISKS` | note | Risk register | `{{PROJECT_CODE}}-CTL-RISKS` | [risk register](../00_control/06_risk_register.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-GATES` | note | Gate register | `{{PROJECT_CODE}}-CTL-GATES` | [gate register](../00_control/07_gate_register.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-ACTIVATION` | note | Activation gate | `{{PROJECT_CODE}}-GAT-ACTIVATION` | [project activation](../00_control/02_project_activation.md) | authoritative | {{APPROVAL_OWNER}} | internal | {{YYYY-MM-DD}} | active |
+| `{{PROJECT_CODE}}-REF-CHANGES` | note | Change log | `{{PROJECT_CODE}}-CTL-CHANGES` | [change log](../00_control/08_change_log.md) | authoritative | {{WRITE_OWNER}} | internal | {{YYYY-MM-DD}} | active |
 
 ## Project folders
 

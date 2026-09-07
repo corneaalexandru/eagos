@@ -20,7 +20,7 @@ tags:
 - **Status:** `pending`
 - **Decision owner:** {{APPROVAL_OWNER}}
 - **Decision required:** Determine activation outcome and envelope.
-- **Evidence:** [[02_project_activation]]
+- **Evidence:** [project activation](02_project_activation.md)
 - **Alternatives:** READY / READY WITH CONDITIONS / NOT READY
 - **Risks accepted:** None until explicitly recorded
 - **Reversibility:** R2

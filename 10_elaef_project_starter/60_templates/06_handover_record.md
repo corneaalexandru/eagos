@@ -10,7 +10,8 @@ intended_receiver: "{{RECEIVER}}"
 prepared_at: "{{YYYY-MM-DDTHHMMSSZ}}"
 state_cutoff: "{{YYYY-MM-DDTHHMMSSZ}}"
 expires_on:
-framework_version: 3.4.0
+acceptance_evidence: []
+framework_version: 3.5.0
 tags:
   - elaef/handover
 ---
@@ -19,13 +20,13 @@ tags:
 
 ## Identity and references
 
-- **Project:** [[../README|{{PROJECT_NAME}}]]
+- **Project:** [{{PROJECT_NAME}}](../README.md)
 - **Project ID:** `{{PROJECT_CODE}}-PRJ-001`
 - **Type:** {{TYPE}}
 - **Outgoing:** {{OUTGOING}}
 - **Receiver:** {{RECEIVER}}
 - **State cutoff:** {{TIMESTAMP}}
-- **Reference map:** [[../50_handover/01_reference_map]]
+- **Reference map:** [reference map](../50_handover/01_reference_map.md)
 - **Last trusted revision:** {{REVISION_COMMIT_OR_SNAPSHOT}}
 
 ## Required reading

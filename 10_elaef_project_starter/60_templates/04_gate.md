@@ -6,6 +6,9 @@ status: not_assessed
 approver: "{{APPROVER}}"
 assessment_date:
 expires_on:
+authorization_evidence: []
+conditions: []
+conditions_due:
 tags:
   - elaef/gate
 ---

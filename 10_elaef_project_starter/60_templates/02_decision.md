@@ -7,6 +7,7 @@ approver: "{{APPROVER}}"
 decision_date:
 gate:
 evidence: []
+authorization_evidence: []
 reversibility: R1
 review_on:
 tags:

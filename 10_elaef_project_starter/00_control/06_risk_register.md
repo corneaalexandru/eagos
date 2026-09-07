@@ -22,7 +22,7 @@ tags:
 - **Potential consequence:** Incorrect work, unauthorized external action, duplicated truth, or hidden project risk.
 - **Likelihood:** Medium until activation passes
 - **Impact:** High
-- **Mitigation:** Require [[02_project_activation]] and enforce `AGENTS.md`.
+- **Mitigation:** Require [project activation](02_project_activation.md) and enforce `AGENTS.md`.
 - **Contingency:** Stop affected work, identify external consequences, restore trusted state, and reassess activation.
 - **Owner:** {{PROJECT_OWNER}}
 - **Status:** Open

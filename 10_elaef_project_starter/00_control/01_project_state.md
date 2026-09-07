@@ -52,4 +52,4 @@ tags:
 
 ## Next justified action
 
-Complete [[02_project_activation]] prerequisites.
+Complete [project activation](02_project_activation.md) prerequisites.

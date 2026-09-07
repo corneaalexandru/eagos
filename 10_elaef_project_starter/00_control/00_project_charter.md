@@ -58,7 +58,7 @@ tags:
 
 ## Conformance
 
-- **Framework:** ELAEF 3.4.0
+- **Framework:** ELAEF 3.5.0
 - **Profile:** {{P0_P1_OR_P2}}
 - **Naming:** `obsidian_portable_v1`
 - **Numbering:** `numbered_project_v1`

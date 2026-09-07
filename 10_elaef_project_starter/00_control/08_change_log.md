@@ -22,7 +22,7 @@ Record material semantic, structural, authority, gate, risk, or execution change
 - **Date:** {{YYYY-MM-DD}}
 - **Previous position:** Generic uninstantiated ELAEF starter
 - **New position:** {{PROJECT_NAME}} project baseline
-- **Reason:** Initialize project under ELAEF v3.4.0 with `numbered_project_v1`
+- **Reason:** Initialize project under ELAEF v3.5.0 with `numbered_project_v1`
 - **Evidence:** {{PROJECT_OWNER_INPUT_OR_REFERENCE}}
 - **Impact:** Establishes project-specific records; does not itself activate execution
 - **Affected records:** All starter control records
