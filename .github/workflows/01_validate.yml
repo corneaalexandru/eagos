@@ -23,6 +23,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify toolkit behavior
-        run: python3 30_tests/01_test_elaef.py -v
+        run: |
+          python3 30_tests/03_test_unified.py -v
+          python3 30_tests/02_test_discovery.py -v
+          python3 30_tests/01_test_elaef.py -v
       - name: Validate starter structure
         run: python3 20_tools/00_elaef.py check 10_elaef_project_starter --mode template --fail-on-warnings

@@ -11,7 +11,7 @@ prepared_at: "{{YYYY-MM-DDTHHMMSSZ}}"
 state_cutoff: "{{YYYY-MM-DDTHHMMSSZ}}"
 expires_on:
 acceptance_evidence: []
-framework_version: 3.5.0
+framework_version: 3.6.0
 tags:
   - elaef/handover
 ---

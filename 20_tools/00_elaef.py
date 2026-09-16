@@ -15,7 +15,8 @@ import re
 import sys
 from urllib.parse import unquote, urlsplit
 
-VERSION = "3.5.0"
+VERSION = "3.6.0"
+LIFECYCLE_STAGES = {"discover", "shape", "incubate", "develop", "launch", "operate", "evolve"}
 PACKAGE = Path(__file__).resolve().parents[1]
 MANIFEST = "00_elaef_manifest.json"
 PLACEHOLDER = re.compile(r"\{\{[^{}\n]+\}\}")
@@ -186,6 +187,11 @@ def link_issue(root, source, target, wiki, all_files):
     return None
 
 
+def normalized_gate_state(value):
+    """Compare legacy/current initial states without changing stored records."""
+    return "not_assessed" if value == "not-assessed" else value
+
+
 def check(root, mode="setup", today=None):
     root = root.resolve()
     if not root.is_dir():
@@ -255,6 +261,10 @@ def check(root, mode="setup", today=None):
         if mode == "template":
             continue
         kind, state = data.get("type"), data.get("status")
+        if "lifecycle_stage" in data:
+            stage = data["lifecycle_stage"]
+            if not isinstance(stage, str) or stage not in LIFECYCLE_STAGES:
+                add("error", path, "lifecycle_stage", "Use a supported descriptive lifecycle stage; stage never grants authority")
         if kind in STATES and state not in STATES[kind]:
             add("error", path, "state", "Unknown " + kind + " state: " + str(state))
         for field in ("predecessors", "successors", "outputs", "validation_evidence", "authorization_evidence", "acceptance_evidence", "conditions"):
@@ -341,7 +351,7 @@ def check(root, mode="setup", today=None):
         gate_path = root / "00_control/02_project_activation.md"
         if gate_path.is_file():
             gate, _, _ = properties(gate_path.read_text(encoding="utf-8"))
-            if activation != gate.get("status"):
+            if normalized_gate_state(activation) != normalized_gate_state(gate.get("status")):
                 add("error", gate_path, "activation_conflict", "Hub and activation record states differ")
     return {"tool_version": VERSION, "mode": mode, "profile": profile, "checked_files": len(all_files), "errors": sum(f["severity"] == "error" for f in findings), "warnings": sum(f["severity"] == "warning" for f in findings), "findings": findings, "limits": "Structural diagnostics only. No gate approval, source-truth validation, access audit, full YAML parsing, prose/table semantics, external-link check, or receiver acceptance. Raw/private content is excluded."}
 
@@ -388,7 +398,7 @@ def init_project(destination, code, name, owner, profile, apply=False, package=P
         raise ValueError("Destination parent must already exist")
     starter = package / "10_elaef_project_starter"
     if profile == "P0":
-        sources = {"README.md": starter / "70_profiles/03_p0_project.md", "AGENTS.md": starter / "AGENTS.md", ".gitignore": starter / ".gitignore"}
+        sources = {"README.md": starter / "70_profiles/03_p0_project.md", "AGENTS.md": starter / "AGENTS.md", "01_operating_guide.md": starter / "01_operating_guide.md", ".gitignore": starter / ".gitignore"}
     else:
         sources = {p.relative_to(starter).as_posix(): p for p in files(starter)}
         sources[".gitignore"] = starter / ".gitignore"

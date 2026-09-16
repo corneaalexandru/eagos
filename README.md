@@ -1,45 +1,49 @@
-# Evidence-Led Agent Execution Framework
+# ELAEF — Discover, develop, launch, and evolve
 
-ELAEF 3.5 helps humans and AI agents turn an idea into evidence-backed project execution, with clear records, useful next actions, and explicit authority for commitments.
+ELAEF 3.6.0 is one evidence-led framework for working with an AI agent from early ideas through incubation, development, launch, operation, and improvement.
 
-> Build by evidence, one gate at a time.
+Use ordinary conversation. The agent contributes possibilities, recommends the next useful move, progresses authorized work, and keeps the context current.
 
-Start with the [quick start](01_quick_start.md). Use the [full specification](00_evidence_led_agent_execution_framework.md) as a reference and the [agent contract](10_elaef_project_starter/AGENTS.md) for routine work. Existing projects can adopt improvements through the [upgrade guide](02_upgrade_guide.md).
+Start with the [operating guide](04_operating_guide.md), or say:
 
-## Create a project
+> Help me discover and develop worthwhile ideas through to completion or operation. Be an active thinking partner, suggest useful next steps, and keep the process simple. Continue ready work within our agreed scope and ask one important question when you need my input.
 
-With Python 3.9+ installed, run from this repository:
+The shared lifecycle is **Discover → Shape → Incubate → Develop → Launch → Operate → Evolve**. Stages may repeat or change direction, and a personal or creative project can complete without becoming a business. Stage labels and recommendations do not authorize commitments.
+
+## Start or continue
+
+| Need | Entry point |
+|---|---|
+| Work conversationally | [Operating guide](04_operating_guide.md) |
+| Create or adapt a workspace | [Quick start](01_quick_start.md) |
+| Use detailed opportunity research | [Discovery guide](03_opportunity_discovery.md) |
+| Adopt an update | [Upgrade guide](02_upgrade_guide.md) |
+| Inspect the complete framework | [Specification](00_evidence_led_agent_execution_framework.md) |
+
+## Optional command-line setup
+
+Plain Markdown use requires no plugin. With Python 3.9+, preview a lightweight workspace:
 
 ```bash
-python3 20_tools/00_elaef.py init ../my_project --code DEMO --name "My project" --owner "Your name" --profile P0
+python3 20_tools/00_elaef.py init ../my_workspace --code IDEAS --name "Ideas and initiatives" --owner "Your name" --profile P0
 ```
 
-Review the preview, then repeat with `--apply`. Use P0 for a small reversible project, P1 for collaboration, or P2 for higher-consequence work. Unknown facts and approvals remain unresolved; setup does not activate execution.
+Repeat with `--apply` to create it, then check it:
 
 ```bash
-python3 20_tools/00_elaef.py check ../my_project --mode setup
+python3 20_tools/00_elaef.py check ../my_workspace --mode setup
 ```
 
-Manual copying is also supported. The numbered [starter](10_elaef_project_starter/README.md) and [P0 hub](10_elaef_project_starter/70_profiles/03_p0_project.md) are plain Markdown with YAML properties and relative links. Open the project folder in Obsidian or copy it into a vault; no community plugin is required.
+The package also includes the [core starter](10_elaef_project_starter/README.md), optional [discovery starter](11_opportunity_discovery_starter/README.md), [offline tools](20_tools/00_tools_index.md), and [test suite](30_tests/00_tests_index.md). Structural checks do not establish evidence truth, readiness, authorization, conversation quality, or acceptance.
 
-## What's included
-
-- [Complete specification](00_evidence_led_agent_execution_framework.md) — evidence, activities, gates, authority, numbering, and handovers
-- [Project starter](10_elaef_project_starter/README.md) — P0/P1/P2 controls and templates
-- [Offline tools](20_tools/00_tools_index.md) — setup, structural checks, inventory, and baseline comparisons
-- [Regression fixtures](30_tests/00_tests_index.md) — repeatable checks, also run by GitHub Actions
-- [Changelog](CHANGELOG.md) — versions and compatibility
-
-Checks identify structural issues; they do not prove source truth, pass gates, grant authority, or accept a handover. Read the [documented limits](02_upgrade_guide.md#compatibility-and-limitations).
-
-## Get updates
+## Updates and compatibility
 
 ```bash
 git pull --ff-only
 ```
 
-Keep actual project work in its own folder. Updating this toolkit does not overwrite or migrate those projects. Use the upgrade guide to assess changes before adoption.
+Updating this repository does not migrate separate project workspaces. Preserve their records, IDs, evidence, approvals, and original manifests; use the upgrade guide before adopting changes.
 
 ## License
 
-No license has been selected. Public visibility does not itself grant an explicit reuse license. License selection remains an owner decision.
+No license has been selected. Public visibility does not itself grant an explicit reuse license.

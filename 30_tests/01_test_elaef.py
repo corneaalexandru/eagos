@@ -3,6 +3,7 @@
 import datetime as dt
 import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import tempfile
@@ -44,7 +45,7 @@ class ToolkitTests(unittest.TestCase):
 
     def test_p0_is_small_and_not_activated(self):
         self.initialize()
-        self.assertEqual(set(self.snapshot()), {"README.md", "AGENTS.md", ".gitignore", elaef.MANIFEST})
+        self.assertEqual(set(self.snapshot()), {"README.md", "AGENTS.md", "01_operating_guide.md", ".gitignore", elaef.MANIFEST})
         hub, _, _ = elaef.properties((self.root / "README.md").read_text())
         self.assertEqual(hub["activation_status"], "not_assessed")
         self.assertEqual(hub["conformance_profile"], "P0")
@@ -180,6 +181,19 @@ class ToolkitTests(unittest.TestCase):
         findings = [f for f in elaef.check(self.root, today=dt.date(2026, 9, 8))["findings"] if f["code"] == "stale"]
         self.assertEqual({f["severity"] for f in findings}, {"error", "warning"})
 
+    def test_initial_activation_spellings_are_equivalent_without_rewriting(self):
+        self.initialize("P1")
+        hub = self.root / "README.md"
+        gate = self.root / "00_control/02_project_activation.md"
+        for hub_state, gate_state in (("not_assessed", "not-assessed"), ("not-assessed", "not_assessed")):
+            with self.subTest(hub=hub_state, gate=gate_state):
+                hub.write_text(re.sub(r"activation_status: [^\n]+", "activation_status: " + hub_state, hub.read_text()))
+                gate.write_text(re.sub(r"status: [^\n]+", "status: " + gate_state, gate.read_text(), count=1))
+                before = self.snapshot()
+                self.assertNotIn("activation_conflict", self.codes())
+                self.assertIn("activation", self.codes("active"))
+                self.assertEqual(before, self.snapshot())
+
     def test_conflicting_activation_states_fail(self):
         self.initialize("P1")
         path = self.root / "README.md"
@@ -233,12 +247,24 @@ class ToolkitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "relative"):
             elaef.drift(self.root)
 
-    def test_framework_sections_remain_sequential(self):
-        master = PACKAGE / "00_evidence_led_agent_execution_framework.md"
-        if not master.exists():
-            master = PACKAGE / "40_outputs/0001_public_github_repository/00_evidence_led_agent_execution_framework.md"
-        numbers = [int(n) for n in re.findall(r"^## (\d+)\. ", master.read_text(), re.M)]
-        self.assertEqual(numbers, list(range(1, 97)))
+    def test_current_framework_version_and_sections(self):
+        selected = os.environ.get("ELAEF_SPEC_PATH")
+        master = Path(selected) if selected else PACKAGE / "00_evidence_led_agent_execution_framework.md"
+        if not selected and not master.exists():
+            references = PACKAGE / "50_handover/01_reference_map.md"
+            if references.exists():
+                row = next((line for line in references.read_text().splitlines() if "`ELAEF-REF-MASTER`" in line), "")
+                paths = re.findall(r"`([^`]+\.md)`", row)
+                if paths:
+                    master = Path(paths[0])
+        self.assertTrue(master.is_file(), "Provide the current specification at package root or via ELAEF_SPEC_PATH; the maintenance reference map is also supported")
+        content = master.read_text()
+        data, _, issues = elaef.properties(content)
+        self.assertEqual(issues, [])
+        self.assertEqual(data.get("version"), elaef.VERSION)
+        self.assertEqual(data.get("spec_version"), elaef.VERSION)
+        numbers = [int(n) for n in re.findall(r"^## (\d+)\. ", content, re.M)]
+        self.assertEqual(numbers, list(range(1, 99)))
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ title: "{{PROJECT_NAME}}"
 type: project
 status: setup
 framework: ELAEF
-framework_version: 3.5.0
+framework_version: 3.6.0
 conformance_profile: P0
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -12,11 +12,33 @@ owner: "{{PROJECT_OWNER}}"
 created: "{{YYYY-MM-DD}}"
 updated: "{{YYYY-MM-DD}}"
 activation_status: not_assessed
+lifecycle_stage: discover
 ---
 
 # {{PROJECT_NAME}}
 
 This hub is the authoritative P0 project record. Agent instructions are in `AGENTS.md`. Keep one hub until separate ownership, access, or retrieval justifies splitting it. This file is copied to `README.md` when initializing P0.
+
+Use the operating guide (`01_operating_guide.md` in the created project root) to start from curiosity, an idea, or an existing initiative. Say "help me find an idea," "continue," "review," or "pause." The agent actively contributes possibilities and recommends the next useful move. Fill commitment-dependent details when they become relevant.
+
+## Ideas and initiatives
+
+Keep a seed as a brief hypothesis with origin, possible benefit, owner reaction, and next uncertainty. Use stable prose seed IDs such as `{{PROJECT_CODE}}-SEED-0001`. Do not create sources or approvals merely to retain an idea.
+
+| Seed / initiative ID | Title and origin | Authoritative record or seed description |
+|---|---|---|
+
+For one initiative, this hub owns current definition and state. For several, link to each initiative's authoritative record rather than copying its stage, decisions, and current work here. Retain links to existing project records when they already exist. Update the frontmatter lifecycle stage only for the initiative this hub owns; it grants no authority.
+
+## Conversation checkpoint
+
+- **Current focus / authoritative pointer:** Not chosen; use the current owner message
+- **Last completed conversational move:** None recorded
+- **Material owner corrections / alternatives:** None recorded
+- **Next proposed move / open question:** Offer a few useful directions, or resume supplied work
+- **Authority reference:** See Decisions and authorization
+
+Keep current activity in State. Save only material continuity changes here; preserve a dated history entry when direction changes. If records cannot be written, return a copyable checkpoint and disclose that it was not saved.
 
 ## Definition
 
@@ -29,9 +51,9 @@ This hub is the authoritative P0 project record. Agent instructions are in `AGEN
 ## State
 
 - **Phase:** Setup
-- **Current activity:** Define the project from owner input
-- **Next action:** Complete the definition and assess activation
-- **Blocker:** Project definition and activation are incomplete
+- **Current activity:** Explore the owner's starting point or define an existing initiative
+- **Next action:** Take the useful conversational move; assess activation before subsequent gated work
+- **Blocker:** Record actual missing input when it blocks work; an incomplete definition does not block authorized brainstorming
 - **Write owner:** {{PROJECT_OWNER}}
 - **Trusted revision / backup:** {{REVISION_OR_RECOVERY_METHOD}}
 
@@ -45,13 +67,13 @@ This hub is the authoritative P0 project record. Agent instructions are in `AGEN
 
 | ID | Output | Dependency / authority | Status | Completion evidence |
 |---|---|---|---|---|
-| {{PROJECT_CODE}}-ACT-0001 | Defined project and activation assessment | Owner's setup request | ready | Pending owner input and review |
+| {{PROJECT_CODE}}-ACT-0001 | Defined project and activation assessment | Confirm actual owner setup request and inputs | proposed | Pending owner input and review |
 
 Work on one execution activity at a time. Prepare later activities only as far as current evidence warrants. Record outputs and validation before claiming completion.
 
 ## Decisions and authorization
 
-- **Setup authority:** The owner's request to initialize permits preparation of internal project records.
+- **Setup authority:** {{ACTUAL_SETUP_REQUEST_AND_SCOPE}}. An applicable owner request permits internal preparation; this template supplies no authority.
 - **Execution envelope:** {{AUTHORIZED_SCOPE_AND_APPROVAL_EVIDENCE}}
 - **External commitments:** Require applicable explicit authority and final-state evidence.
 - **Decisions:** None recorded; recommendations remain proposals.
@@ -91,4 +113,4 @@ Setup may prepare this gate. An owner-authorized decision is required to change 
 
 ## Change history
 
-- {{YYYY-MM-DD}} — Initialized under ELAEF 3.5.0. Setup only; no project execution or activation implied.
+- {{YYYY-MM-DD}} — Initialized under ELAEF 3.6.0. Setup only; no project execution or activation implied.

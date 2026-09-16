@@ -22,7 +22,7 @@ tags:
 
 ## Immediate Level 5 activities
 
-These are **setup activities** authorized by the request to initialize the project. The activation gate is their deliverable and successor boundary, not a predecessor. They may prepare records and assess readiness while project-specific execution remains gated.
+These proposed **setup activities** may proceed under an applicable request to initialize the project. Confirm the actual scope and inputs before marking the first activity ready. The activation gate is their deliverable and successor boundary, not a predecessor. They may prepare records and assess readiness while project-specific execution remains gated.
 
 ### {{PROJECT_CODE}}-ACT-0001 — Instantiate project charter
 
@@ -34,7 +34,7 @@ These are **setup activities** authorized by the request to initialize the proje
 - **Required evidence level:** E1 for initial definition; higher where consequence requires.
 - **Owner:** {{PROJECT_OWNER}}
 - **Write owner:** {{WRITE_OWNER}}
-- **Status:** `ready`
+- **Status:** `proposed`
 - **Risks / blockers:** Project objective or authority may be unclear.
 - **Gate relationship:** Prepares {{PROJECT_CODE}}-GAT-ACTIVATION; no activation passage required for authorized setup
 - **Reversibility:** R1

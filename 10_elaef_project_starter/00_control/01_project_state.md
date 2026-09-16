@@ -6,6 +6,7 @@ status: setup
 updated: "{{YYYY-MM-DD}}"
 write_owner: "{{WRITE_OWNER}}"
 revision: 0
+lifecycle_stage: discover
 tags:
   - elaef/control
   - elaef/state
@@ -23,7 +24,7 @@ tags:
 - **Current workstream:** Initialization
 - **Current activity:** {{CURRENT_ACTIVITY_ID_OR_TBD}}
 - **Next ready activity:** {{NEXT_ACTIVITY_ID_OR_TBD}}
-- **Critical blocker:** Activation gate not assessed
+- **Critical blocker:** {{MATERIAL_MISSING_INPUT_OR_NONE}}; activation controls subsequent execution, not authorized setup
 - **Active gate:** {{PROJECT_CODE}}-GAT-ACTIVATION
 - **Major open item:** {{OPEN_ITEM}}
 - **Major risk:** {{RISK_ID_OR_TBD}}
@@ -53,3 +54,20 @@ tags:
 ## Next justified action
 
 Complete [project activation](02_project_activation.md) prerequisites.
+
+## Conversation checkpoint
+
+- **Focus / authoritative pointer:** Use the current owner request
+- **Last completed conversational move:** None recorded
+- **Material owner corrections / alternatives:** None recorded
+- **Next proposed move / unresolved point:** Contribute useful possibilities or resume the next ready activity
+- **Authority:** See Authorization state
+
+State above owns current activity and readiness. The lifecycle stage is descriptive and never passes a gate. Save a dated material correction in the change log rather than rewriting history.
+
+## Idea and initiative pointers
+
+| Seed / initiative ID | Title / origin | Authoritative record or brief provisional seed |
+|---|---|---|
+
+Keep early seeds as hypotheses without invented sources. Use [the initiative template](../60_templates/08_initiative.md) for sustained separate work. Each initiative owns its current state; this table is navigation. Preserve existing execution records and link to them.

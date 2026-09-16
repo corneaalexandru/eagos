@@ -5,10 +5,10 @@ aliases:
   - Evidence-Led Execution Framework
 type: framework
 status: active
-version: "3.5.0"
+version: "3.6.0"
 specification: ELAEF
-spec_version: "3.5.0"
-updated: 2026-09-08
+spec_version: "3.6.0"
+updated: 2026-09-14
 compatibility: ">=2.1"
 conformance_profile: core
 naming_profile: obsidian_portable_v1
@@ -26,45 +26,21 @@ tags:
 **Build by Evidence, One Gate at a Time**
 
 > [!abstract] Specification status
-> **Version:** 3.5.0  
+> **Version:** 3.6.0  
 > **Status:** Active specification  
 > **Compatibility:** Projects created under v2.1 remain valid; adopt v3 record identifiers, policy profiles, and migration records progressively.  
 > **Normative language:** **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** indicate requirement strength.
 
 > [!tip] Start here
-> For routine use, start with [[#93. Efficient Execution Contract]] and the distribution's `01_quick_start.md`. Optional offline tools can initialize a small P0 hub or the P1/P2 starter and run repeatable structural checks. Read the full specification progressively as the current activity requires.
+> For routine use, start with the distribution's `04_operating_guide.md`, [[#97. Unified Conversational Lifecycle]], and [[#93. Efficient Execution Contract]] and the distribution's `01_quick_start.md`. Optional offline tools can initialize a small P0 hub or the P1/P2 starter and run repeatable structural checks. Read the full specification progressively as the current activity requires.
 > For a new project, use [[#64. Minimum Viable Implementation]], select a [[#65. Conformance Profiles|conformance profile]], adopt [[#80. Filename and Path Governance|the naming rules]] and [[#91. Numbered Project Profile]], create records from [[#74. Obsidian-Native Templates]], and pass the [[#84. Project Activation Gate]] before execution. Use [[#86. Handover Reference System]] for session, agent, phase, pause, or ownership transitions. Existing projects should use [[#72. Upgrade and Migration Protocol]].
 
 ## Purpose
-Transform an unclear idea, opportunity, problem, objective, or project into a practical evidence-backed execution system that can be developed collaboratively by a human project owner and one or more AI agents.
+Turn an unclear idea, problem, or objective into a practical project with classified knowledge, evidence-backed decisions, authorized activities, measurable outputs, and durable records.
 
-Do not begin with a speculative master strategy, detailed business plan, rigid universal folder structure, complex automation, or hundreds of future tasks.
+Start with the smallest useful structure. Resolve the current uncertainty, validate the result, update project truth, and take the next justified step. Do not begin by generating a speculative master plan or hundreds of future tasks.
 
-Progress through:
-
-**Intent -> Facts -> Questions -> Evidence -> Decisions -> Activities -> Outputs -> Measurement -> Gates -> Next Actions**
-
-The framework provides:
-- Project-development logic
-- AI-agent operating rules
-- Evidence governance
-- Persistent project memory
-- Execution control
-- Human authorization boundaries
-- Decision traceability
-- Adaptive project architecture
-
-The AI does not merely answer questions. It continuously determines:
-- What are we trying to achieve?
-- What do we actually know?
-- What remains uncertain?
-- What matters now?
-- What is blocking progress?
-- What evidence is required?
-- What can safely be executed now?
-- What requires human input or authorization?
-- What project records must change?
-- What is the next justified action?
+Use the optional Opportunity Discovery and Selection extension for conversational idea exploration before choosing a project. It does not change core execution gates.
 
 ## Obsidian Concept Map
 This master framework intentionally remains a single file. The following wikilinks create the conceptual graph around it. These linked notes may remain unresolved if you want the graph to show conceptual nodes without creating additional files.
@@ -141,281 +117,78 @@ Human-agent cycle:
 **AI Helps Formulate -> Human Answers / Decides -> AI Interprets -> Project Records Update -> Dependencies Recalculate -> Next Question / Activity**
 
 ## 2. Fundamental Rules
-1. Start with facts, not assumptions.
-2. Make uncertainty explicit.
-3. Separate facts, evidence, assumptions, hypotheses, decisions, recommendations, risks, open items, activities, outputs, and gates.
-4. Never silently convert inference into fact.
-5. Never silently infer a material decision.
-6. Ask one important question at a time when human input is the current blocker.
-7. Questions must follow execution dependencies rather than curiosity.
-8. Do not ask for information already supplied.
-9. Break immediate execution into small Level 5 activities.
-10. Every meaningful activity must produce a concrete output.
-11. Measure completion rather than busyness.
-12. Prefer reversible actions while evidence is weak.
-13. Require stronger evidence as commitment increases.
-14. Simulate before materially committing when practical.
-15. Test manually before automating.
-16. Do not automate poorly understood processes.
-17. Use decision gates before material commitments.
-18. Research is not authorization.
-19. Analysis is not authorization.
-20. Recommendation is not authorization.
-21. Preparation is not authorization.
-22. Use rolling-wave planning.
-23. Do not create speculative future detail merely because AI can generate it.
-24. Record material decisions and changes.
-25. Maintain one authoritative location for each category of [[Authoritative Project Truth]].
-26. Information requirements do not automatically require separate files.
-27. The project determines its file architecture.
-28. Update existing authoritative records before creating additional documents.
-29. Capture future ideas without allowing them to interrupt current execution.
-30. Always identify the next executable activity.
-31. Escalate uncertainty rather than hiding it.
-32. Parallel agents may investigate independently but must not create conflicting authoritative truth.
-33. Conversation context is temporary; [[Persistent Project Memory|project records are persistent]].
-34. Increase system complexity only when evidence demonstrates value.
+
+1. Keep facts, evidence, assumptions, hypotheses, decisions, recommendations, risks, open items, activities, outputs, and gates distinct. Never silently turn an inference into a fact or a recommendation into a decision.
+2. Ask one important question when missing human input blocks progress; use information already supplied. Otherwise execute authorized, dependency-ready work.
+3. Detail immediate work as small Level 5 activities with concrete outputs and completion criteria. Keep later work coarse.
+4. Prefer reversible tests while evidence is weak. Understand a process before automating it; validate before scaling.
+5. Increase evidence and explicit gate control with commitment. Research, analysis, planning, and preparation do not grant execution authority.
+6. Keep one authoritative location for each category of project truth. Update existing records before creating files; let the project determine its architecture.
+7. Preserve material decisions, changes, provenance, disagreement, and dependencies. Measure completed results rather than activity.
+8. Keep future ideas in the backlog and material knowledge in durable records. Coordinate independent agents through a designated writer.
+9. Resolve or expose material uncertainty and identify the next justified action. Add complexity only when it improves execution.
 
 ## 3. Core Architectural Principle
+
 ### Fixed Operating System + [[Adaptive Project Structure]]
-The framework determines:
-- How information is classified
-- How evidence is evaluated
-- How questions are selected
-- How assumptions are tested
-- How activities are decomposed
-- How dependencies are managed
-- How progress is measured
-- How decisions are authorized
-- How AI agents operate
-- How project state is updated
-- How risks and changes are controlled
 
-The framework does not prescribe one universal set of files for every project.
+ELAEF governs classification, evidence, questions, testing, activities, dependencies, progress, authorization, agent behavior, state, risks, and changes. The project determines its domains and file structure.
 
-**[[Project Architecture|Project reality determines project architecture]].**
-
-Example commodity-trading modules:
-- Market & Buyer Demand
-- Supplier Due Diligence
-- Product Dossiers
-- Commercial Model
-- Logistics & Compliance
-- Working Capital
-- First Sale Execution
-
-Example career-advisory modules:
-- Customer Segments
-- Service Architecture
-- Pricing
-- Customer Discovery
-- Acquisition
-- Delivery Model
-- First Client Pilot
-
-Example media-project modules:
-- Audience
-- Content Strategy
-- Production Workflow
-- Equipment
-- Music
-- Distribution
-- Licensing
-- Monetization
-
-All may operate under the same framework.
+A trading project may need supplier, demand, logistics, and working-capital modules; a service project may need acquisition and delivery; a media project may need audience, production, distribution, and licensing. Create only the modules justified by current work.
 
 ## 4. [[Authoritative Project Truth|Information Requirements Are Not File Requirements]]
-Every project must maintain authoritative locations for:
-- Project definition
-- Facts and evidence
-- Assumptions and hypotheses
-- Decisions
-- Risks
-- Open items
-- Activities
-- Dependencies
-- Approvals / gates
-- Progress
-- Material changes
 
-These concepts do not necessarily require separate files.
+Maintain authoritative locations for project definition, facts/evidence, assumptions/hypotheses, decisions, risks, open items, activities, dependencies, approvals/gates, progress, and material changes.
 
-A supplier-related assumption may belong inside `Supplier Due Diligence.md`.
-
-A logistics risk may belong inside `Logistics & Compliance.md` while being referenced by a central risk register.
-
-A temporary unresolved item may belong inside the current execution plan rather than requiring a dedicated `Open Items.md`.
-
-**The framework governs information. It does not generate paperwork for its own sake.**
+These are information requirements, not separate-file requirements. A domain note may own a risk or assumption while a central register links to it. An execution plan may hold temporary open items. Split records only when ownership, retrieval, access, or traceability improves.
 
 ## 5. Project Architecture Standard
-During initialization, determine the minimum useful architecture for the actual project.
+
+Choose the minimum useful architecture during initialization.
 
 ### A. Core Control
-Persistent project-wide governance and navigation.
-
-Typical examples:
-- `README.md`
-- Project Charter
-- Facts & Evidence Register
-- Risk Register
-- Decision Log
-- Action Tracker
-- Critical Path & Dependencies
-- Progress Dashboard
-- AI Governance
-
-Not all need to exist separately.
+Project-wide governance: hub, charter, state, evidence, decisions, risks, activities, dependencies, gates, and agent instructions. Consolidate where the profile permits.
 
 ### B. Domain Knowledge
-Persistent project-specific bodies of knowledge.
-
-Examples:
-- Market & Buyer Demand
-- Supplier Due Diligence
-- Product Dossiers
-- Finance & Working Capital
-- Technology
-- Customers
-- Operations
-- Regulation
-
-Domain files should reflect the actual anatomy of the project.
+Persistent knowledge specific to the project, such as customers, suppliers, technology, finance, operations, or regulation.
 
 ### C. Execution Modules
-Operational files associated with a current phase, pilot, deliverable, or major decision.
-
-Examples:
-- Initial Cocoa Pilot
-- First Sale Execution Plan
-- Simulation Program
-- Lead Product Selection
-- Customer Discovery Pilot
-
-These may eventually become completed records or be archived.
+Records for a current phase, pilot, deliverable, or material decision. Archive them when their active purpose ends.
 
 ### D. Evidence & Outputs
-Actual artifacts generated, collected, or received.
-
-Examples:
-- Supplier quotations
-- Screenshots
-- Research reports
-- Datasets
-- Financial models
-- Spreadsheets
-- Interview notes
-- Contracts
-- Prototype outputs
-- Technical calculations
-- Source documents
-
-Use folders such as `evidence/`, `outputs/`, `attachments/`, and `private/` when useful.
+Received sources and produced artifacts: quotations, interviews, calculations, datasets, prototypes, contracts, and reports. Keep originals distinct from derivatives and respect access boundaries. Apply the numbered paths in [[#91. Numbered Project Profile]].
 
 ## 6. Project Initialization Architecture
-When starting a project:
-1. Understand the project before creating its structure.
-2. Extract all information already provided.
-3. Identify the objective.
-4. Identify major project domains.
-5. Identify execution workstreams.
-6. Identify major decisions.
-7. Identify likely evidence requirements.
-8. Identify risks and authorization boundaries.
-9. Determine which information requires persistent authoritative records.
-10. Propose the minimum useful project architecture.
-11. Prefer project-specific domain files over generic framework files where clearer.
-12. Establish which file owns each category of information.
-13. Avoid duplicate project truth.
-14. Create only the files currently justified.
-15. Populate them using existing information.
-16. Establish initial dependencies.
-17. Establish current project state.
-18. Identify the first executable activity.
-19. Identify the most important unresolved blocker.
-20. Begin the appropriate operating loop.
+
+1. Extract the objective, supplied facts, assumptions, decisions, constraints, risks, and authority.
+2. Identify current domains, workstreams, decisions, and evidence needs.
+3. Assign one authoritative location and write owner per information category; create only justified records.
+4. Populate the records, establish dependencies and state, and detail immediate work to Level 5.
+5. Identify the first ready activity, critical blocker, and appropriate operating loop.
+
+Use [[#51. New Project Initialization]] and [[#84. Project Activation Gate]] for setup and activation. Preparing the activation assessment does not depend on passing that same gate.
 
 ## 7. File Creation Discipline
-Before creating any additional project file, ask:
 
-**Does this information belong naturally inside an existing authoritative record?**
-- Yes -> update the existing record.
-- No -> continue.
+Update an existing authoritative record when the information belongs there. Create a file only for a persistent body of knowledge or execution control whose separation improves navigation, retrieval, ownership, evidence traceability, or maintenance.
 
-**Will this become a meaningful persistent body of project knowledge or execution control?**
-- No -> use an existing register, activity, output, evidence note, or section.
-- Yes -> continue.
-
-**Would separation materially improve navigation, retrieval, ownership, execution, evidence traceability, or maintenance?**
-- Yes -> create the new file.
-- No -> update the most appropriate existing file.
-
-Do not create a new file merely because:
-- A new question was asked
-- Research was performed
-- The AI generated substantial text
-- A temporary thought appeared
-- A conversation occurred
-- Another numbering slot exists
+A new question, conversation, research result, long AI response, temporary thought, or unused numbering slot is not sufficient reason to create a file.
 
 ## 8. Project Architecture Evolution
-Project structure may evolve as evidence increases.
 
-Possible changes:
-- New domain modules
-- Merged modules
-- Archived execution modules
-- Renamed files
-- Additional control systems
-- Specialized evidence repositories
-
-Architecture changes must preserve:
-- Authoritative ownership
-- Traceability
-- Links
-- Dependency relationships
-- Decision history
-
-Avoid uncontrolled structural growth.
+Add, merge, rename, or archive modules as evidence and execution needs change. Preserve authoritative ownership, stable IDs, provenance, links, dependencies, and decision history. Follow [[#80.8 Renaming and moving files]]; avoid structural growth without a demonstrated benefit.
 
 ## 9. [[README Standard|README / Project Entry Point]]
-Every substantial project should have a concise `README.md`.
 
-Recommended contents:
-- Project
-- Purpose
-- Current objective
-- Current phase
-- Current focus
-- Current activity
-- Critical blocker
-- Next ready activity
-- Current gate
-- Major risk
-- Recent material change
-- Project architecture
-- Agent operating reference
+Every substantial project should have a concise `README.md` identifying purpose, objective, phase, focus, current activity, blocker, next ready activity, gate, major risk, recent material change, architecture, and agent instructions.
 
-The README is a navigation and status surface. It should not become another duplicate database.
+For P1/P2 it is navigation and a derived status summary. P0 may use it as the single authoritative hub. Do not maintain competing current records.
 
 ## 10. [[AGENTS Standard|Agent Instructions Layer]]
-Where supported, maintain a concise project-specific `AGENTS.md`.
 
-Recommended operating instructions:
-- Use the Evidence-Led Agent Execution Framework.
-- Read the project README and relevant authoritative files before acting.
-- Follow dependencies.
-- Ask one important question at a time when user information is the blocker.
-- Do not ask for information already supplied.
-- Update authoritative project records after confirmed information or material evidence.
-- Do not create files unless a distinct persistent information domain or execution need justifies them.
-- Do not silently convert assumptions into facts.
-- Do not infer material authorization.
-- Do not make external commitments without approval.
-- Always identify the next logical activity.
+Where supported, maintain a concise project-specific `AGENTS.md` covering the operating loop, authoritative reading/writing, dependencies, question discipline, classification, permission boundaries, and continuity.
 
-The full framework remains the governing standard. `AGENTS.md` is the project-specific operating interface.
+Read the hub and relevant records before acting. Update material project truth, use existing files where suitable, execute authorized ready work, and identify the next action. The full specification supplies detailed rules; the contract is the routine interface.
 
 ## 11. Information Classification
 **[[Facts|FACT]]** = information explicitly confirmed by the project owner or sufficiently supported by reliable evidence.
@@ -500,73 +273,27 @@ Require stronger evidence and explicit gates for R3/R4.
 **Level 5 - ACTIVITY:** Smallest useful executable action producing measurable output.
 
 Example:
-`L1 PROJECT ALPHA -> L2 Commercial Validation -> L3 Buyer Validation -> L4 Initial Buyer Demand Validated -> L5 Conduct structured conversation with qualified buyer #01`
+`L1 RASA BUMI -> L2 Commercial Validation -> L3 Buyer Validation -> L4 Initial Buyer Demand Validated -> L5 Conduct structured conversation with qualified buyer #01`
 
 The agent executes primarily at Level 5 while maintaining awareness of Levels 1-4.
 
 ## 15. [[Level 5 Activities|Level 5 Activity Standard]]
-Each significant Level 5 activity should identify:
-- `ID`
-- `Activity`
-- `Purpose`
-- `Expected Output`
-- `Predecessors`
-- `Successors`
-- `Evidence Required`
-- `Required Evidence Level`
-- `Owner`
-- `Agent / Tool` when applicable
-- `Status`
-- `Risks / Blockers`
-- `Decision Gate`
-- `Reversibility`
-- `Completion Criteria`
-- `Related Records`
 
-Avoid vague activities such as `research market`.
+Each significant Level 5 activity should identify ID, action, purpose, expected output, predecessors, successors, required evidence and level, owner, agent/tool if relevant, status, risks/blockers, gate, reversibility, completion criteria, and related records.
 
-Prefer:
-- Identify five qualified European buyers
-- Record published specifications for three competing products
-- Calculate landed-cost downside scenario
-- Request supplier specification sheet
-- Interview prospect #01
+Use a bounded action such as “Record published specifications for three competing products” or “Calculate the landed-cost downside scenario.” “Research market” is too vague. Outreach examples still require applicable authority.
 
-Allowed statuses:
-`not-started`, `ready`, `in-progress`, `awaiting-evidence`, `awaiting-user`, `awaiting-decision`, `blocked`, `complete`, `cancelled`
+Allowed states: `proposed`, `not-started`, `ready`, `in-progress`, `awaiting-evidence`, `awaiting-user`, `awaiting-decision`, `blocked`, `complete`, `cancelled`. Transition rules are in [[#67. State Machines and Transition Rules]].
 
 ## 16. [[Dependencies|Dependency Management]]
-Do not execute activities because they are interesting. Follow dependency logic.
 
-An activity becomes `ready` only when:
-- Required predecessors are complete
-- Required evidence exists
-- Required inputs exist
-- No unresolved gate blocks execution
-- Appropriate authorization exists
-- Activity remains within current scope
+An activity is `ready` only when required predecessors are complete; inputs and evidence exist; applicable gates are satisfied; authority is valid; and scope still fits.
 
-Always know:
-- CURRENT ACTIVITY
-- NEXT READY ACTIVITY
-- BLOCKED ACTIVITIES
-- FUTURE ACTIVITIES
-- ACTIVE GATE
-
-The execution plan is a [[Dependencies|dependency network]], not a generic to-do list.
+Keep the current, next ready, blocked, and future activities and active gate identifiable. The execution plan is a dependency network, not an unordered task list.
 
 ## 17. Rolling-Wave Planning
-**Immediate work:** define to Level 5.
 
-**Near-term work:** define approximately to Level 4.
-
-**Later work:** keep primarily at Levels 2-3.
-
-Progressively decompose future work only when preceding evidence makes detailed planning useful.
-
-Avoid false precision.
-
-Do not allow AI generation capacity to create hundreds of premature tasks.
+Detail immediate work to Level 5, near-term work to Level 4, and later work to Levels 2–3. Decompose further when predecessor evidence makes it useful. Avoid speculative precision and hundreds of premature tasks.
 
 ## 18. Three Operating Loops
 ### A. [[Knowledge Loop]]
@@ -587,133 +314,56 @@ Use when sufficient evidence, inputs, and authorization exist.
 The agent should not automatically ask another question when useful autonomous work can be executed.
 
 ## 19. Loop Selection Logic
-Before acting:
-1. Determine the current objective and phase.
-2. Identify the highest-priority unresolved constraint.
-3. Determine what blocks the next meaningful activity.
-4. Classify the blocker.
 
-If the blocker is:
-- Missing user knowledge / preference -> Knowledge Loop
-- Missing external evidence -> Evidence Loop
-- Testable uncertainty -> Evidence / Experiment Loop
-- Incomplete predecessor -> Execution Loop
-- Material decision -> Decision Gate
-- External dependency -> record and wait or pursue another ready activity
-- No blocker -> execute next ready activity
+Identify the objective, phase, and highest-priority blocker, then choose:
 
-Priority:
-**Safety / legality -> Active gate -> Critical-path blocker -> Dependency impact -> Uncertainty reduction -> Decision value -> Cost of delay -> Reversible optimization**
+| Blocker | Response |
+|---|---|
+| Owner knowledge, preference, or clarification | Ask one useful question |
+| Missing evidence or testable uncertainty | Research or experiment within authority |
+| Incomplete predecessor | Execute the ready prerequisite |
+| Material decision | Prepare the gate decision |
+| External dependency | Record it and continue independent ready work |
+| None | Execute the next authorized ready activity |
+
+Apply [[#54. Priority Logic]] when several actions are available.
 
 ## 20. Question-Driven Development
-Questions are execution instruments.
 
-A question should exist because resolving it materially advances the project.
+Ask one important question when its answer materially advances the current work. State the question and why it matters; add the current understanding, practical options, or what it unlocks only when useful.
 
-Default:
-**Ask one important question at a time.**
-
-Each meaningful question should contain:
-- **Question:** one clear question
-- **Why it matters:** why this is needed now
-- **Current understanding:** what is already known
-- **Practical options:** only where useful
-- **What it unlocks:** when useful
-
-Do not create separate question files by default.
-
-Persist unresolved questions only when they materially affect execution, risk, or decisions.
+Use information already supplied. Persist unresolved questions only when they affect execution, risk, or decisions; do not create a question file by default.
 
 ## 21. Collaborative Elicitation
-When the user's intent is broad or ambiguous, the AI may help formulate the useful question.
 
-Example:
-User: `Let's understand pricing.`
+Help clarify broad intent using current context and dependencies, without silently replacing the owner's objective.
 
-Possible interpretations:
-- Supplier cost
-- Landed cost
-- Competitor pricing
-- Customer willingness to pay
-- Target selling price
-
-The agent uses current project dependencies to determine which matters now.
-
-Example:
-**Current dependency:** buyer willingness to pay.
-
-**Suggested question:** What realistic delivered-price range would the initial customer segment accept for this specification?
-
-The user may accept, modify, reject, or redirect.
-
-The AI must not silently replace the user's intended objective.
+For example, “understand pricing” could mean supplier cost, landed cost, competitor pricing, willingness to pay, or selling price. Identify which uncertainty matters now and propose one useful question. The owner may accept, modify, reject, or redirect it.
 
 ## 22. After Every Meaningful Answer
-After receiving a meaningful project-owner answer:
-1. Interpret the answer.
-2. Determine whether it is sufficiently clear.
-3. Identify newly confirmed facts.
-4. Identify evidence supplied.
-5. Identify assumptions affected.
-6. Identify hypotheses affected.
-7. Record explicit decisions.
-8. Identify new risks.
-9. Resolve affected open items.
-10. Identify new open items.
-11. Update the appropriate authoritative project records.
-12. Update affected activities.
-13. Recalculate dependencies.
-14. Recalculate progress where appropriate.
-15. Determine whether a gate has been reached.
-16. Check consistency.
-17. Determine the next logical question or activity.
 
-Do not create administrative records merely because a conversation occurred.
+Interpret a meaningful answer, resolve material ambiguity, and classify new facts, evidence, assumptions, hypotheses, explicit decisions, risks, and open items. Update only affected authoritative records, activities, dependencies, and progress.
 
-Persist what materially changes project truth or execution.
+Check consistency and gates, then choose the next question or activity. Persist material changes rather than creating administrative records for every exchange.
 
 ## 23. [[Validation|State Update Validation]]
-Before committing a material project-state change, check:
-- Did an assumption become a fact without sufficient evidence?
-- Was a recommendation recorded as a decision?
-- Was authorization inferred?
-- Do conflicting facts now exist?
-- Are relevant domain files consistent?
-- Are dependencies still valid?
-- Did activity readiness change legitimately?
-- Has a decision gate been crossed?
-- Is the claimed evidence level justified?
-- Did new evidence create a new risk?
-- Is progress based on actual completion?
-- Is the next question genuinely the most useful blocker?
-- Is another existing file already the authoritative location for this information?
 
-If material inconsistency remains, do not hide it. Resolve, record, or escalate it.
+Before a material state change, verify that classification and authority remain intact, evidence levels have a basis, conflicting facts are exposed, domain records agree, and readiness follows actual dependencies and gates.
+
+Check outputs before claiming progress; reconsider affected risks and the next blocker. Update the existing authoritative location. Resolve, record, or escalate material inconsistencies instead of hiding them.
 
 ## 24. [[Project State]]
-The system should always be able to determine:
-- Project status
-- Current phase
-- Current workstream
-- Current activity
-- Next ready activity
-- Critical blocker
-- Current gate
-- Major open item
-- Major risk
-- Recent material decision
-- Progress
 
-This state may be represented in `README.md`, a progress dashboard, a project hub, structured properties, or machine-readable runtime state.
+Keep project status, phase, workstream, current and next ready activity, blocker, gate, major open item/risk, recent material decision, and progress identifiable.
 
-Do not create duplicate [[Authoritative Project Truth|authoritative truth]].
+Store current state once, in the hub or a designated record. Dashboards and runtime representations are derived views.
 
 ## 25. Runtime State
 Where supported, maintain a lightweight generated state representation.
 
 Example:
 ```yaml
-project: PROJECT_ALPHA
+project: RASA_BUMI
 status: active
 phase: validate
 workstream: commercial_validation
@@ -729,105 +379,30 @@ Runtime state is a cache, not the primary project record.
 It should be reconstructable from persistent project files.
 
 ## 26. Proceed Protocol
-When the project owner says **Proceed**, execute the next logical `ready` activity that:
-- Is within current scope
-- Does not require further clarification
-- Does not require an unpassed gate
-- Falls within agent authorization
-- Can be performed with available tools
 
-Afterward report:
-- **Completed**
-- **Output / Evidence**
-- **Records Updated**
-- **Confirmed**
-- **Still Unconfirmed**
-- **Risks / Blockers**
-- **Progress Impact**
-- **Next Activity**
-- **Gate**, if applicable
+“Proceed” means execute the next ready activity within current scope, available tools, valid authority, and applicable passed gates. Resolve material ambiguity first. It never bypasses a gate or expands the commitment envelope.
 
-`Proceed` never bypasses a material decision gate.
+Report the result, output/evidence, material record changes, validation, remaining uncertainty, blockers, progress impact, and next activity or gate as relevant. These are information needs, not mandatory response headings.
 
 ## 27. [[Agent Autonomy]]
-The agent may autonomously perform reversible internal work such as:
-- Organizing information
-- Research
-- Comparisons
-- Analysis
-- Calculations
-- Simulations
-- Drafting
-- Project-file maintenance
-- Risk identification
-- Experiment preparation
-- Execution-plan maintenance
-- Internal prototypes
-- Recommendations
 
-The agent must not autonomously make material external commitments without explicit authorization.
+Within the owner's actual request and valid authorization envelope, the agent may perform reversible internal work: organization, research, comparisons, analysis, calculations, simulations, drafting, record maintenance, risk review, experiment preparation, prototypes, and recommendations.
 
-Examples requiring approval:
-- Spending
-- Purchases
-- Paid subscriptions
-- Contracts
-- Company registration
-- Financial commitments
-- External commercial communication
-- Publication
-- Hiring
-- Contractors
-- Commercial proposals
-- Partnerships
-- Irreversible technical changes
-- Major strategic changes
+Explicit applicable authority is required for material external commitments such as spending, subscriptions, contracts, registration, financial commitments, external commercial communication, publication, hiring, proposals, partnerships, irreversible technical changes, and major strategic changes.
 
-Project-specific rules may further restrict autonomy.
+Project-specific rules may restrict autonomy. Neither this list nor a copied template grants permission; see [[#70. Authority, Access, Privacy, and Security]].
 
 ## 28. [[Decision Gates]]
-Require explicit approval before material commitments.
 
-A gate should identify:
-- **Decision Required**
-- **Why Now**
-- **Evidence**
-- **Evidence Level**
-- **Assumptions Remaining**
-- **Options**
-- **Recommended Option**
-- **Cost**
-- **Benefits**
-- **Risks**
-- **Reversibility**
-- **Downside Scenario**
-- **What This Unlocks**
-- **What Happens If Deferred**
+A material gate should identify the decision and why it matters now; evidence and required level; remaining assumptions; options and recommendation; costs, benefits, risks, reversibility, and downside; what passage unlocks; and the consequence of deferral.
 
-Only explicit [[Authorization|approval]] passes the [[Decision Gates|gate]].
+Only the authorized approver passes the gate. Record the exact commitment envelope and conditions under [[#69. Gate Policy and Commitment Envelope]].
 
 ## 29. [[Authorization|Authorization Rule]]
-The following do not constitute authorization for material execution:
-- Research this
-- Investigate
-- Check prices
-- Compare
-- Recommend
-- Prepare
-- Explore
-- Analyze
-- Look into this
-- Proceed with research
 
-**Research != Authorization**
+A request to research, investigate, compare, analyze, check prices, recommend, simulate, or prepare authorizes only that scoped work. It does not authorize the material commitment being examined. Recommendations are not decisions.
 
-**Recommendation != Decision**
-
-**Planning != Authorization**
-
-**Simulation != Authorization**
-
-**Preparation != Authorization**
+Carry forward valid explicit authority; do not infer broader permission from progress, confidence, silence, or preparation.
 
 ## 30. [[Specialist Agents]]
 A project may use specialist agent roles when they add value.
@@ -861,284 +436,86 @@ These may be separate agents, separate model calls, or logical roles performed b
 Do not introduce multi-agent complexity unless it improves execution.
 
 ## 31. [[Parallel Agent Execution]]
-Use parallel agents when work is genuinely independent.
 
-Suitable examples:
-- Separate market research streams
-- Supplier research and regulatory research
-- Independent scenario calculations
-- Risk review
-- Competitor analysis
-- Alternative technical evaluations
+Use parallel agents only when independent scopes justify coordination, such as separate research streams, alternative calculations, or review.
 
-Preferred pattern:
-**Orchestrator -> Independent Agents -> Outputs -> Validation / Reconciliation -> Authoritative Project Update**
+Preferred pattern: orchestrator assigns scopes → agents produce outputs → validation and reconciliation → designated writer updates authoritative state.
 
-Parallel agents should not independently modify the same authoritative project information without coordination.
-
-[[Parallel Agent Execution|Parallelism]] should reduce elapsed work, not multiply project bureaucracy.
+Parallel agents must not independently modify the same project truth. The purpose is useful independent work, not additional administration.
 
 ## 32. Conflict Management
-If different agents, sources, or analyses disagree:
-1. Preserve the competing findings.
-2. Identify the disagreement.
-3. Compare evidence quality.
-4. Identify why the conclusions differ.
-5. Gather additional evidence if material.
-6. Do not silently select whichever answer appears convenient.
-7. Escalate when strategic consequences are material and uncertainty remains.
 
-Conflicting evidence is itself useful information.
+Preserve competing findings, identify the disagreement, and compare source quality, assumptions, and methods. Gather more evidence when the difference matters. Escalate unresolved material strategic consequences; never silently choose the convenient answer.
 
 ## 33. [[Context Management]]
-Conversation context is not project memory.
 
-Before executing an activity, load only the relevant project context:
-- Project objective
-- Current phase
-- Current activity
-- Relevant facts
-- Relevant evidence
-- Relevant assumptions
-- Relevant decisions
-- Relevant risks
-- Dependencies
-- Current gate
-- Recent material changes
+Load the objective, state, activity, relevant evidence/assumptions/decisions/risks, dependencies, gate, and recent changes. Expand context only as needed.
 
-Do not load the entire project unnecessarily.
-
-The project must survive:
-- New conversations
-- Agent restarts
-- Context-window exhaustion
-- Different models
-- Different execution environments
-
-Persistent project records must contain materially important project knowledge.
+Keep material knowledge in durable records so another session, model, or environment can resume after restart or context loss. Conversation and generated runtime state are not authoritative memory.
 
 ## 34. Knowledge Discipline
-Maintain one authoritative location for each category of information.
 
-Use links or references instead of unnecessary duplication.
-
-When information changes:
-1. Update the authoritative record.
-2. Record the change if material.
-3. Update affected activities.
-4. Update affected dependencies.
-5. Update affected decisions, risks, or evidence relationships.
-6. Update project status if necessary.
-
-Dashboards summarize project truth; they do not replace it.
-
-Runtime state summarizes project truth; it does not replace it.
+Update the authoritative record first, capture material change, and reconcile affected activities, dependencies, decisions, risks, evidence relationships, and status. Use links instead of duplicate current truth. Dashboards and runtime state remain derived views.
 
 ## 35. [[Research Standard]]
-For external research:
-- Use current information
-- Prefer primary sources
-- Record source and date
-- Distinguish facts from interpretation
-- Distinguish marketing claims from verified information
-- Use multiple credible sources for material conclusions where practical
-- Record conflicting evidence
-- Record uncertainty
-- Note geographical and temporal limitations
 
-Material research should connect directly to an assumption, hypothesis, decision, risk, activity, gate, or domain question.
+Research a decision-relevant assumption, hypothesis, risk, activity, gate, or domain question. Prefer current primary sources, record source/date and geographic or temporal limits, and seek independent corroboration for material conclusions where practical.
 
-Do not conduct research merely to accumulate information.
+Distinguish observations, marketing claims, and interpretation; preserve conflicting evidence and uncertainty. Stop when the question has adequate support or the research limit is reached.
 
 ## 36. Evidence Standard
-Material evidence should record, where useful:
-- **Finding**
-- **Source**
-- **Date**
-- **Supports / Contradicts**
-- **Evidence Level**
-- **Reliability**
-- **Limitations**
-- **Interpretation**
-- **Affected Project Record**
 
-Not every source requires an individual Markdown file.
+For material evidence, record the finding, source, date, supported/contradicted claim, evidence level, reliability, limitations, interpretation, and affected record where useful.
 
-Create individual evidence notes only where traceability or complexity justifies them.
+A register entry may suffice. Create separate evidence notes only when traceability or complexity warrants them.
 
 ## 37. Assumption & Hypothesis Management
-Every material assumption should eventually become:
-- `confirmed`
-- `rejected`
-- `modified`
-- `accepted residual uncertainty`
 
-Convert important assumptions into testable hypotheses whenever practical.
+Convert important assumptions into testable hypotheses linked to research or experiments. Resolve them as confirmed, rejected, modified, or explicitly accepted residual uncertainty; record lifecycle state using [[#67. State Machines and Transition Rules]].
 
-Weak:
-`Customers want this.`
-
-Stronger:
-`At least three of ten qualified prospects will request a commercial follow-up after reviewing the proposed offer.`
-
-Important hypotheses should be linked to the research or experiment used to test them.
+“Customers want this” is weak. “At least three of ten qualified prospects request a commercial follow-up after reviewing the offer” is testable, but the threshold still needs a decision-specific rationale and outreach authority.
 
 ## 38. [[Experiment Standard]]
-Every meaningful experiment should identify:
-- **Hypothesis**
-- **Why It Matters**
-- **Method**
-- **Inputs / Sample**
-- **Success Criteria**
-- **Failure Criteria**
-- **Cost**
-- **Duration**
-- **Result**
-- **Evidence Level**
-- **Interpretation**
-- **Decision / Next Step**
 
-Do not change success criteria after seeing the result unless explicitly documented.
+Define the hypothesis, decision relevance, method, inputs/sample, success and failure criteria, cost, and duration before testing. Record the result, evidence level, interpretation, and decision or next step.
+
+Do not change success criteria after seeing results without explicitly documenting the change.
 
 ## 39. Testing Principle
-Use:
 
-**SIMULATE -> TEST MANUALLY -> VALIDATE -> AUTOMATE -> SCALE**
+**Simulate → test manually → validate → automate → scale**, where practical.
 
-Do not build software before validating the workflow manually when practical.
-
-Do not hire before recurring workload exists.
-
-Do not buy expensive equipment before demonstrating value.
-
-Do not scale marketing before demonstrating conversion.
-
-Do not automate unstable processes.
-
-Do not introduce organizational complexity before evidence requires it.
-
-Automation follows understanding.
-
-Scale follows validation.
+Validate a workflow before building software; demonstrate recurring workload before hiring, equipment value before major purchases, and conversion before scaling marketing. Avoid automating unstable processes or adding organizational complexity without evidence.
 
 ## 40. Minimum Commitment Principle
-Early phases favor:
-- Low fixed costs
-- Reversible choices
-- Temporary solutions
-- Prototypes
-- Simulations
-- Manual workflows
-- Existing tools
-- Small experiments
-- Short feedback loops
-- Direct customer or supplier validation
 
-Delay:
-- Large capital expenditure
-- Custom software
-- Long contracts
-- Permanent overhead
-- Unnecessary subscriptions
-- Premature hiring
-- Complex automation
-- Structural complexity
+Favor low fixed costs, reversible or temporary choices, existing tools, prototypes, simulations, manual workflows, small experiments, direct validation, and short feedback loops.
 
-Commitment should increase as evidence improves.
+Delay major capital expenditure, custom software, long contracts, permanent overhead, unnecessary subscriptions, premature hiring, and complex automation until evidence justifies them.
 
 ## 41. Decision Management
-For material decisions, maintain:
-- **Decision**
-- **Date**
-- **Approver**
-- **Reason**
-- **Evidence**
-- **Evidence Level**
-- **Alternatives Considered**
-- **Risks Accepted**
-- **Reversibility**
-- **Affected Activities**
 
-Do not repeatedly reopen settled decisions unless meaningful new evidence appears.
-
-New evidence may justify a formal review.
+Record each material decision, date, approver, rationale, evidence and level, alternatives, accepted risks, reversibility, and affected activities. Keep settled decisions in force unless meaningful new evidence or an authorized override justifies review.
 
 ## 42. Risk Management
-For material risks record:
-- **Risk**
-- **Cause**
-- **Potential Consequence**
-- **Likelihood**
-- **Impact**
-- **Mitigation**
-- **Contingency**
-- **Owner**
-- **Status**
-- **Related Activities**
-- **Trigger for Escalation**
 
-Keep risk management proportional to project complexity.
-
-Do not create sophisticated risk bureaucracy for trivial projects.
+For each material risk, record cause, possible event and consequence, likelihood, impact, mitigation, contingency, owner, status, affected activities, and escalation trigger. Match control effort to consequence.
 
 ## 43. Progress Measurement
-Do not invent arbitrary percentages.
 
-Progress should primarily derive from actual completion.
+An activity is complete only when its completion criteria are satisfied. For higher-level reporting, use completed weighted activities divided by currently defined weighted activities, with the scope and weights explicit; roll up through deliverable, phase, workstream, and project.
 
-At activity level:
-**complete or incomplete according to completion criteria**
-
-At higher levels:
-**Completed weighted activities / currently defined weighted activities**
-
-Roll upward:
-**Deliverable -> Phase -> Workstream -> Project**
-
-Keep separate:
-- Execution progress
-- Evidence confidence
-- Business / project viability
-
-A project may be 80% through a validation phase while still being commercially unvalidated.
+Do not invent percentages. Keep execution progress, evidence confidence, and project viability separate: completing a validation phase does not establish a viable outcome.
 
 ## 44. Output Discipline
-Every meaningful activity should produce something concrete.
 
-Examples:
-- Research conclusion
-- Validated fact
-- Comparison
-- Dataset
-- Financial calculation
-- Decision recommendation
-- Prototype
-- Interview result
-- Supplier response
-- Specification
-- Simulation
-- Contract draft
-- Software output
-- Resolved blocker
+Every meaningful activity should produce an inspectable result: a sourced conclusion, calculation, dataset, comparison, prototype, response, specification, draft, software change, or resolved blocker.
 
-`Worked on X` is not a sufficient completion condition.
+“Worked on X” is not a completion criterion. Validate the actual output.
 
 ## 45. [[Change Control]]
-Record material changes.
 
-A material change should identify:
-- **Previous Position -> New Position**
-- **Reason**
-- **New Evidence**
-- **Impact**
-- **Affected Activities**
-- **Decision Reference**, when relevant
-
-Use version history or Git where available.
-
-Do not duplicate every edit in a separate transaction bureaucracy.
-
-Project history should remain understandable without becoming administrative overhead.
+Record material changes as previous → new position, reason, new evidence, impact, affected activities, and decision reference where relevant. Use version history for ordinary edits; maintain understandable material history without a separate transaction document for each edit.
 
 ## 46. [[Git Version History|Git / Version History]]
 Where the project is maintained in Git or another version-controlled environment:
@@ -1149,53 +526,24 @@ Where the project is maintained in Git or another version-controlled environment
 The framework should support execution, not become the project itself.
 
 ## 47. [[Backlog|Backlog Rule]]
-Store useful but currently non-executable ideas in a backlog or appropriate future-work area.
 
-Examples:
-- Future products
-- Future markets
-- Future technologies
-- Partnerships
-- Features
-- Optimizations
-- Expansion concepts
-- Later experiments
-
-Capture ideas quickly. Execute deliberately.
-
-Nothing enters active execution until priority, evidence, and dependency logic justify it.
+Capture useful future ideas in a backlog or existing future-work section. Move them into execution only when priority, evidence, dependencies, and authority justify it. Capturing an idea must not interrupt current ready work.
 
 ## 48. Escalation Rule
-Escalate to the project owner when:
-- Material decision required
-- Critical evidence contradictory
-- Critical assumption unresolved
-- Legal or regulatory issue emerges
-- Safety issue emerges
-- Cost exceeds authorized threshold
-- Scope materially changes
-- Major risk becomes likely
-- Irreversible action approaches
-- Strategic alternatives materially differ
-- Authorization boundary is unclear
-- Validation materially fails
 
-Do not escalate trivial reversible implementation decisions unnecessarily.
+Escalate material choices, contradictory critical evidence, unresolved critical assumptions, legal/safety issues, likely major risks, failed validation, cost or scope beyond authority, irreversible commitments, strategic alternatives, and unclear permission.
+
+Do not escalate routine reversible implementation decisions already within scope.
 
 ## 49. [[Failure Recovery]]
-When a material agent or project-state error is identified:
-1. Stop affected execution where necessary.
-2. Identify the last trusted state.
-3. Determine affected records.
-4. Determine whether external consequences occurred.
-5. Revert reversible changes where appropriate.
-6. Correct authoritative records.
-7. Preserve material error history.
-8. Recalculate dependencies.
-9. Revalidate affected conclusions.
-10. Resume from corrected state.
 
-Do not conceal errors merely to maintain a clean project history.
+1. Stop affected execution and identify the last trusted state.
+2. Determine affected records and any external consequences.
+3. Restore, complete, or reconcile reversible changes as appropriate.
+4. Correct authoritative records while preserving material error history.
+5. Recalculate dependencies, revalidate affected conclusions, and resume from the corrected state.
+
+Do not conceal failures. Check an uncertain external action's final state before retrying it.
 
 ## 50. [[Project Phases|Standard Project Phases]]
 **Phase 0 - FRAMEWORK / PROJECT SETUP:** Create the minimum execution and information architecture.
@@ -1223,82 +571,37 @@ Do not conceal errors merely to maintain a clean project history.
 Adapt phases to the project rather than forcing every project into identical stages.
 
 ## 51. New Project Initialization
-When applying this framework to a new project:
-1. Understand the project.
-2. Extract information already supplied.
-3. Define the project objective.
-4. Identify confirmed facts.
-5. Identify evidence.
-6. Separate assumptions.
-7. Convert material assumptions into hypotheses.
-8. Identify existing decisions.
-9. Identify major open items.
-10. Identify obvious risks.
-11. Define desired outcomes and preliminary success criteria.
-12. Identify project-specific domains and workstreams.
-13. Design the minimum useful file architecture.
-14. Establish authoritative ownership of information.
-15. Create the minimum required files.
-16. Create the Level 1-4 execution hierarchy.
-17. Detail immediate work to Level 5.
-18. Establish dependencies.
-19. Establish initial project state.
-20. Identify the first ready activity.
-21. Identify the most important blocker.
-22. Determine the appropriate operating loop.
-23. Ask one question only if human information is required.
-24. Otherwise execute the next authorized ready activity.
-25. Stop at any required decision gate.
+
+Within the owner's setup request:
+
+1. Extract supplied information and classify facts, evidence, assumptions, hypotheses, decisions, risks, and open items.
+2. Define outcome, beneficiary, scope, constraints, and success/stop criteria.
+3. Choose a profile and minimum architecture; assign authoritative records and write owners.
+4. Populate records, map references, outline Levels 1–4, and detail immediate work to Level 5.
+5. Establish dependencies, state, first ready activity, and critical blocker.
+6. Prepare the activation assessment and record its authorized outcome.
+7. Ask one question if owner input blocks progress; otherwise perform the next authorized ready action.
+
+Setup may prepare its own gate. Subsequent execution must remain within the assessed envelope; see [[#84. Project Activation Gate]].
 
 ## 52. Initial Agent Response
-After initialization, return a concise control summary:
 
-**Framework Initialized**
+Report what was initialized, the objective and current state, material facts/assumptions/risks/open items, next ready action, and gate. Ask the blocking question with its purpose, or identify the next authorized action.
 
-**Project:**  
-**Objective:**  
-**Current Phase:**  
-**Current Focus:**  
-**Confirmed Facts:**  
-**Material Assumptions:**  
-**Major Open Items:**  
-**Major Risks:**  
-**Current Activity:**  
-**Next Ready Activity:**  
-**Current Gate:**
-
-Then either:
-
-**First Question:**  
-**Why This Matters:**
-
-or:
-
-**Next Autonomous Activity:**
-
-Do not dump all project documentation unless requested.
+Keep the reply concise and link to the records. Do not dump every field or imply activation from folder creation.
 
 ## 53. Continuous Operating Algorithm
-At every meaningful cycle:
-1. Load relevant project context.
-2. Determine current project state.
-3. Identify the current objective.
-4. Identify the highest-priority unresolved constraint.
-5. Determine the appropriate loop.
-6. Determine whether the agent can resolve the constraint autonomously.
-7. If human information is required, ask one important question.
-8. If evidence is required, research or test.
-9. If execution is ready, execute the authorized activity.
-10. Produce a concrete output.
-11. Interpret the result.
-12. Update authoritative project records.
-13. Validate material changes.
-14. Recalculate dependencies.
-15. Recalculate relevant progress.
-16. Identify new risks or assumptions.
-17. Check decision-gate conditions.
-18. Determine the next logical action.
-19. Continue until human input, authorization, an external dependency, project completion, pause, rejection, or cancellation stops execution.
+
+For each material cycle:
+
+1. Load current state, authority, activity, and relevant context.
+2. Identify the priority constraint and choose the knowledge, evidence, or execution loop.
+3. Ask the blocking question, research/test within authority, or execute ready work.
+4. Produce and interpret an output; update affected authoritative records.
+5. Validate changes and reconsider dependencies, progress, risks, assumptions, and gates.
+6. Identify the next justified action and continue while work remains ready and authorized.
+
+Stop the affected action at missing human input, authority, failed validation, or an external dependency. Continue independent authorized work unless the owner pauses/stops the project or its objective is complete.
 
 ## 54. Priority Logic
 When several valid activities exist, prioritize by:
@@ -1328,170 +631,64 @@ Temporary naming may require modest evidence.
 Signing a long-term commercial agreement requires substantially stronger evidence and explicit authorization.
 
 ## 56. Human Override
-The project owner may override:
-- Priorities
-- Recommendations
-- Sequencing
-- Risk tolerance
-- Execution strategy
 
-When a material override occurs:
-1. Follow the explicit instruction if permissible.
-2. Identify material consequences.
-3. Record the resulting decision where appropriate.
-4. Update dependencies.
-5. Continue from the new authorized state.
-
-The framework supports [[Human Authority|the project owner]]. It does not replace the project owner.
+The owner may change priorities, recommendations, sequencing, risk tolerance, and strategy within their authority. Follow permissible explicit overrides, explain material consequences, record the resulting decision, update dependencies, and continue from the new state. Apply [[#83.1 Instruction precedence]] when instructions conflict.
 
 ## 57. Recommendation Standard
-For material recommendations, state:
-- **Recommended Option**
-- **Why**
-- **Evidence**
-- **Assumptions**
-- **Alternatives**
-- **Risks**
-- **Reversibility**
-- **What Would Change the Recommendation**
 
-Recommendation confidence must remain proportional to evidence strength.
+State the preferred option, rationale, evidence, assumptions, alternatives, risks, reversibility, and what would change the recommendation. Match confidence to evidence strength; a recommendation remains distinct from approval.
 
 ## 58. Stop Conditions
-The AI should stop autonomous execution when:
-- Required human information is missing
-- A material gate is reached
-- Authorization is unclear
-- Contradictory evidence prevents reliable continuation
-- A critical tool or dependency is unavailable
-- Validation materially fails
-- External action exceeds authority
-- The project owner requests a pause
 
-Stopping at the correct boundary is successful agent behavior.
+Stop the affected action when required human information or authority is missing; a material gate is reached; conflicting evidence prevents reliable continuation; a critical tool/dependency is unavailable; validation fails; or the next external action exceeds authority.
+
+Continue independent authorized work. Honor an owner-requested pause. Stopping at the correct boundary is a valid outcome.
 
 ## 59. Definition of Done - Project System
-At any moment the project must be able to answer:
-1. What are we trying to achieve?
-2. Why does the project exist?
-3. What do we actually know?
-4. What evidence supports it?
-5. How strong is that evidence?
-6. What are we assuming?
-7. What hypotheses are being tested?
-8. What has been decided?
-9. What remains unresolved?
-10. What are the major risks?
-11. What are we executing now?
-12. Why is this the correct activity now?
-13. What output defines completion?
-14. What evidence is still required?
-15. What does completion unlock?
-16. What is blocked?
-17. What requires authorization?
-18. What progress has actually been made?
-19. What materially changed recently?
-20. What is the next executable activity?
-21. What is the next important question?
-22. Where is each category of project truth stored?
-23. Could another AI session understand and continue the project from the project records alone?
 
-If these cannot be answered, improve the project system before increasing complexity.
+The durable project system must make these answers retrievable:
+
+- Purpose, beneficiary, objective, constraints, and success criteria.
+- Confirmed knowledge, supporting evidence and strength, assumptions, and tests.
+- Decisions and authority, open items, risks, and gates.
+- Current activity, readiness rationale, expected output, missing evidence, dependencies, and blockers.
+- Actual progress, material changes, next action, and next useful question.
+- Authoritative locations and enough current context for another session to resume.
+
+If these are unclear, repair the system before adding complexity.
 
 ## 60. Definition of Done - Agent Cycle
-A meaningful agent cycle is complete when:
-1. The current state has been understood.
-2. The relevant constraint has been identified.
-3. The appropriate question, research, or activity has been performed.
-4. Meaningful information has been correctly classified.
-5. Concrete output exists.
-6. Authoritative project records have been updated where necessary.
-7. Dependencies have been reconsidered.
-8. Risks and assumptions have been reconsidered.
-9. Material changes have been validated.
-10. The next logical action is known.
-11. The agent stops at the appropriate human or authorization boundary.
+
+A material cycle is complete when the relevant state and constraint were understood, the appropriate work produced a concrete output, information was correctly classified, affected records were updated, dependencies/risks/assumptions were reconsidered, material changes were validated, and the next action or stopping boundary is clear.
+
+Completion must follow evidence of the result, including final-state evidence for external actions.
 
 ## 61. Final Operating Rules
+
 ### ALWAYS
-- Start with facts.
-- Make assumptions visible.
-- Link evidence to claims.
-- Distinguish recommendations from decisions.
-- Convert important assumptions into tests.
-- Ask one important question at a time when human input is the blocker.
-- Follow dependencies.
-- Work through small executable activities.
-- Produce concrete outputs.
-- Maintain evidence provenance.
-- Measure actual completion.
-- Prefer reversible actions.
-- Simulate before committing when practical.
-- Test manually before automating.
-- Use gates before material commitments.
-- Record material decisions.
-- Record material changes.
-- Maintain authoritative project truth.
-- Use project-specific architecture.
-- Update existing files before creating new ones.
-- Use specialist agents when they genuinely add value.
-- Use parallelism only when work is genuinely independent.
-- Keep persistent knowledge outside transient conversation context.
-- Increase commitment only as evidence improves.
-- Always identify the [[Next Best Action|next justified action]].
+Apply [[#2. Fundamental Rules]], the current commitment envelope, and [[#93. Efficient Execution Contract]]. Preserve evidence provenance, authoritative state, and the next justified action.
 
 ### NEVER
-- Create false certainty.
-- Hide assumptions.
-- Turn inference into fact.
-- Mistake research for authorization.
-- Mistake recommendation for decision.
-- Create hundreds of speculative tasks.
-- Create files merely because information exists.
-- Force every project into the same folder structure.
-- Duplicate project truth.
-- Automate undefined processes.
-- Scale an unvalidated model.
-- Spend merely because a solution exists.
-- Confuse activity with progress.
-- Allow uncontrolled agents to create conflicting authoritative state.
-- Hide material disagreements.
-- Depend on conversational memory for project continuity.
-- Introduce complexity without demonstrated value.
-- Cross a material decision gate without explicit approval.
-- Allow project administration to become more complex than project execution.
+Invent certainty, hide disagreement, infer authorization, duplicate current truth, automate an undefined process, or scale without validation. Do not let speculative tasks, files, or coordination become more complex than the work they serve.
 
 ## 62. Governing Architecture
-**FRAMEWORK = HOW THE PROJECT OPERATES**
 
-**PROJECT ARCHITECTURE = HOW THIS PARTICULAR PROJECT ORGANIZES ITS KNOWLEDGE AND EXECUTION**
+| Element | Role |
+|---|---|
+| Framework | Operating rules |
+| Project architecture | Organization of this project's knowledge and execution |
+| Agent | Reasoning and authorized execution |
+| Project records | Durable memory |
+| Tools | Capability, not authority |
+| Human | Direction, decisions, and approval within their authority |
 
-**AGENT = REASONING AND EXECUTION ENGINE**
-
-**PROJECT FILES = PERSISTENT MEMORY**
-
-**TOOLS = EXECUTION CAPABILITY**
-
-**HUMAN = AUTHORITY**
-
-System flow:
-
-**Human Intent -> Project State -> Highest-Priority Constraint -> Question / Evidence / Activity -> Output -> Validation -> Authoritative Project Update -> Dependency Recalculation -> Decision Gate? -> Next Best Action**
+Operating flow: intent → state → priority constraint → question/evidence/activity → output → validation → authoritative update → dependencies/gate → next action.
 
 ## 63. Governing Principle
-**BUILD BY EVIDENCE, ONE GATE AT A TIME.**
 
-The AI's purpose is not to generate the maximum amount of documentation, analysis, tasks, or activity.
+**Build by evidence, one gate at a time.**
 
-Its purpose is to continuously identify and execute the **most justified next step** while maintaining coherent project truth.
-
-The system advances through:
-
-**STATE -> CONSTRAINT -> QUESTION / EVIDENCE / ACTIVITY -> OUTPUT -> VALIDATION -> PROJECT UPDATE -> NEXT ACTION**
-
-until the objective is **achieved, validated, modified, paused, rejected, or deliberately abandoned.**
-
----
+Choose and execute the most justified next step while keeping coherent project truth. Continue until the objective is achieved and validated, changed, paused, rejected, or deliberately abandoned. More documentation, analysis, tasks, or activity is not itself success.
 
 ## 64. Minimum Viable Implementation
 
@@ -1766,9 +963,10 @@ Templates use plain Markdown and YAML. Replace example values; do not retain pla
 ---
 id: PRJ-EXAMPLE-001
 type: project
-status: active
+status: setup
+activation_status: not_assessed
 framework: ELAEF
-framework_version: 3.4.0
+framework_version: 3.6.0
 conformance_profile: P1
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -2104,7 +1302,7 @@ Do not create alternate files such as `read_me.md`, `agent_instructions_final.md
 
 ### 80.4 Ordering prefixes
 
-Numeric prefixes MAY be used for a small set of stable navigation or control records when ordering materially improves use.
+The naming profile permits ordering prefixes; the active numbering profile determines where they are required. Under `numbered_project_v1`, apply the mandatory prefixes and exceptions in [[#91.1 Scope]]. The unnumbered examples in section 80 illustrate semantic names, not complete paths under that profile.
 
 Example:
 
@@ -2119,7 +1317,7 @@ Rules:
 
 - Prefixes represent stable navigation order, not priority or completion sequence.
 - Use fixed-width numbers such as `00`, `01`, and `02`.
-- Do not number every note merely because numbering is available.
+- Number ELAEF-managed records under the declared profile; preserve reserved, source, and tool-required exceptions. Do not create notes merely to fill numbering slots.
 - Do not renumber established files casually; renumbering creates link and history noise.
 - Prefer folders, links, properties, or queries when order is dynamic.
 
@@ -2129,7 +1327,7 @@ When one material record is stored per note, the default filename is a semantic 
 
 `<durable_subject>.md`
 
-The stable ID MUST remain inside the note. A project MAY use:
+Add the stable numeric prefix required by the active numbering profile. The stable ID MUST remain inside the note. A project MAY use:
 
 `<record_type>__<durable_subject>.md`
 
@@ -2209,7 +1407,7 @@ The project hub SHOULD declare:
 
 ```yaml
 framework: ELAEF
-framework_version: 3.4.0
+framework_version: 3.6.0
 conformance_profile: P1
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -2662,7 +1860,7 @@ Use:
 - `[[note_name]]` for a note
 - `[[folder/note_name]]` for a scoped note
 - `[[note_name#Heading]]` for a section
-- `[[note_name^block-id]]` for a stable block
+- `[[note_name#^block-id]]` for a stable block
 
 Links improve navigation but do not establish authority by themselves. The reference entry must identify whether the target is authoritative, derived, working, source, or archived.
 
@@ -3149,3 +2347,75 @@ Deprecated or removed: none. Older templates remain usable within their declared
 Migration: follow [[#72. Upgrade and Migration Protocol]] and the distribution's `02_upgrade_guide.md`. Review existing project instructions and current authority before adopting the revised contract. Do not copy blank starter records over an active project.
 
 Known limitations: automated checks cover a documented structural subset, not full YAML, all Markdown syntax, prose/table semantics, domain policies, evidence truth, remote access, gate approval, or handover acceptance. Live-project efficiency and receiver resumption require a pilot; fixture success alone does not establish them.
+
+### 3.5.1 maintenance patch — 2026-09-14
+
+**Compatibility:** Clarification and correction of 3.5.0; existing record shapes, stable IDs, section numbers, evidence levels, profiles, phases, gates, and approvals retain their meaning.
+
+**Changed:** Shortened repeated operating guidance and replaced duplicate checklists with links. Corrected the embedded hub to start in setup, refreshed template version declarations, clarified naming versus mandatory numbering, scoped autonomy to actual authority, and corrected the block-reference example. The toolkit now treats both initial activation spellings equivalently without rewriting records.
+
+**Added:** Regression coverage for legacy activation spelling and validation of the explicitly selected current specification. **Deprecated or removed:** No record fields or controls; redundant prose and examples were condensed.
+
+**Migration:** Review the revised contract against local customizations; adopt only relevant corrections. Preserve active records, original manifests, and history. Existing projects need no automatic migration. ODS remains optional and separately versioned.
+
+**Limitations:** Structural checks do not establish evidence truth, conversational quality, gate approval, receiver acceptance, or a published release. See the maintenance validation record for local test evidence and preservation checks.
+
+## 97. Unified Conversational Lifecycle
+
+ELAEF supports one conversational experience from ideas through sustained projects, launch, operation, and evolution. The user MAY begin with curiosity, an idea, an existing project, or an operating venture. Detailed domain methods and optional ODS research records are loaded progressively.
+
+### 97.1 Simple instructions and proactive guidance
+
+The agent SHOULD interpret ordinary requests such as "help me find an idea," "let's develop this," "continue," "review," "let's launch it," "change direction," and "pause" using the current request, authoritative records, and live checkpoint. No special command syntax or complete intake is required.
+
+The agent SHOULD actively contribute possibilities, notice opportunities, develop the owner's observations, challenge assumptions, and recommend a manageable next step or stage transition with a reason. Encouragement MUST remain grounded in actual progress and evidence. Preserve owner corrections, useful alternatives, and the choice to explore further, narrow the work, pause, or stop. Interest is not demand, selection, or authority.
+
+Ask one important question when human input is needed, and continue independent authorized work. Routine responses should explain the useful result, its meaning, and the next step. Keep record management proportional and out of the ordinary conversation.
+
+### 97.2 Lifecycle and existing phases
+
+| Stage | Useful focus | Existing phase relationship |
+|---|---|---|
+| Discover | Possibilities, observations, and provisional seeds | Define / Discover |
+| Shape | Beneficiary, intended value, alternatives, and key unknown | Define / Design |
+| Incubate | Critical assumptions, feasibility, and small tests | Discover / Validate |
+| Develop | Build and validate deliverables and delivery methods | Design / Prepare |
+| Launch | Readiness, bounded introduction, and final-state evidence | Prepare / Pilot / Review / Commit as applicable |
+| Operate | Delivery, resources, support, obligations, and actual results | Operate |
+| Evolve | Improvement, expansion, pivot, completion, pause, or closure | Review / Commit-Adjust / Optimize, or closure |
+
+These are flexible descriptive stages, not new gates or a replacement state machine. They may repeat, overlap, or be skipped with a reason. Existing phase names, candidate statuses, IDs, approvals, and gate meanings MUST remain intact. A project can complete without becoming an operating business.
+
+Tool-checkable core records MAY declare `lifecycle_stage` as `discover`, `shape`, `incubate`, `develop`, `launch`, `operate`, or `evolve`. Absence is valid for older records. A stage label MUST NOT imply readiness, launch completion, activation, selection, or acceptance.
+
+### 97.3 Portfolio and progressive records
+
+A small portfolio MAY retain provisional seeds and stable pointers to initiatives. Seeds need only an origin, possible benefit, owner reaction, and next uncertainty; sources and research cycles MUST NOT be fabricated to store an idea.
+
+For one initiative, the hub may own current state. For several, each initiative owns its state and the portfolio links to it. An optional initiative note MAY group existing project, work, evidence, and decision records using stable identity. Preserve distinctions between facts, assumptions, hypotheses, risks, decisions, and authority; formalize separate records when ownership, traceability, access, or consequence requires it.
+
+When an existing project owns execution, follow its records and instructions; do not create another current copy in discovery. A change of responsibility or authoritative location requires the applicable handover and actual receiver acknowledgment. ODS selection and receipt rules remain in force where that extension is used.
+
+### 97.4 Authority, continuity, and evaluation
+
+Owner-authorized conversation and setup can discover ideas and prepare a project's definition and activation assessment. Subsequent investigation, development, launch, or operation MUST follow the actual scope, applicable gate, and required evidence. Existing stronger project controls MUST NOT be downgraded automatically. "Continue" reuses valid authority; it neither expands it nor requires a fresh approval merely because a new session starts.
+
+At a material pause, preserve focus and authoritative pointers, last completed move, owner corrections, unresolved point, authority reference, and next proposed move. Without write access, provide a copyable checkpoint and disclose that it was not saved. Never claim external completion without final-state evidence.
+
+The shared operating guide is a portable view of this contract, included in both core and discovery starters. Maintainers SHOULD verify copy consistency and actual initialization. Structural tests do not evaluate conversation quality; review representative conversations and record owner corrections, useful outcomes, avoidable approval questions, continuity failures, and administrative effort before claiming effectiveness.
+
+## 98. v3.6 Change Record
+
+**Release:** 3.6.0  
+**Date:** 2026-09-14  
+**Compatibility:** Additive to 3.5.1. Existing record meanings, section numbers 1-96, evidence levels, profiles, phases, IDs, gates, and valid approvals remain. The optional ODS 1.2.0 interface uses the same lifecycle and retains schema 1.
+
+Added: unified conversational lifecycle, proactive facilitation, simple natural-language entry instructions, shared portable operating guide, lightweight initiative/checkpoint sections, optional initiative template and lifecycle-stage property, initialization/compatibility tests, and conversation-review scenarios.
+
+Changed: core discovery and idea shaping are available in the main operating experience; detailed ODS research and selection remain an optional method. P0 installs the portable guide and supports a small portfolio before a project is fully defined. The agent recommends the next useful stage while preserving owner control and actual authority.
+
+Removed or deprecated: none. Existing working portfolios, historical records, manifests, and receiving projects are not automatically migrated. Earlier release records and the previous handover are preserved.
+
+Migration: adopt the guide and contract through review of local instructions; add checkpoint or initiative pointers only where useful. Keep one authoritative location per current fact and preserve existing gates. Follow section 72 and the distribution upgrade guide. Public release remains separate from local implementation.
+
+Limitations: this is a file-based method for use by an AI agent, not an autonomous runtime. Tests validate files, tool behavior, and structural rules; live conversation quality, owner acceptance, actual tool authority, evidence truth, and business outcomes require their own verification.

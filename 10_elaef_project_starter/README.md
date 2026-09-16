@@ -4,7 +4,7 @@ title: "{{PROJECT_NAME}}"
 type: project
 status: setup
 framework: ELAEF
-framework_version: 3.5.0
+framework_version: 3.6.0
 conformance_profile: "{{P0_P1_OR_P2}}"
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -18,89 +18,43 @@ tags:
 
 # {{PROJECT_NAME}}
 
-The [charter](00_control/00_project_charter.md) and [state](00_control/01_project_state.md) own project definition and current execution truth. This hub is navigation and a concise summary; reconcile it after material changes instead of maintaining independent decisions here.
+The [charter](00_control/00_project_charter.md) owns project definition; [state](00_control/01_project_state.md) owns current execution truth. This hub provides navigation and a derived summary.
 
-> [!warning] Template state
-> This project remains in `setup` until all material placeholders are replaced and [Project Activation](00_control/02_project_activation.md) is assessed. Folder creation is not project activation.
+This project starts in `setup`. Complete the relevant records and assess [activation](00_control/02_project_activation.md) before subsequent execution. Authorized setup can prepare that assessment.
 
-## Purpose
-
-{{WHY_THIS_PROJECT_EXISTS}}
-
-## Objective
-
-{{SPECIFIC_INTENDED_OUTCOME}}
-
-## Intended beneficiary
-
-{{PERSON_GROUP_OR_SYSTEM_BENEFITING}}
-
-## Success criteria
-
-- {{MEASURABLE_SUCCESS_CRITERION}}
-
-## Scope
-
-### Included
-
-- {{IN_SCOPE}}
-
-### Excluded
-
-- {{OUT_OF_SCOPE}}
-
-## Constraints
-
-- {{CONSTRAINT}}
+Use [the operating guide](01_operating_guide.md) and ordinary instructions such as "help me find an idea," "continue," "review," or "let's launch it." The agent should contribute possibilities and propose the next useful move. For several initiatives, keep stable pointers in the state record and use the [initiative template](60_templates/08_initiative.md) when sustained work warrants a separate record.
 
 ## Current state
 
 - **Phase:** Setup
-- **Current workstream:** Project initialization
-- **Current activity:** Complete activation prerequisites
-- **Next ready activity:** Determine from [project activation](00_control/02_project_activation.md)
-- **Critical blocker:** Unassessed activation gate
-- **Active gate:** `{{PROJECT_CODE}}-GAT-ACTIVATION`
-- **Major risk:** {{MAJOR_RISK_OR_UNKNOWN}}
+- **Current focus:** Define the project from supplied information
+- **Current activity:** Confirm readiness of `{{PROJECT_CODE}}-ACT-0001` in the [execution plan](00_control/03_execution_plan.md)
+- **Blocker:** {{MATERIAL_MISSING_INPUT_OR_NONE}}
+- **Activation:** `not_assessed`; applies to subsequent execution
+- **Major risk and next action:** See [state](00_control/01_project_state.md)
 
 ## Authorization envelope
 
-### Internally authorized
+Record actual read, write, external-action, and approval authority in [state](00_control/01_project_state.md), with the source instruction or decision. A setup request may authorize internal preparation within its scope. This template grants no permission.
 
-- Read and organize supplied project information.
-- Prepare internal drafts and project records.
-- Perform other reversible internal work explicitly allowed by `AGENTS.md`.
-
-### Not authorized unless explicitly added
-
-- Spending or purchasing
-- External communication or outreach
-- Publication or deployment
-- Contracting, registration, hiring, or legal commitment
-- Disclosure of confidential or personal information
-- Destructive or effectively irreversible change
+Spending, outreach, publication, deployment, contracting, registration, hiring, disclosure, and materially destructive change require explicit applicable authority and any required gate.
 
 ## Authoritative records
 
-- **Charter:** [project charter](00_control/00_project_charter.md)
-- **State:** [project state](00_control/01_project_state.md)
-- **Execution and dependencies:** [execution plan](00_control/03_execution_plan.md)
-- **Evidence:** [evidence register](00_control/04_evidence_register.md)
-- **Decisions:** [decision log](00_control/05_decision_log.md)
-- **Risks:** [risk register](00_control/06_risk_register.md)
-- **Gates:** [gate register](00_control/07_gate_register.md)
-- **Activation:** [project activation](00_control/02_project_activation.md)
-- **Material changes:** [change log](00_control/08_change_log.md)
-- **Agent operating contract:** [AGENTS](AGENTS.md)
-- **Handover system:** [handover hub](50_handover/00_handover_hub.md)
-- **Reference map:** [reference map](50_handover/01_reference_map.md)
-- **Current handover:** [current handover](50_handover/02_current_handover.md)
-- **Handover lifecycle:** [handover log](50_handover/03_handover_log.md)
-
-## Current focus
-
-Complete the activation assessment without inferring facts, decisions, or authority from placeholders.
+| Information | Location |
+|---|---|
+| Purpose, objective, beneficiary, success criteria, scope, and constraints | [Charter](00_control/00_project_charter.md) |
+| State, authority, risks/blockers, and next action | [State](00_control/01_project_state.md) |
+| Activities and dependencies | [Execution plan](00_control/03_execution_plan.md) |
+| Evidence | [Evidence register](00_control/04_evidence_register.md) |
+| Decisions | [Decision log](00_control/05_decision_log.md) |
+| Risks | [Risk register](00_control/06_risk_register.md) |
+| Gates and activation | [Gate register](00_control/07_gate_register.md), [activation assessment](00_control/02_project_activation.md) |
+| Material changes | [Change log](00_control/08_change_log.md) |
+| Agent instructions | [AGENTS](AGENTS.md) |
+| Continuity and references | [Handover hub](50_handover/00_handover_hub.md), [reference map](50_handover/01_reference_map.md) |
+| Current handover and lifecycle | [Current handover](50_handover/02_current_handover.md), [log](50_handover/03_handover_log.md) |
 
 ## Next justified action
 
-Replace project-definition placeholders in [project charter](00_control/00_project_charter.md).
+Use the actual owner request to fill the [charter](00_control/00_project_charter.md). Preserve unknowns; do not infer facts, decisions, or authority from template text.

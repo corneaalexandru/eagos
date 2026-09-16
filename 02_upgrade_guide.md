@@ -1,4 +1,29 @@
-# ELAEF 3.4 → 3.5 upgrade guide
+# ELAEF upgrade guide
+
+The current release is **ELAEF 3.6.0** with optional **ODS 1.2.0**. Existing projects retain their declared versions, records, and approvals until deliberately upgraded.
+
+## 3.5.1 / ODS 1.1.1 to the unified lifecycle
+
+This additive revision introduces one conversational operating guide, proactive facilitation, and the Discover, Shape, Incubate, Develop, Launch, Operate, and Evolve lifecycle. It preserves existing evidence levels, phases, statuses, IDs, gates, and authority. The optional `lifecycle_stage` property is descriptive; older records may omit it.
+
+1. Inventory the current records and preserve a trusted snapshot and original manifests.
+2. Review the new guide and reconcile its agent contract with local instructions and existing authority.
+3. Add a compact conversation checkpoint and initiative pointers only where useful. Keep current truth in its existing authoritative location.
+4. Copy the guide into the workspace, verify links, and record adoption. P0 adds `01_operating_guide.md`; discovery adds `03_operating_guide.md`. The distribution's maintained source is `04_operating_guide.md`; the starter copies are verified identical portable views.
+5. For multiple initiatives, use a separate record only when sustained work or ownership justifies it. Preserve seed/record relationships and actual handover evidence.
+6. Recheck affected records, then change version declarations through a documented migration. Do not retroactively invent stage transitions, source evidence, selection, launch, or acceptance.
+
+ODS retains schema 1 and reads 1.0.0, 1.1.0, 1.1.1, and 1.2.0 workspaces. The new core initializer adds the operating guide to its P0 baseline. Existing manifests remain historical installation evidence; no automatic migration/rebase is performed.
+
+The former detailed phase sequence remains valid; the seven stages are a simpler conversational view. Core discovery/idea shaping is available without a separate ODS installation. Use ODS when structured research and comparison help the current work.
+
+## 3.5.0 → 3.5.1
+
+This compatible maintenance patch shortens operating guidance, clarifies setup authority and naming, corrects the embedded hub's initial state, and fixes comparison of the two supported initial activation spellings. Record schemas and controls are unchanged.
+
+Review the revised agent contract and reconcile useful changes with local instructions. Remove template-derived authority claims only by recording the actual owner request; preserve valid existing approvals. Keep original IDs, evidence, manifests, and history. No automatic migration or public release is implied. For ODS 1.0.0/1.1.0, use the [discovery upgrade guidance](03_opportunity_discovery.md#compatibility-and-lifecycle).
+
+## 3.4 → 3.5
 
 ELAEF 3.5 is an additive release. Existing IDs, filenames, evidence, decisions, and authorization envelopes retain their meaning. Projects may stay on 3.4 until an upgrade is useful. New fields and tools are optional; the command-line validator checks a documented subset, not full conformance.
 
@@ -39,7 +64,7 @@ For a manually created or older project without a manifest, use inventory and a 
 
 ## Distribution maintenance
 
-The canonical specification, reusable starter, and public release must agree on the declared version. Compare the local starter and tools with the release checkout before publishing; review release contents, run checks, and verify the pushed commit. Keep private project records outside the public distribution.
+A prepared release must contain a specification, starter, and tools that agree on their declared versions. Local maintenance may be ahead of the published release; label that difference explicitly. Compare the local starter and tools with the release checkout before publishing; review release contents, run checks, and verify the pushed commit. Keep private project records outside the public distribution.
 
 The release includes conventional `.gitignore` files and a GitHub Actions workflow as documented tool-required naming exceptions. `.gitignore` prevents accidental tracking of some new files; it is not access control and cannot remove already tracked sensitive content.
 
