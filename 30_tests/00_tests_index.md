@@ -14,4 +14,6 @@ Run `python3 30_tests/03_test_unified.py -v` for the unified interface integrati
 
 [Conversation scenarios](04_conversation_scenarios.md) define expected behavior across ideation, incubation, development, launch, operation, correction, pause/resumption, and missing tools. They are an evaluation specification, not passing model tests. Collect actual responses, owner feedback, and outcome evidence for live pilots.
 
+Audit regression coverage additionally checks excluded anchor/entrypoint reads, blank evidence entries, selection screening independent of candidate state, claim status/evidence consistency, declared self-approval and activation-decision date bounds.
+
 Run `python3 30_tests/05_test_governance.py -v` for synthetic delegation, Task compatibility, runtime declarations, evidence impact, attempts, malformed inputs, legacy manifests and CLI parity. These tests cannot establish real runtime enforcement or operational acceptance. See [assurance](../08_validation_and_assurance.md).

@@ -26,7 +26,7 @@ Record read, write, external-action and approval rights separately, with exclusi
 
 ## Inheritance and enforcement
 
-Children must fit every ancestor; child allocations share the parent total and actual use must also be metered. Expiry, revocation, new sessions, retries and substitute agents do not reset limits. Specify which controls are native, additional, manual or unsupported.
+Children must fit every ancestor; child allocations share the parent total and actual use must also be metered. Expiry, revocation, new sessions, retries and substitute agents do not reset limits. Specify which controls are native, additional, manual or unsupported. Link the authoritative allocation/use ledger: original reservation, consumed amount, remaining reservation, explicitly returned amount and return authority/evidence/date. Suspension, expiry and revocation alone do not refund capacity. The flat checker sums active child grants only; reconcile the ledger before any reallocation.
 
 ## Review and revocation
 

@@ -1,6 +1,6 @@
 # Agent Operating Contract
 
-Apply EAGOS 4.0.0 with `obsidian_portable_v1` and `numbered_project_v1`. This contract describes how to work; the owner's actual request and valid approvals define what is authorized.
+Apply EAGOS 4.0.0 with `portable_markdown_v1` and `numbered_project_v1`. This contract describes how to work; the owner's actual request and valid approvals define what is authorized.
 
 
 Load current instructions and live state only. Read the operating guide once, then retrieve relevant Task, evidence, dependency and authority records. Do not ingest archived specifications, release history, maintenance output, all templates, or duplicate guide copies. Retrieve history only for a specific current question; never omit a required control to save context.

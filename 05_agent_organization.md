@@ -43,7 +43,7 @@ Use the starter's `60_templates/09_agent_role.md` when a separate record is usef
 
 Maintain an agent register mapping role ID to instance ID, platform, model/version, workspace, credentials reference, tools, data access, deployment state, and owner. Keep secrets in their controlled store. This deployment map is distinct from the organization chart: replacing a model does not transfer or enlarge responsibility.
 
-An instance progresses through **proposed → configured → tested → active → suspended → retired**. Configuration and tests alone cannot activate it. Activation records actual authority, demonstrated capability, limits, recovery, and the intended operational scope. Suspend dependent jobs and revoke relevant access when authority is withdrawn; changing a Markdown status alone is insufficient enforcement.
+A proposed instance is a planning entry in the agent register. Once its implementation is documented, link it to a `runtime_deployment` record, whose states are **documented → configured → tested → active → suspended → retired**. Role records have their own responsibility states: **proposed, active, suspended, retired**; an active role can be performed by a human and does not imply an active software deployment. Configuration and tests alone cannot activate it. Activation records actual authority, demonstrated capability, limits, recovery, and the intended operational scope. Suspend dependent jobs and revoke relevant access when authority is withdrawn; changing a Markdown status alone is insufficient enforcement.
 
 ## Delegation and decision rights
 
@@ -53,7 +53,9 @@ Authority is valid only while its full chain remains valid. A child delegation m
 
 Routine decisions inside a valid envelope can proceed without asking again. Escalate only a material missing choice, exceeded boundary, unresolved conflict, or reserved decision. A pending decision blocks its dependent work; independent authorized preparation continues.
 
-The offline checker supports a deliberately narrow flat delegation vocabulary: exact string allowlists in `allowed_operations` and `allowed_targets`, a decimal `budget_limit` with `budget_unit`, `valid_from`, `expires_on`, `parent_delegation`, and `subdelegation: allowed|forbidden`. No wildcards or semantic interpretation of prose are supported. Runtime budgets, approval identity, resource consumption and enforcement require separate verification.
+The offline checker supports a deliberately narrow flat delegation vocabulary: exact string allowlists in `allowed_operations` and `allowed_targets`, a decimal `budget_limit` with `budget_unit`, `valid_from`, `expires_on`, `parent_delegation`, and `subdelegation: allowed|forbidden`. No wildcards or semantic interpretation of prose are supported. The checker rejects an exact match between delegate and approver; it does not resolve identity aliases or authenticate actors. Runtime budgets, approval identity, resource consumption and enforcement require separate verification.
+
+The child-budget diagnostic sums active grants only. It is not a reservation ledger and cannot establish that suspended, expired or revoked grants have returned unused resources. Maintain a separate authoritative allocation/use ledger before reallocating: grant ID, amount originally reserved, amount consumed, amount still reserved, amount explicitly returned, approving authority and evidence/date. Reconcile it across all grant states; changes of status alone release nothing. Without that reconciliation, available capacity remains unconfirmed. This manual control is required wherever the flat checker cannot represent the actual budget.
 
 ## Work assignment and coordination
 

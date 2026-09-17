@@ -56,7 +56,7 @@ tags:
 | Reference ID | Type | Name | Location | Revision / environment | Authority | Owner | Access | Last verified | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | `{{PROJECT_CODE}}-REF-REPOSITORY` | repository | Project repository | {{REPOSITORY_PATH_OR_URI_OR_NONE}} | {{BRANCH_TAG_OR_COMMIT}} | authoritative_or_none | {{OWNER}} | {{ACCESS_CLASS}} | not_verified | unknown |
-| `{{PROJECT_CODE}}-REF-OBSIDIAN-VAULT` | tool_environment | Obsidian vault | {{VAULT_NAME_AND_ROOT_OR_NONE}} | {{DEVICE_OR_ENVIRONMENT}} | environment | {{OWNER}} | {{ACCESS_CLASS}} | not_verified | unknown |
+| `{{PROJECT_CODE}}-REF-EDITOR-WORKSPACE` | tool_environment | Markdown editor workspace | {{EDITOR_WORKSPACE_NAME_AND_ROOT_OR_NONE}} | {{DEVICE_OR_ENVIRONMENT}} | environment | {{OWNER}} | {{ACCESS_CLASS}} | not_verified | unknown |
 
 ## External systems and controlled locations
 

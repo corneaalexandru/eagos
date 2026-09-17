@@ -285,5 +285,48 @@ class DiscoveryTests(unittest.TestCase):
         self.assertGreater(json.loads(out.getvalue())["errors"], 0)
 
 
+    def test_selection_screens_do_not_depend_on_candidate_label(self):
+        candidate, decision, handover = self.promotion()
+        candidate["status"] = "framed"
+        screens = [r for r in self.records if r["type"] == "screen"]
+        self.records = [r for r in self.records if r["type"] != "screen"]
+        self.assertIn("screening", self.codes())
+        self.records.extend(screens)
+        self.assertNotIn("screening", self.codes())
+        for result in ("unknown", "fail"):
+            screens[0]["result"] = result
+            self.assertIn("screening", self.codes())
+
+    def test_superseded_selection_alone_does_not_require_current_screens(self):
+        candidate, decision, handover = self.promotion()
+        candidate.update(status="parked", reason="Synthetic direction change", reopen_trigger="New owner direction")
+        decision["status"] = "superseded"
+        self.records = [r for r in self.records if r["type"] not in {"screen", "handover"}]
+        self.assertNotIn("screening", self.codes())
+        # An actionable handover still requires current screening independently.
+        self.records.append(handover)
+        self.assertIn("screening", self.codes())
+
+    def test_claim_status_and_evidence_level_are_consistent(self):
+        self.framed()
+        claim = self.add("claim", status="supported", evidence_level="E0", supporting_sources=[], opposing_sources=[], claim="Synthetic claim", decision_context="Synthetic context", rationale="Synthetic rationale")
+        for status in ("supported", "refuted", "disputed"):
+            claim["status"] = status
+            self.assertIn("evidence", self.codes())
+        claim["status"] = "unknown"
+        self.assertNotIn("evidence", self.codes())
+        source = self.add("source", status="inspected", kind="internal", title="Synthetic fixture", location="fixture", origin="fixture", independence_group="fixture", inspected_on="2026-09-12", finding="Synthetic finding", locator="section", limitations="Synthetic only")
+        claim.update(status="supported", evidence_level="E1", supporting_sources=[source["id"]])
+        self.assertNotIn("evidence", self.codes())
+        claim["status"] = "refuted"
+        self.assertIn("evidence", self.codes())
+        claim.update(supporting_sources=[], opposing_sources=[source["id"]])
+        self.assertNotIn("evidence", self.codes())
+        claim["status"] = "disputed"
+        self.assertIn("evidence", self.codes())
+        claim["supporting_sources"] = [source["id"]]
+        self.assertNotIn("evidence", self.codes())
+
+
 if __name__ == "__main__":
     unittest.main()

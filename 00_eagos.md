@@ -10,7 +10,7 @@ specification: EAGOS
 spec_version: "4.0.0"
 updated: 2026-09-16
 conformance_profile: core
-naming_profile: obsidian_portable_v1
+naming_profile: portable_markdown_v1
 numbering_profile: numbered_project_v1
 ---
 
@@ -188,7 +188,7 @@ Claim lifecycle remains open → under-test → supported/contradicted/inconclus
 
 ## 18. Naming, numbering and portability
 
-Keep `obsidian_portable_v1` and `numbered_project_v1` unless a documented project/tool constraint requires another profile. Use semantic lowercase_underscore filenames and lowercase extensions, stable numeric sort prefixes, portable relative links and ISO dates. Numbers encode navigation order, not priority, status, evidence strength, execution sequence, ownership or version. Avoid mutable state such as final/latest/approved in canonical filenames.
+Keep `portable_markdown_v1` and `numbered_project_v1` unless a documented project/tool constraint requires another profile. Use semantic lowercase_underscore filenames and lowercase extensions, stable numeric sort prefixes, portable relative links and ISO dates. Numbers encode navigation order, not priority, status, evidence strength, execution sequence, ownership or version. Avoid mutable state such as final/latest/approved in canonical filenames.
 
 Use two-digit prefixes for controls/hubs/templates and four-digit prefixes for growing collections. Assign once, preserve gaps and do not casually renumber. Default categories are `00_control`, `10_domains`, `20_execution`, `30_evidence`, `40_outputs`, `50_handover`, `60_templates`, `70_profiles`, `80_private`, `90_archive`. Preserve the starter's stable control sequence and add new records using unused numbers. An active folder should have an index or hub when useful.
 

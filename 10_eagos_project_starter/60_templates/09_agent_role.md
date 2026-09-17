@@ -16,7 +16,7 @@ Record outputs, permitted decisions, reserved decisions, input needs, escalation
 
 ## Deployment mapping
 
-Record actual instance ID, platform/model/version, workspace, tools, controlled credential reference, configuration fingerprint and deployment state. Several responsibilities may share one instance where consequence permits; independence must be demonstrated where required.
+Record actual instance ID, platform/model/version, workspace, tools, controlled credential reference, configuration fingerprint and deployment state. Use a linked runtime_deployment record for documented/configured/tested/active/suspended/retired implementation state; a proposed instance is only a planning entry. Role status records responsibility, not software activation. Several responsibilities may share one instance where consequence permits; independence must be demonstrated where required.
 
 ## Performance and lifecycle
 

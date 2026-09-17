@@ -67,6 +67,8 @@ def validate_records(records, add, today, placeholder):
                 required(path, data, "delegator delegate scope budget_unit approver authorization_evidence", "delegation_authority")
                 if data.get("delegator") == data.get("delegate"):
                     add("error", path, "delegation_authority", "Self-delegation cannot create authority")
+                if data.get("approver") == data.get("delegate"):
+                    add("error", path, "delegation_authority", "Delegate cannot approve its own delegation")
                 if not isinstance(data.get("subdelegation"), str) or data.get("subdelegation") not in {"allowed", "forbidden"}:
                     add("error", path, "delegation_authority", "Declare subdelegation: allowed or forbidden")
                 strings(path, data, "allowed_operations")
@@ -88,6 +90,16 @@ def validate_records(records, add, today, placeholder):
                 approval = records.get(ref, (None, {}))[1] if isinstance(ref, str) else {}
                 if approval.get("type") != "decision" or approval.get("status") != "approved":
                     add("error", path, "runtime_activation", "Runtime needs a referenced approved activation decision")
+                for field in ("valid_from", "expires_on"):
+                    if field not in approval:
+                        continue  # Legacy decisions need not declare date bounds.
+                    try:
+                        bound = dt.date.fromisoformat(str(approval[field]))
+                        invalid = today < bound if field == "valid_from" else today > bound
+                    except ValueError:
+                        invalid = True
+                    if invalid:
+                        add("error", path, "runtime_activation", "Activation decision has invalid or out-of-range " + field)
                 if data.get("required_control_gaps") != "none":
                     add("error", path, "runtime_activation", "Resolve required control gaps before declaring active")
         elif kind == "recurring_process" and state == "active":

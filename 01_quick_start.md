@@ -30,7 +30,7 @@ This previews the files. Add `--apply` to create them, then run `check ../my_wor
 
 P0 creates a hub, agent contract, portable operating guide, Git exclusions, and installation manifest. For manual setup, copy `70_profiles/03_p0_project.md` from the execution starter as `README.md`, plus `AGENTS.md`, `01_operating_guide.md`, and `.gitignore`. A manifest is optional.
 
-Open the folder as an Obsidian vault or place it in an existing vault. Start with its README; no community plugin is required. Check relative links after moving individual templates.
+Open the folder in your preferred Markdown editor. Start with its README; no editor-specific plugin is required. Check relative links after moving individual templates.
 
 ## Existing work and deeper methods
 

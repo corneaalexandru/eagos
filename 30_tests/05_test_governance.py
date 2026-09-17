@@ -169,5 +169,28 @@ class GovernanceTests(unittest.TestCase):
 
 
 
+    def test_delegate_cannot_approve_own_grant(self):
+        self.note("00_grant.md", self.grant(approver="DEMO-ROLE-0001"))
+        self.assertIn("delegation_authority", self.codes())
+        self.note("00_grant.md", self.grant())
+        self.assertNotIn("delegation_authority", self.codes())
+
+    def test_runtime_checks_declared_activation_date_bounds(self):
+        # Reuse the valid runtime record, then test each date boundary.
+        self.test_runtime_requires_approved_decision_and_resolved_required_gaps()
+        path = self.root / "01_runtime.md"
+        data, _, _ = core.properties(path.read_text())
+        data["required_control_gaps"] = "none"
+        self.note("01_runtime.md", data)
+        base = dict(id="DEMO-DEC-0001", type="decision", status="approved", approver="Test owner", authorization_evidence=["Synthetic approval"])
+        for field, value, rejected in (("expires_on", "2026-09-15", True), ("expires_on", "2026-09-16", False), ("expires_on", "2026-09-17", False), ("expires_on", "invalid", True), ("expires_on", "", True), ("valid_from", "2026-09-17", True), ("valid_from", "2026-09-16", False), ("valid_from", "{{DATE}}", True)):
+            with self.subTest(field=field, value=value):
+                self.note("00_decision.md", dict(base, **{field: value}))
+                self.assertEqual("runtime_activation" in self.codes(), rejected)
+        self.note("01_runtime.md", dict(data, status="retired"))
+        self.note("00_decision.md", dict(base, expires_on="2026-09-15"))
+        self.assertNotIn("runtime_activation", self.codes())
+
+
 if __name__ == "__main__":
     unittest.main()

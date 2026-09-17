@@ -19,3 +19,7 @@ Read this guide when changing an existing installation. Everyday work starts wit
 
 
 Rollback restores prior instructions/configuration while reconciling subsequent work and external effects. Preserve evidence and attempt history. Retiring a runtime also requires verified shutdown of its jobs and access.
+
+## Validator corrections
+
+The validator corrections tighten diagnostics without migrating existing records or changing original manifests. Previously accepted blank evidence entries, self-approved delegations, expired activation authority, unscreened selection/handover records and unsupported claim states may now produce errors. Reconcile them against actual evidence and current authority; never invent approvals or rewrite historical evidence to make a check pass. Checked roots and required entrypoints must not use symlink aliases. Inactive budget reservations still require the separate allocation/use ledger described in the organization guide.

@@ -6,7 +6,7 @@ status: setup
 framework: EAGOS
 framework_version: 4.0.0
 conformance_profile: P0
-naming_profile: obsidian_portable_v1
+naming_profile: portable_markdown_v1
 numbering_profile: numbered_project_v1
 owner: "{{PROJECT_OWNER}}"
 created: "{{YYYY-MM-DD}}"

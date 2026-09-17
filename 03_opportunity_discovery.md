@@ -9,7 +9,7 @@ updated: 2026-09-16
 
 # EAGOS Discovery
 
-Use the [shared operating guide](04_operating_guide.md) from discovery through incubation, development, launch, operation, and evolution. This optional module adds detailed opportunity research, comparison, selection, and receipt records withXWin the same conversational experience.
+Use the [shared operating guide](04_operating_guide.md) from discovery through incubation, development, launch, operation, and evolution. This optional module adds detailed opportunity research, comparison, selection, and receipt records within the same conversational experience.
 
 Discover and shape opportunities with an AI agent through conversation. Start without an idea, bring an observation or rough concept, or resume earlier thinking. The agent contributes possibilities, builds on your reactions, and asks one useful question at a time.
 

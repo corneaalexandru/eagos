@@ -5,7 +5,7 @@ extension: EAGOS-ODS
 extension_version: "1.3.0"
 framework_version: "4.0.0"
 owner: "{{PROJECT_OWNER}}"
-naming_profile: obsidian_portable_v1
+naming_profile: portable_markdown_v1
 numbering_profile: numbered_project_v1
 ---
 

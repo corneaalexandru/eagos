@@ -260,5 +260,76 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(numbers, list(range(1, 25)))
 
 
+    def test_anchor_checks_never_read_excluded_bodies(self):
+        from unittest.mock import patch
+        self.initialize()
+        excluded = []
+        for directory in (".hidden", "node_modules", "__pycache__", "80_private", "30_evidence/10_raw"):
+            excluded.append(self.note(directory + "/01_secret.md", body="# Synthetic secret\n"))
+        visible = self.note("02_visible.md", body="# Visible\n")
+        alias = self.root / "03_alias.md"
+        alias.symlink_to(visible)
+        self.note("04_links.md", body="\n".join("[excluded](" + p.relative_to(self.root).as_posix() + "#missing)" for p in excluded + [alias]) + "\n[visible](02_visible.md#missing)\n")
+        read = Path.read_text
+        reads = []
+        def tracked(path, *args, **kwargs):
+            reads.append(path)
+            return read(path, *args, **kwargs)
+        with patch.object(Path, "read_text", tracked):
+            result = eagos.check(self.root)
+        self.assertTrue(all(p not in reads for p in excluded))
+        self.assertNotIn(alias, reads)
+        # The ordinary visible scan plus its own link check: alias adds no read.
+        self.assertEqual(reads.count(visible), 2)
+        links = [f for f in result["findings"] if f["code"] == "link"]
+        self.assertEqual(len(links), 1, links)
+        self.assertIn("02_visible.md", links[0]["message"])
+
+    def test_symlinked_hub_and_activation_are_not_read(self):
+        from unittest.mock import patch
+        self.initialize("P1")
+        outside = self.area / "secret.md"
+        outside.write_text("# Synthetic outside content\n")
+        read = Path.read_text
+        for name, code in (("00_control/02_project_activation.md", "activation_conflict"), ("README.md", "entrypoint")):
+            target = self.root / name
+            target.unlink()
+            target.symlink_to(outside)
+            def guarded(path, *args, **kwargs):
+                self.assertNotEqual(path, target)
+                self.assertNotEqual(path, outside)
+                return read(path, *args, **kwargs)
+            with patch.object(Path, "read_text", guarded):
+                self.assertIn(code, self.codes())
+
+    def test_symlinked_check_root_is_rejected(self):
+        self.initialize()
+        alias = self.area / "alias"
+        alias.symlink_to(self.root, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, "symlink"):
+            eagos.check(alias)
+
+    def test_completion_requires_resolved_list_elements(self):
+        self.initialize()
+        for value in ([""], ["  "], ["unknown"], ["README.md", ""], ["{{EVIDENCE}}"]):
+            with self.subTest(value=value):
+                self.note("02_task.md", dict(id="DEMO-ACT-0999", type="task", status="complete", outputs=value, validation_evidence=value))
+                self.assertIn("completion", self.codes())
+                self.assertIn("output_link", self.codes())
+        self.note("02_task.md", dict(id="DEMO-ACT-0999", type="task", status="complete", outputs=["README.md"], validation_evidence=["Synthetic check result"]))
+        self.assertNotIn("completion", self.codes())
+        self.assertNotIn("output_link", self.codes())
+
+    def test_approval_and_acceptance_reject_empty_evidence(self):
+        self.initialize()
+        for value in ([""], ["  "], ["pending"], ["Synthetic evidence", ""]):
+            self.note("02_decision.md", dict(id="DEMO-DEC-0999", type="decision", status="approved", approver="Synthetic owner", authorization_evidence=value))
+            self.note("03_receipt.md", dict(id="DEMO-HND-0999", type="handover", status="accepted", acceptance_evidence=value))
+            self.assertTrue({"approval", "acceptance"}.issubset(self.codes()))
+        for approver in ("unknown", " ", "not_selected", "{{OWNER}}"):
+            self.note("02_decision.md", dict(id="DEMO-DEC-0999", type="decision", status="approved", approver=approver, authorization_evidence=["Synthetic approval"]))
+            self.assertIn("approval", self.codes())
+
+
 if __name__ == "__main__":
     unittest.main()

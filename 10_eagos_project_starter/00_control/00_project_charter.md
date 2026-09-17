@@ -60,7 +60,7 @@ tags:
 
 - **Framework:** EAGOS 4.0.0
 - **Profile:** {{P0_P1_OR_P2}}
-- **Naming:** `obsidian_portable_v1`
+- **Naming:** `portable_markdown_v1`
 - **Numbering:** `numbered_project_v1`
 
 ## Initial authorization envelope

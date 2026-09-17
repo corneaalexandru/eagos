@@ -5,6 +5,5 @@ __pycache__/
 .env
 .env.*
 !.env.example
-.obsidian/workspace*.json
 80_private/**
 !80_private/00_private_index.md

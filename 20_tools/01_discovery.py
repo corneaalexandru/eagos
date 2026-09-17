@@ -278,14 +278,18 @@ def check(root, today=None):
             support = refs(r, "supporting_sources", "source", True)
             oppose = refs(r, "opposing_sources", "source", True)
             need(r, "claim decision_context rationale")
-            if r.get("evidence_level") != "E0":
-                usable = [s for s in support + oppose if s.get("status") in {"inspected", "partial"} and s.get("kind") != "search_lead"]
-                if r.get("context") != "preparation":
-                    usable = [s for s in usable if s.get("kind") != "synthetic"]
-                if not usable:
-                    add("evidence", "Non-E0 claim needs inspected evidence appropriate to its context", rid)
-                if r.get("status") == "supported" and not any(s in usable for s in support):
-                    add("evidence", "Supported claim has no usable supporting source", rid)
+            usable = [s for s in support + oppose if s.get("status") in {"inspected", "partial"} and s.get("kind") != "search_lead"]
+            if r.get("context") != "preparation":
+                usable = [s for s in usable if s.get("kind") != "synthetic"]
+            if r.get("evidence_level") != "E0" and not usable:
+                add("evidence", "Non-E0 claim needs inspected evidence appropriate to its context", rid)
+            if r.get("status") in {"supported", "refuted", "disputed"}:
+                if r.get("evidence_level") == "E0":
+                    add("evidence", "Supported/refuted/disputed claims cannot declare E0", rid)
+                if r.get("status") in {"supported", "disputed"} and not any(s in usable for s in support):
+                    add("evidence", "Claim status requires usable supporting evidence", rid)
+                if r.get("status") in {"refuted", "disputed"} and not any(s in usable for s in oppose):
+                    add("evidence", "Claim status requires usable opposing evidence", rid)
             review = date(r, "review_on")
             if review and review < today:
                 add("stale", "Claim review date has passed", rid, "warning")
@@ -348,6 +352,19 @@ def check(root, today=None):
                 if r.get("status") == "accepted_with_conditions":
                     need(r, "conditions permitted_work", "acceptance")
 
+    # Approved selections and actionable handovers require screens even when
+    # a candidate's status has not caught up. Superseded decisions alone do not.
+    committed = set()
+    for record in records.values():
+        if record.get("type") == "decision" and record.get("status") == "approved" and record.get("outcome") == "select":
+            values = record.get("candidate_ids", [])
+            if isinstance(values, list):
+                committed.update(v for v in values if isinstance(v, str))
+        if record.get("type") == "handover" and record.get("status") in {"ready_for_review", "transferred", "accepted", "accepted_with_conditions"}:
+            value = record.get("candidate_id")
+            if isinstance(value, str):
+                committed.add(value)
+
     for c in candidates:
         rid, state = c["id"], c.get("status")
         enum(c, "track", TRACKS)
@@ -366,11 +383,11 @@ def check(root, today=None):
                     break
                 visited.add(current["id"])
                 current = records.get(current.get("merged_into"))
-        if state in {"screened", "investigating", "compared", "recommended", "selected", "promoted"}:
+        if rid in committed or state in {"screened", "investigating", "compared", "recommended", "selected", "promoted"}:
             need(c, "beneficiary problem situation consequence alternatives mechanism access_route value_model critical_unknown")
             for constraint in filters:
                 screen = screens.get((rid, constraint))
-                if not screen or screen.get("result") == "fail" or (state in {"selected", "promoted"} and screen.get("result") != "pass"):
+                if not screen or screen.get("result") == "fail" or ((rid in committed or state in {"selected", "promoted"}) and screen.get("result") != "pass"):
                     add("screening", "Required constraint unresolved or failed: " + constraint, rid)
         if state in {"investigating", "compared", "recommended", "selected", "promoted"} and cycles:
             members = cycles[0].get("investigated_candidates")

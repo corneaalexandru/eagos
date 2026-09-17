@@ -50,6 +50,31 @@ def inside(path, root):
         return False
 
 
+def resolved_string(value):
+    return isinstance(value, str) and value.strip().lower() not in {"", "unknown", "tbd", "pending", "not_selected"} and not PLACEHOLDER.search(value)
+
+
+def resolved_list(value):
+    return isinstance(value, list) and bool(value) and all(resolved_string(v) for v in value)
+
+
+def readable(path, root):
+    """Check the unresolved path before reading any checked-project body."""
+    path = Path(os.path.abspath(path))
+    root = Path(os.path.abspath(root))
+    try:
+        parts = path.relative_to(root).parts
+    except ValueError:
+        return False
+    if any(p.is_symlink() for p in (path, *path.parents)):
+        return False
+    if any(part.startswith(".") or part in {"__pycache__", "node_modules"} for part in parts):
+        return False
+    if any(part in PRIVATE for part in parts[:-1]):
+        return path.name.startswith("00_") and path.name.endswith("_index.md")
+    return True
+
+
 def files(root):
     """No symlink traversal, hidden trees, private content, or raw source reads."""
     for directory, dirs, names in os.walk(root, followlinks=False):
@@ -60,7 +85,7 @@ def files(root):
             names = [n for n in names if n.startswith("00_") and n.endswith("_index.md")]
         for name in sorted(names):
             path = current / name
-            if not name.startswith(".") and not path.is_symlink():
+            if readable(path, root):
                 yield path
 
 
@@ -179,6 +204,7 @@ def link_issue(root, source, target, wiki, all_files):
             candidates = [p for p in all_files if p.relative_to(root).as_posix().endswith(part.as_posix())]
     else:
         candidates = [source.parent / location]
+    body_allowed = any(readable(p, root) for p in candidates)
     candidates = list({p.resolve() for p in candidates})
     if not candidates or not any(p.exists() for p in candidates):
         return "Missing link target: " + target
@@ -187,7 +213,7 @@ def link_issue(root, source, target, wiki, all_files):
     path = candidates[0]
     if not inside(path, root):
         return "Link leaves the checked project; verify manually: " + target
-    if anchor and path.suffix == ".md" and not any(p in PRIVATE for p in path.relative_to(root).parts):
+    if anchor and body_allowed and readable(path, root) and path.suffix == ".md":
         if not anchor_exists(path, anchor):
             return "Missing heading or block: " + target
     return None
@@ -199,7 +225,9 @@ def normalized_gate_state(value):
 
 
 def check(root, mode="setup", today=None):
-    root = root.resolve()
+    root = Path(os.path.abspath(root))
+    if any(p.is_symlink() for p in (root, *root.parents)):
+        raise ValueError("Project root must not contain symlink components")
     if not root.is_dir():
         raise ValueError("Project directory does not exist")
     today = today or dt.date.today()
@@ -209,9 +237,9 @@ def check(root, mode="setup", today=None):
     def add(level, path, code, message):
         findings.append({"severity": level, "path": path.relative_to(root).as_posix(), "code": code, "message": message})
 
-    if not (root / "README.md").is_file():
-        add("error", root / "README.md", "entrypoint", "Missing project hub")
-    hub, _, _ = properties((root / "README.md").read_text(encoding="utf-8")) if (root / "README.md").is_file() else ({}, "", [])
+    if not (root / "README.md").is_file() or not readable(root / "README.md", root):
+        add("error", root / "README.md", "entrypoint", "Missing or excluded project hub")
+    hub, _, _ = properties((root / "README.md").read_text(encoding="utf-8")) if (root / "README.md").is_file() and readable(root / "README.md", root) else ({}, "", [])
     profile = hub.get("conformance_profile", "unknown")
     if mode != "template" and profile not in {"P0", "P1", "P2"}:
         add("error", root / "README.md", "profile", "Declare P0, P1, or P2 in the hub")
@@ -220,7 +248,7 @@ def check(root, mode="setup", today=None):
         required += ["00_control/" + n for n in ("00_project_charter.md", "01_project_state.md", "02_project_activation.md", "03_execution_plan.md", "04_evidence_register.md", "05_decision_log.md", "06_risk_register.md", "07_gate_register.md", "08_change_log.md")]
         required += ["50_handover/01_reference_map.md", "50_handover/02_current_handover.md"]
     for name in required:
-        if not (root / name).is_file():
+        if not (root / name).is_file() or not readable(root / name, root):
             add("warning", root / name, "authority_map", "Baseline record absent; a documented consolidation may be valid")
     seen_names, directories = {}, set()
     for path in all_files:
@@ -287,6 +315,9 @@ def check(root, mode="setup", today=None):
             for output in data["outputs"]:
                 if not isinstance(output, str):
                     continue
+                if not resolved_string(output):
+                    add("error", path, "output_link", "Output requires a resolved nonblank locator")
+                    continue
                 locators = list(links(output)) or [(output, False)]
                 for target, wiki in locators:
                     issue = link_issue(root, path, target, wiki, all_files)
@@ -294,16 +325,16 @@ def check(root, mode="setup", today=None):
                         add("error", path, "output_link", issue)
         if kind in {"activity", "task"} and state == "complete":
             for field in ("outputs", "validation_evidence"):
-                if not data.get(field):
+                if not resolved_list(data.get(field)):
                     add("error", path, "completion", "Complete Task requires " + field + " in tool-checkable records")
         if (kind == "gate" and state in {"passed", "conditionally-passed"}) or (kind == "decision" and state == "approved"):
             for field in ("approver", "authorization_evidence"):
-                if not data.get(field) or PLACEHOLDER.search(str(data[field])):
+                if not (resolved_list(data.get(field)) if field == "authorization_evidence" else resolved_string(data.get(field))):
                     add("error", path, "approval", "Approved record requires " + field)
         if kind == "gate" and state == "conditionally-passed":
             if not data.get("conditions") or not data.get("conditions_due"):
                 add("error", path, "conditions", "Conditional gate requires conditions and conditions_due; review owner/consequence manually")
-        if kind == "handover" and state in {"accepted", "accepted_with_conditions"} and not data.get("acceptance_evidence"):
+        if kind == "handover" and state in {"accepted", "accepted_with_conditions"} and not resolved_list(data.get("acceptance_evidence")):
             add("error", path, "acceptance", "Accepted handover requires acceptance_evidence")
         for field in ("review_on", "expires_on", "conditions_due"):
             date_text = str(data.get(field, ""))
@@ -364,7 +395,9 @@ def check(root, mode="setup", today=None):
         add("error", root / "README.md", "activation", "Hub does not declare passed or conditionally-passed activation")
     if profile in {"P1", "P2"} and mode != "template":
         gate_path = root / "00_control/02_project_activation.md"
-        if gate_path.is_file():
+        if gate_path.is_file() and not readable(gate_path, root):
+            add("error", gate_path, "activation_conflict", "Activation record is excluded from body reads")
+        elif gate_path.is_file():
             gate, _, _ = properties(gate_path.read_text(encoding="utf-8"))
             if normalized_gate_state(activation) != normalized_gate_state(gate.get("status")):
                 add("error", gate_path, "activation_conflict", "Hub and activation record states differ")

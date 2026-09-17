@@ -1,6 +1,9 @@
 # Local maintenance material is not part of the generic public distribution.
-90_local/
-40_outputs/
+/90_local/
+/40_outputs/
+/50_handover/
+/90_archive/
 __pycache__/
+.pytest_cache/
 *.py[cod]
 .DS_Store
