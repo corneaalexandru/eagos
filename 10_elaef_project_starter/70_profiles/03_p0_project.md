@@ -4,7 +4,7 @@ title: "{{PROJECT_NAME}}"
 type: project
 status: setup
 framework: ELAEF
-framework_version: 3.6.0
+framework_version: 4.0.0
 conformance_profile: P0
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -38,7 +38,7 @@ For one initiative, this hub owns current definition and state. For several, lin
 - **Next proposed move / open question:** Offer a few useful directions, or resume supplied work
 - **Authority reference:** See Decisions and authorization
 
-Keep current activity in State. Save only material continuity changes here; preserve a dated history entry when direction changes. If records cannot be written, return a copyable checkpoint and disclose that it was not saved.
+Keep current task in State. Save only material continuity changes here; preserve a dated history entry when direction changes. If records cannot be written, return a copyable checkpoint and disclose that it was not saved.
 
 ## Definition
 
@@ -51,7 +51,7 @@ Keep current activity in State. Save only material continuity changes here; pres
 ## State
 
 - **Phase:** Setup
-- **Current activity:** Explore the owner's starting point or define an existing initiative
+- **Current task:** Explore the owner's starting point or define an existing initiative
 - **Next action:** Take the useful conversational move; assess activation before subsequent gated work
 - **Blocker:** Record actual missing input when it blocks work; an incomplete definition does not block authorized brainstorming
 - **Write owner:** {{PROJECT_OWNER}}
@@ -63,13 +63,13 @@ Keep current activity in State. Save only material continuity changes here; pres
 |---|---|---|---|---|
 | {{PROJECT_CODE}}-EVD-0001 | {{SOURCE_AND_FINDING}} | Unassessed input | Unknown until reviewed | Before relying on it |
 
-## Activities
+## Tasks
 
 | ID | Output | Dependency / authority | Status | Completion evidence |
 |---|---|---|---|---|
 | {{PROJECT_CODE}}-ACT-0001 | Defined project and activation assessment | Confirm actual owner setup request and inputs | proposed | Pending owner input and review |
 
-Work on one execution activity at a time. Prepare later activities only as far as current evidence warrants. Record outputs and validation before claiming completion.
+Work on one execution task at a time. Prepare later tasks only as far as current evidence warrants. Record outputs and validation before claiming completion.
 
 ## Decisions and authorization
 
@@ -88,7 +88,7 @@ Work on one execution activity at a time. Prepare later activities only as far a
 
 - **State:** not_assessed
 - **Outcome:** NOT READY
-- **Criteria:** Definition, authority, first activity, evidence needs, recovery, and stop conditions are explicit.
+- **Criteria:** Definition, authority, first task, evidence needs, recovery, and stop conditions are explicit.
 - **Approver and approval evidence:** {{APPROVER_AND_EVIDENCE}}
 - **Conditions / expiry:** {{CONDITIONS_OR_NONE_AND_REVIEW_TRIGGER}}
 
@@ -113,4 +113,4 @@ Setup may prepare this gate. An owner-authorized decision is required to change 
 
 ## Change history
 
-- {{YYYY-MM-DD}} — Initialized under ELAEF 3.6.0. Setup only; no project execution or activation implied.
+- {{YYYY-MM-DD}} — Initialized under ELAEF 4.0.0. Setup only; no project execution or activation implied.

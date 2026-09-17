@@ -23,7 +23,7 @@ Navigate source evidence, semantic derivatives, and the authoritative [Evidence 
 
 ## Creation rule
 
-Create an evidence file only when it supports or contradicts a material claim, assumption, hypothesis, decision, risk, activity, output, or gate. Index originals rather than renaming them when preservation is required.
+Create an evidence file only when it supports or contradicts a material claim, assumption, hypothesis, decision, risk, task, output, or gate. Index originals rather than renaming them when preservation is required.
 
 ## Access
 

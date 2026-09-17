@@ -27,11 +27,11 @@ python3 30_tests/01_test_elaef.py -v
 python3 20_tools/00_elaef.py check 10_elaef_project_starter --mode template --fail-on-warnings
 ```
 
-See the [quick start](../01_quick_start.md) and [upgrade guide](../02_upgrade_guide.md). The private maintenance workspace's canonical specification lives in its separately indexed Obsidian vault; the public distribution carries its portable copy at the repository root.
+See the [quick start](../01_quick_start.md) and [upgrade guide](../02_upgrade_guide.md). The maintained specification is `00_evidence_led_agent_execution_framework.md` at the package root; Obsidian holds a verified mirror. `ELAEF_SPEC_PATH` selects a candidate in the core tests.
 
 ## Discovery extension
 
-ODS 1.2.0 uses a separate optional CLI, `python3 20_tools/01_discovery.py --help`, and the existing core helper module. It leaves execution-project records and activation under the core toolkit. The interactive playbook governs conversation; this tool handles files and structural checks only.
+ELAEF Discovery / ODS 1.3.0 uses a separate optional CLI, `python3 20_tools/01_discovery.py --help`, and the existing ELAEF helper module. It leaves execution-project records and activation under the core toolkit. The interactive playbook governs conversation; this tool handles files and structural checks only.
 
 ```bash
 python3 20_tools/01_discovery.py init ../my_discovery --code IDEAS --name "Opportunity portfolio" --owner "Your name"
@@ -49,12 +49,24 @@ This checker does **not** rank opportunities, verify actual query counts/time, i
 
 See the [discovery guide](../03_opportunity_discovery.md) and [protocol](../11_opportunity_discovery_starter/02_discovery_protocol.md).
 
-Workspace schema 1 remains compatible with ODS 1.0.0, 1.1.0, 1.1.1, and 1.2.0; unsupported extension versions are rejected. Prose seeds, conversation checkpoints and journals are intentionally outside the structural checker. A valid empty portfolio can support a conversation without any research records. Preserve the original installation manifest when upgrading; record the migration separately.
+Supported extension versions are listed in the adoption guide; unsupported versions are rejected. Prose seeds, conversation checkpoints and journals are intentionally outside the structural checker. A valid empty portfolio can support a conversation without any research records. Preserve the original installation manifest when upgrading; record the migration separately.
 
 ## Unified conversational lifecycle
 
-The tools install files and check structure; an AI agent uses [the operating guide](../04_operating_guide.md) to conduct the conversation. The root guide is the maintained distribution source; its portable core/discovery copies must match. P0 now includes `01_operating_guide.md` alongside its hub and agent contract. Discovery includes the same guide as `03_operating_guide.md`.
+The tools install files and check structure; an AI agent uses [the operating guide](../04_operating_guide.md) to conduct the conversation. The root guide is the maintained distribution source; its portable core/discovery copies must match. P0 includes `01_operating_guide.md` alongside its hub and agent contract. Discovery includes the same guide as `03_operating_guide.md`.
 
 Core records may declare `lifecycle_stage` using `discover`, `shape`, `incubate`, `develop`, `launch`, `operate`, or `evolve`. The checker reports unsupported values in live records; the field is optional for older records and never grants activation or authority. It does not interpret or execute natural-language instructions, assess stage appropriateness, or prove launch completion.
 
 Run `python3 30_tests/03_test_unified.py -v` for portable-guide installation, manifest consistency, optional-stage validation, and non-activation regression checks. The [conversation scenarios](../30_tests/04_conversation_scenarios.md) define separate behavioral evaluation; they require actual responses and review before claiming conversational effectiveness.
+
+## ELAEF 4 governance diagnostics
+
+The maintained CLI is `00_elaef.py`. New projects receive `00_elaef_manifest.json`. Existing interfaces and supported schemas are listed once in the [adoption guide](../02_upgrade_guide.md).
+
+The core `check` command also reads optional Task, role, delegation, deployment, recurring-process and attempt records. It checks Task/legacy-activity completion and readiness, exact delegation operation/target subsets, valid date intervals, parent status and issuer, permitted subdelegation, cycles, finite nonnegative allocations, matching units and summed active child allocations. It checks declared deployment evidence/activation references, attempt-to-Task references, duplicate running/succeeded/uncertain run keys and declared stale/disputed evidence dependencies.
+
+Use exact allowlists and decimal budget strings. Every active delegation has `valid_from`, `expires_on`, `budget_limit`, `budget_unit`, `subdelegation`, issuer/delegate, scope, approver and authorization evidence. Root grants rely on actual human authority; this tool cannot authenticate it. Child allocations reserve part of their parent's budget; actual use must still be metered by a runtime/manual control. No wildcard or semantic scope interpretation is supported.
+
+Optional `evidence_refs` contains supporting record IDs. The tool flags missing references and stale/disputed declared support for ready/running/active records. It does not decide evidence truth, adequacy or actual provenance. Prose-only relationships require review.
+
+A passing diagnostic cannot enforce access, track actual resource use, revoke jobs, detect all duplicate external effects, prove test evidence authenticity or activate a runtime. Templates in `60_templates/` remain uninstantiated and are not treated as live records. Run `python3 30_tests/05_test_governance.py -v` for the bounded synthetic regression cases.

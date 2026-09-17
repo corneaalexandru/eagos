@@ -4,7 +4,7 @@ title: "{{INITIATIVE_TITLE}}"
 type: initiative
 status: proposed
 lifecycle_stage: discover
-framework_version: "3.6.0"
+framework_version: "4.0.0"
 owner: "{{PROJECT_OWNER}}"
 write_owner: "{{WRITE_OWNER}}"
 updated: "{{YYYY-MM-DD}}"
@@ -26,7 +26,7 @@ Copy only when an idea needs sustained work. Keep fields proportionate; unresolv
 
 - **Stage rationale:** {{WHY_THIS_STAGE_FITS}}
 - **Disposition:** {{EXPLORING_ACTIVE_PAUSED_COMPLETED_OR_CLOSED}}
-- **Current question or activity:** {{RECORD_POINTER_OR_PROSE}}
+- **Current question or task:** {{RECORD_POINTER_OR_PROSE}}
 - **Useful next output / completion check:** {{OUTPUT_AND_CHECK}}
 - **Next decision or blocker:** {{DECISION_OR_BLOCKER}}
 - **Authority:** {{ACTUAL_REQUEST_OR_APPROVAL_SCOPE_EXPIRY_AND_EXCLUSIONS}}

@@ -26,7 +26,7 @@ tags:
 - **Contingency:** Stop affected work, identify external consequences, restore trusted state, and reassess activation.
 - **Owner:** {{PROJECT_OWNER}}
 - **Status:** Open
-- **Related activities:** {{PROJECT_CODE}}-ACT-0001 to 0004
+- **Related tasks:** {{PROJECT_CODE}}-ACT-0001 to 0004
 - **Escalation trigger:** Any project-specific execution begins before valid activation.
 
 ### {{PROJECT_CODE}}-RSK-0002 — Untrusted content treated as instruction

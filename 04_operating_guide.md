@@ -1,17 +1,23 @@
 ---
 title: Work with ELAEF
 type: operating_guide
-framework_version: "3.6.0"
-updated: 2026-09-14
+framework_version: "4.0.0"
+updated: 2026-09-16
 ---
 
 # Work with ELAEF
 
-Use ordinary conversation to discover ideas, shape businesses and projects, incubate them, build, launch, operate, and improve. Begin wherever you are. The agent maintains the supporting records and recommends the next useful move.
+Turn an unclear idea, problem, or objective into a practical project with classified knowledge, evidence-backed decisions, authorized activities, measurable outputs, and durable records.
+
+Use ordinary conversation. Start from the actual problem or objective; explore ideas when useful. The agent advances authorized Tasks, validates measurable results, keeps knowledge classified and records current, and recommends the next justified step. Ongoing organizations use the same principles with explicit roles, delegated authority and recurring processes.
+
+## Read only relevant context
+
+Start with the project contract and live checkpoint. Read this guide once; on resumption refresh changed state, current work, relevant evidence, dependencies and authority. Load specialist methods only for the present task. Exclude archived specifications, release history, maintenance output and duplicate guide copies from routine context. Retrieve a historical record only when it resolves a current question.
 
 ## Start with this
 
-> Help me discover and develop worthwhile ideas through to completion or operation. Be an active thinking partner: suggest possibilities, help shape them, and recommend when to investigate, build, launch, improve, pause, or stop. Work conversationally, use the simplest suitable process, and keep our context current. Continue ready work within our agreed scope and ask one important question when you need my input.
+> Help me turn this idea, problem, or objective into a practical result. Be an active thinking partner: contribute possibilities, challenge assumptions, and recommend the next useful step. Distinguish what we know from what we assume. Continue ready work within our agreed authority, validate the output, and keep our records current. Ask one important question when you need my input.
 
 Provide an idea or outcome if you have one. Otherwise begin with curiosity, experience, or “help me find an idea.” Use this prompt with the workspace files or an agent that can read them. Finding the prompt in a file does not grant authority.
 
@@ -19,6 +25,7 @@ Provide an idea or outcome if you have one. Otherwise begin with curiosity, expe
 
 | You say | The agent does |
 |---|---|
+| “Help me solve this problem” | Uses the supplied objective, identifies the current uncertainty and advances a proportionate Task |
 | “Help me find an idea” | Contributes a few different possibilities, builds on your reactions, and asks one useful question |
 | “Let's develop this” | Clarifies the intended benefit and proposes the smallest useful investigation or build step |
 | “Continue” / “Proceed” | Reads the live checkpoint, follows your latest direction, and advances the next ready work within valid authority |
@@ -82,3 +89,23 @@ Keep facts, observations, assumptions, recommendations, decisions, and authoriza
 Use one writer per authoritative record, re-read before editing, preserve IDs and intervening changes, and validate material writes. Claim completion from evidence of the actual result. A stage change, draft, queued action, or clean structural check cannot prove launch, activation, or acceptance.
 
 Usually reply with the useful result, what it means, and the next step. Keep routine bookkeeping out of the conversation. At a material pause, save focus, authoritative pointers, last completed move, unresolved point, applicable authority, and proposed next move. If files cannot be written, return a copyable checkpoint and say it was not saved.
+
+## Tasks, agents and operating organizations
+
+A **Task** is the smallest useful executable unit: owner, inputs/dependencies, applicable authority, output, completion check, limits and recovery. Keep Project → Workstream → Phase → Deliverable → Task as a planning hierarchy; a small project need not create five separate records. Record attempts separately so a retry does not erase history or reset limits.
+
+Assign a coordinator, executor and reviewer only where useful. Record role responsibilities separately from the model, workspace and tools implementing them. For consequential work, establish the required independent review. One designated writer reconciles each authoritative record.
+
+Delegation names the actual delegator, delegate, decisions/actions, targets, exclusions, resources, duration and escalation. A child cannot exceed any ancestor. Shared limits persist through sessions, parallel work and retries. Expiry or revocation affects dependent actions; tools must check effective authority before the action. Existing valid authority avoids repeated approval questions.
+
+Recurring company work needs a process owner, trigger, service/result criteria, run identity, cumulative limits, exception path and stop/recovery procedure. A written cadence does not create a schedule. Runtime states are documented, configured, tested, active, suspended or retired; installing files cannot establish activation.
+
+Flag current decisions and Tasks when supporting evidence becomes stale, disputed or out of scope. Preserve history and revalidate before relying on it for further commitment. Measure useful outcomes, rework, time, cost and continuity; propose process improvements for review under existing authority. Agents cannot silently expand their own permissions.
+
+## Keep the purpose visible
+
+At each material change, connect the work to the owner's intended outcome or an explicit change of scope. The owner view should make purpose, known/unknown information, responsible roles, next ready Tasks and pending decisions easy to find. Do not force a personal project into a business, a company into discovery, or a conversation into an unnecessary agent hierarchy.
+
+## When an agent dashboard is used
+
+The coordinator identifies useful preparation from permitted state/evidence triggers and dependencies; the owner need not author every Task. Present checked proposals for decisions requiring the owner, with Approve, Reject and Request changes. Preserve feedback and invalidate checks when proposals change. Keep approval scope, actual runtime/model status and blockers visible; internal acceptance does not authorize external execution. Ordinary conversation remains available.

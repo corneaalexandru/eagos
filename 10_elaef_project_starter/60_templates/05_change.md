@@ -36,7 +36,7 @@ tags:
 ## Impact
 
 - **Scope:** {{IMPACT}}
-- **Activities:** {{IDS}}
+- **Tasks:** {{IDS}}
 - **Dependencies:** {{IMPACT}}
 - **Risks:** {{IDS_OR_NONE}}
 - **Gates:** {{IDS_OR_NONE}}

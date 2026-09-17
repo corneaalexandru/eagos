@@ -24,7 +24,7 @@ tags:
 - **Alternatives:** READY / READY WITH CONDITIONS / NOT READY
 - **Risks accepted:** None until explicitly recorded
 - **Reversibility:** R2
-- **Affected activities:** {{PROJECT_CODE}}-ACT-0004 and project-specific execution
+- **Affected tasks:** {{PROJECT_CODE}}-ACT-0004 and project-specific execution
 
 ## Approved decisions
 

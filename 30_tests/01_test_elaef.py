@@ -248,15 +248,8 @@ class ToolkitTests(unittest.TestCase):
             elaef.drift(self.root)
 
     def test_current_framework_version_and_sections(self):
-        selected = os.environ.get("ELAEF_SPEC_PATH")
+        selected = os.environ.get("ELAEF_SPEC_PATH") or os.environ.get("EAGOS_SPEC_PATH")
         master = Path(selected) if selected else PACKAGE / "00_evidence_led_agent_execution_framework.md"
-        if not selected and not master.exists():
-            references = PACKAGE / "50_handover/01_reference_map.md"
-            if references.exists():
-                row = next((line for line in references.read_text().splitlines() if "`ELAEF-REF-MASTER`" in line), "")
-                paths = re.findall(r"`([^`]+\.md)`", row)
-                if paths:
-                    master = Path(paths[0])
         self.assertTrue(master.is_file(), "Provide the current specification at package root or via ELAEF_SPEC_PATH; the maintenance reference map is also supported")
         content = master.read_text()
         data, _, issues = elaef.properties(content)
@@ -264,7 +257,7 @@ class ToolkitTests(unittest.TestCase):
         self.assertEqual(data.get("version"), elaef.VERSION)
         self.assertEqual(data.get("spec_version"), elaef.VERSION)
         numbers = [int(n) for n in re.findall(r"^## (\d+)\. ", content, re.M)]
-        self.assertEqual(numbers, list(range(1, 99)))
+        self.assertEqual(numbers, list(range(1, 25)))
 
 
 if __name__ == "__main__":

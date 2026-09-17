@@ -4,7 +4,7 @@ title: Handover Hub
 type: handover_hub
 status: active
 framework: ELAEF
-framework_version: 3.6.0
+framework_version: 4.0.0
 module_version: 1.0.0
 owner: "{{HANDOVER_OWNER}}"
 updated: "{{YYYY-MM-DD}}"

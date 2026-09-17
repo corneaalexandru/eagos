@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Optional, offline ELAEF helpers. Python 3.9+, standard library only.
+"""Optional, offline ELAEF helpers (maintained module path). Python 3.9+, standard library only.
 
 Only `init --apply` writes files, exclusively into a new directory.
 Checks are structural diagnostics, never activation or approval decisions.
@@ -8,6 +8,7 @@ Checks are structural diagnostics, never activation or approval decisions.
 import argparse
 import datetime as dt
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -15,21 +16,26 @@ import re
 import sys
 from urllib.parse import unquote, urlsplit
 
-VERSION = "3.6.0"
+VERSION = "4.0.0"
 LIFECYCLE_STAGES = {"discover", "shape", "incubate", "develop", "launch", "operate", "evolve"}
 PACKAGE = Path(__file__).resolve().parents[1]
 MANIFEST = "00_elaef_manifest.json"
+LEGACY_MANIFEST = "00_eagos_manifest.json"
 PLACEHOLDER = re.compile(r"\{\{[^{}\n]+\}\}")
 RESERVED = {"README.md", "AGENTS.md", "CHANGELOG.md"}
 REUSABLE = {"60_templates", "70_profiles"}
 PRIVATE = {"80_private", "10_raw"}
-RECORD_ID = re.compile(r"[A-Z][A-Z0-9_-]*-(?:ACT|EVD|DEC|GAT|RSK|HND|CLM|ASM|HYP|OPN|OUT|CHG|CTL|PRJ)-[A-Za-z0-9_-]+")
+RECORD_ID = re.compile(r"[A-Z][A-Z0-9_-]*-(?:ACT|EVD|DEC|GAT|RSK|HND|CLM|ASM|HYP|OPN|OUT|CHG|CTL|PRJ|ROLE|DLG|RUN|PRC|ATT)-[A-Za-z0-9_-]+")
 STATES = {
-    "activity": {"proposed", "not-started", "ready", "in-progress", "complete", "awaiting-evidence", "awaiting-user", "awaiting-decision", "blocked", "cancelled"},
+    "task": {"proposed", "not-started", "ready", "in-progress", "complete", "awaiting-evidence", "awaiting-user", "awaiting-decision", "blocked", "cancelled"},
     "gate": {"not_assessed", "not-assessed", "assessment-ready", "passed", "conditionally-passed", "failed", "deferred", "expired"},
     "decision": {"proposed", "pending", "approved", "rejected", "deferred", "superseded"},
     "handover": {"draft", "ready_for_review", "transferred", "accepted", "accepted_with_conditions", "rejected", "superseded", "expired"},
 }
+STATES["activity"] = STATES["task"]  # Legacy record type remains valid.
+GOVERNANCE_SPEC = importlib.util.spec_from_file_location("elaef_governance", Path(__file__).with_name("03_governance.py"))
+governance = importlib.util.module_from_spec(GOVERNANCE_SPEC)
+GOVERNANCE_SPEC.loader.exec_module(governance)
 
 
 def digest(data):
@@ -246,6 +252,13 @@ def check(root, mode="setup", today=None):
                 add("error" if mode == "active" else "warning", path, "placeholder", ", ".join(placeholders))
         if reusable:
             continue
+        malformed = False
+        for field in ("id", "type", "status"):
+            if field in data and not isinstance(data[field], str):
+                add("error", path, "record_scalar", field + " must be a string")
+                malformed = True
+        if malformed:
+            continue
         record_id = data.get("id")
         if record_id:
             if record_id in records:
@@ -265,7 +278,7 @@ def check(root, mode="setup", today=None):
             stage = data["lifecycle_stage"]
             if not isinstance(stage, str) or stage not in LIFECYCLE_STAGES:
                 add("error", path, "lifecycle_stage", "Use a supported descriptive lifecycle stage; stage never grants authority")
-        if kind in STATES and state not in STATES[kind]:
+        if isinstance(kind, str) and kind in STATES and (not isinstance(state, str) or state not in STATES[kind]):
             add("error", path, "state", "Unknown " + kind + " state: " + str(state))
         for field in ("predecessors", "successors", "outputs", "validation_evidence", "authorization_evidence", "acceptance_evidence", "conditions"):
             if field in data and (not isinstance(data[field], list) or any(not isinstance(v, str) for v in data[field])):
@@ -279,10 +292,10 @@ def check(root, mode="setup", today=None):
                     issue = link_issue(root, path, target, wiki, all_files)
                     if issue:
                         add("error", path, "output_link", issue)
-        if kind == "activity" and state == "complete":
+        if kind in {"activity", "task"} and state == "complete":
             for field in ("outputs", "validation_evidence"):
                 if not data.get(field):
-                    add("error", path, "completion", "Complete activity requires " + field + " in tool-checkable records")
+                    add("error", path, "completion", "Complete Task requires " + field + " in tool-checkable records")
         if (kind == "gate" and state in {"passed", "conditionally-passed"}) or (kind == "decision" and state == "approved"):
             for field in ("approver", "authorization_evidence"):
                 if not data.get(field) or PLACEHOLDER.search(str(data[field])):
@@ -323,11 +336,11 @@ def check(root, mode="setup", today=None):
                     previous = records[reference][1].get("status")
                     if previous != "complete":
                         add("warning" if previous is None else "error", path, "readiness", "Predecessor is not structurally verified complete: " + reference)
-        if data.get("type") == "activity" and data.get("status") in {"ready", "in-progress"} and data.get("gate"):
+        if data.get("type") in {"activity", "task"} and data.get("status") in {"ready", "in-progress"} and data.get("gate"):
             gate = data["gate"]
             gate_state = records.get(gate, (None, {}))[1].get("status") if isinstance(gate, str) else None
             if gate_state not in {"passed", "conditionally-passed"}:
-                add("error", path, "gate_readiness", "Activity's required gate is not passed: " + str(gate))
+                add("error", path, "gate_readiness", "Task's required gate is not passed: " + str(gate))
     visiting, visited = set(), set()
 
     def visit(record_id):
@@ -344,6 +357,8 @@ def check(root, mode="setup", today=None):
 
     for record_id in graph:
         visit(record_id)
+    if mode != "template":
+        governance.validate_records(records, add, today, PLACEHOLDER)
     activation = hub.get("activation_status", "not_assessed")
     if mode == "active" and activation not in {"passed", "conditionally-passed"}:
         add("error", root / "README.md", "activation", "Hub does not declare passed or conditionally-passed activation")
@@ -353,7 +368,7 @@ def check(root, mode="setup", today=None):
             gate, _, _ = properties(gate_path.read_text(encoding="utf-8"))
             if normalized_gate_state(activation) != normalized_gate_state(gate.get("status")):
                 add("error", gate_path, "activation_conflict", "Hub and activation record states differ")
-    return {"tool_version": VERSION, "mode": mode, "profile": profile, "checked_files": len(all_files), "errors": sum(f["severity"] == "error" for f in findings), "warnings": sum(f["severity"] == "warning" for f in findings), "findings": findings, "limits": "Structural diagnostics only. No gate approval, source-truth validation, access audit, full YAML parsing, prose/table semantics, external-link check, or receiver acceptance. Raw/private content is excluded."}
+    return {"tool_version": VERSION, "mode": mode, "profile": profile, "checked_files": len(all_files), "errors": sum(f["severity"] == "error" for f in findings), "warnings": sum(f["severity"] == "warning" for f in findings), "findings": findings, "limits": "Structural diagnostics only. No runtime enforcement, budget metering, approval authentication, gate approval, source-truth validation, access audit, full YAML parsing, prose/table semantics, external-link check, or receiver acceptance. Raw/private content is excluded."}
 
 
 def validate_text(value, label):
@@ -411,7 +426,7 @@ def init_project(destination, code, name, owner, profile, apply=False, package=P
         content[relative] = render(original.decode("utf-8"), values).encode("utf-8")
         source_hashes[relative] = digest(original)
         source_paths[relative] = source.relative_to(package).as_posix()
-    manifest = {"schema_version": 1, "framework_version": VERSION, "source_paths": source_paths, "source_hashes": source_hashes, "baseline_hashes": {p: digest(data) for p, data in content.items()}}
+    manifest = {"schema_version": 1, "framework": "ELAEF", "framework_version": VERSION, "source_paths": source_paths, "source_hashes": source_hashes, "baseline_hashes": {p: digest(data) for p, data in content.items()}}
     content[MANIFEST] = (json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n").encode("utf-8")
     if apply:
         destination.mkdir(exist_ok=False)
@@ -435,6 +450,8 @@ def safe_relative(value):
 def drift(root, against=None):
     root = root.resolve()
     manifest_path = root / MANIFEST
+    if not manifest_path.exists() and not manifest_path.is_symlink():
+        manifest_path = root / LEGACY_MANIFEST
     if manifest_path.is_symlink():
         raise ValueError("Manifest must not be a symlink")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -455,15 +472,17 @@ def drift(root, against=None):
             source = manifest.get("source_paths", {}).get(relative)
             safe_relative(source)
             candidate = against / source
+            if not candidate.exists() and source.startswith("10_eagos_project_starter/"):
+                candidate = against / source.replace("10_eagos_project_starter/", "10_elaef_project_starter/", 1)
             if not inside(candidate, against) or candidate.is_symlink():
                 raise ValueError("Candidate source leaves release boundary")
             item["upstream"] = "removed" if not candidate.is_file() else "unchanged" if digest(candidate.read_bytes()) == manifest.get("source_hashes", {}).get(relative) else "changed"
             item["review"] = "manual_merge" if state == "locally_modified" and item["upstream"] != "unchanged" else "review" if item["upstream"] != "unchanged" else "none"
         changes.append(item)
-    additions = sorted(p.relative_to(root).as_posix() for p in files(root) if p.relative_to(root).as_posix() not in baseline and p.name != MANIFEST)
+    additions = sorted(p.relative_to(root).as_posix() for p in files(root) if p.relative_to(root).as_posix() not in baseline and p.name not in {MANIFEST, LEGACY_MANIFEST})
     upstream_additions = []
     if against:
-        known = set(manifest.get("source_paths", {}).values())
+        known = {value.replace("10_eagos_project_starter/", "10_elaef_project_starter/", 1) for value in manifest.get("source_paths", {}).values()}
         upstream_additions = sorted(p.relative_to(against).as_posix() for p in files(against / "10_elaef_project_starter") if p.relative_to(against).as_posix() not in known)
     return {"framework_version": manifest.get("framework_version"), "files": changes, "new_local_files": additions, "new_upstream_candidates": upstream_additions, "note": "Read-only comparison. Local edits are expected; review changes before migration. Nothing is merged, overwritten, approved, or activated."}
 

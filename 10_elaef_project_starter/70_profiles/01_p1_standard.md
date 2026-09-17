@@ -7,7 +7,7 @@ Use for collaborative or commercially relevant work.
 - Project hub and `AGENTS.md`
 - Explicit authoritative control records
 - Stable IDs for material records
-- Activity and dependency network
+- Task and dependency network
 - Evidence, decision, risk, gate, and material-change controls
 - Project Activation Gate
 - Complete `50_handover/` reference and continuity module

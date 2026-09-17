@@ -1,18 +1,16 @@
 # Start working with ELAEF
 
-Use one instruction for ideas, incubation, development, launch, and ongoing work:
+Turn an unclear idea, problem, or objective into a practical project with classified knowledge, evidence-backed decisions, authorized activities, measurable outputs, and durable records.
 
-> Help me discover and develop worthwhile ideas through to completion or operation. Be an active thinking partner: offer possibilities, build on my reactions, challenge assumptions, and suggest the next useful step. Keep the process simple and our records current. Continue ready work within our agreed scope; ask one important question when you need my input.
+> Help me turn this idea, problem, or objective into a practical result. Contribute useful thinking, classify what we know and assume, and suggest the next useful step. Continue ready work within our agreed authority, validate results, and keep the records current. Ask one important question when my input is needed.
 
-Add your idea, goal, or current situation if you have one. “Help me find an idea” is enough to begin a conversation. Afterward, use ordinary instructions such as “continue,” “review,” “change direction,” or “pause.”
-
-The [operating guide](04_operating_guide.md) explains the shared lifecycle and what the agent should do.
+Bring the actual situation. “Help me find an idea” is also a valid starting point; an existing problem needs no discovery exercise. Continue with ordinary instructions such as “review,” “change direction,” or “pause.” The [operating guide](04_operating_guide.md) explains the interaction.
 
 ## What the agent handles
 
 1. Read existing context and the live checkpoint; recognize the useful lifecycle stage.
 2. Contribute useful thinking or work, propose the next worthwhile move, and resolve one important uncertainty at a time.
-3. Use a small idea board initially. Add evidence, activities, decisions, and initiative records as sustained work or consequence requires.
+3. Start with the supplied objective or a small idea seed. Add Tasks, evidence, decisions and initiative records as sustained work or consequence requires.
 4. Preserve alternatives and corrections, carry valid authority forward, and update affected records.
 5. Save enough context to resume. Without write access, return a copyable checkpoint and disclose that it was not saved.
 
@@ -25,7 +23,7 @@ Provide the files to an AI agent, copy the starter, or ask the agent to set up a
 For the agent or maintainer, from this package root:
 
 ```bash
-python3 20_tools/00_elaef.py init ../my_workspace --code IDEAS --name "Ideas and initiatives" --owner "Your name" --profile P0
+python3 20_tools/00_elaef.py init ../my_workspace --code DEMO --name "My project" --owner "Your name" --profile P0
 ```
 
 This previews the files. Add `--apply` to create them, then run `check ../my_workspace --mode setup`. The parent must exist; existing destinations and symlink components are refused. Facts and approvals remain unresolved. Inspect an interrupted creation before recovery.
@@ -41,3 +39,7 @@ Inventory existing records first. Preserve IDs, evidence, owner instructions, ap
 For detailed opportunity research, use [ODS](03_opportunity_discovery.md) when it helps the current question. You can still brainstorm and shape initiatives directly in a core workspace.
 
 Use the [upgrade guide](02_upgrade_guide.md) before adopting changes and the [tool guide](20_tools/00_tools_index.md) for structural checks. A clean check does not establish evidence truth, readiness, authorization, or acceptance.
+
+## Add organization or runtime controls when needed
+
+Use [agent organization](05_agent_organization.md) for responsibilities and delegation, [company operations](06_company_operations.md) for recurring work, and [runtime integration](07_runtime_integration.md) before configuring software. Templates for roles, delegations, deployments, recurring processes and task attempts are in the core starter. They create no team, schedule, account connection or permission.

@@ -2,8 +2,8 @@
 title: "{{PROJECT_NAME}}"
 type: discovery_portfolio
 extension: ELAEF-ODS
-extension_version: "1.2.0"
-framework_version: "3.6.0"
+extension_version: "1.3.0"
+framework_version: "4.0.0"
 owner: "{{PROJECT_OWNER}}"
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1

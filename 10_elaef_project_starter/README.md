@@ -4,7 +4,7 @@ title: "{{PROJECT_NAME}}"
 type: project
 status: setup
 framework: ELAEF
-framework_version: 3.6.0
+framework_version: 4.0.0
 conformance_profile: "{{P0_P1_OR_P2}}"
 naming_profile: obsidian_portable_v1
 numbering_profile: numbered_project_v1
@@ -28,7 +28,7 @@ Use [the operating guide](01_operating_guide.md) and ordinary instructions such 
 
 - **Phase:** Setup
 - **Current focus:** Define the project from supplied information
-- **Current activity:** Confirm readiness of `{{PROJECT_CODE}}-ACT-0001` in the [execution plan](00_control/03_execution_plan.md)
+- **Current task:** Confirm readiness of `{{PROJECT_CODE}}-ACT-0001` in the [execution plan](00_control/03_execution_plan.md)
 - **Blocker:** {{MATERIAL_MISSING_INPUT_OR_NONE}}
 - **Activation:** `not_assessed`; applies to subsequent execution
 - **Major risk and next action:** See [state](00_control/01_project_state.md)
@@ -45,7 +45,7 @@ Spending, outreach, publication, deployment, contracting, registration, hiring, 
 |---|---|
 | Purpose, objective, beneficiary, success criteria, scope, and constraints | [Charter](00_control/00_project_charter.md) |
 | State, authority, risks/blockers, and next action | [State](00_control/01_project_state.md) |
-| Activities and dependencies | [Execution plan](00_control/03_execution_plan.md) |
+| Tasks and dependencies | [Execution plan](00_control/03_execution_plan.md) |
 | Evidence | [Evidence register](00_control/04_evidence_register.md) |
 | Decisions | [Decision log](00_control/05_decision_log.md) |
 | Risks | [Risk register](00_control/06_risk_register.md) |
@@ -58,3 +58,11 @@ Spending, outreach, publication, deployment, contracting, registration, hiring, 
 ## Next justified action
 
 Use the actual owner request to fill the [charter](00_control/00_project_charter.md). Preserve unknowns; do not infer facts, decisions, or authority from template text.
+
+## Organization and operating controls
+
+Add only the records needed for actual work: [agent roles](60_templates/09_agent_role.md), [delegation](60_templates/10_delegation.md), [runtime deployment](60_templates/11_runtime_deployment.md), [recurring process](60_templates/12_recurring_process.md) and [Task attempts](60_templates/13_task_attempt.md). Their templates are proposals, not configured agents or granted authority.
+
+Keep a responsibility chart and, when software is deployed, a separate role-to-instance map. The owner view should show purpose, knowledge/uncertainty, responsible roles, ready/blocked Tasks and pending decisions. The portable operating guide contains the shared rules; load detailed ELAEF organization/runtime guidance from the distribution when needed.
+
+For an optional owner interface, define its sources, approval controls, runtime status and acceptance evidence in the [dashboard contract](60_templates/14_dashboard_contract.md).

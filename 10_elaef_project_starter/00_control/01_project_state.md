@@ -22,8 +22,8 @@ tags:
 - **Project status:** Setup
 - **Current phase:** Phase 0 — Project setup
 - **Current workstream:** Initialization
-- **Current activity:** {{CURRENT_ACTIVITY_ID_OR_TBD}}
-- **Next ready activity:** {{NEXT_ACTIVITY_ID_OR_TBD}}
+- **Current task:** {{CURRENT_ACTIVITY_ID_OR_TBD}}
+- **Next ready task:** {{NEXT_ACTIVITY_ID_OR_TBD}}
 - **Critical blocker:** {{MATERIAL_MISSING_INPUT_OR_NONE}}; activation controls subsequent execution, not authorized setup
 - **Active gate:** {{PROJECT_CODE}}-GAT-ACTIVATION
 - **Major open item:** {{OPEN_ITEM}}
@@ -60,10 +60,10 @@ Complete [project activation](02_project_activation.md) prerequisites.
 - **Focus / authoritative pointer:** Use the current owner request
 - **Last completed conversational move:** None recorded
 - **Material owner corrections / alternatives:** None recorded
-- **Next proposed move / unresolved point:** Contribute useful possibilities or resume the next ready activity
+- **Next proposed move / unresolved point:** Contribute useful possibilities or resume the next ready task
 - **Authority:** See Authorization state
 
-State above owns current activity and readiness. The lifecycle stage is descriptive and never passes a gate. Save a dated material correction in the change log rather than rewriting history.
+State above owns current task and readiness. The lifecycle stage is descriptive and never passes a gate. Save a dated material correction in the change log rather than rewriting history.
 
 ## Idea and initiative pointers
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Optional ODS 1.2 helpers: preview/create a portfolio or check recorded integrity.
+"""Optional ELAEF Discovery / ODS 1.3 helpers: preview/create a portfolio or check recorded integrity.
 
 Python 3.9+, standard library only. No network, research, ranking, or approvals.
 Only init --apply writes, exclusively into a new destination.
@@ -18,8 +18,9 @@ PACKAGE = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("elaef_core", PACKAGE / "20_tools/00_elaef.py")
 core = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(core)
-VERSION = "1.2.0"
-SUPPORTED_WORKSPACE_VERSIONS = {"1.0.0", "1.1.0", "1.1.1", "1.2.0"}
+VERSION = "1.3.0"
+EXTENSION = "ELAEF-ODS"
+SUPPORTED_WORKSPACE_VERSIONS = {"1.0.0", "1.1.0", "1.1.1", "1.2.0", "1.3.0"}
 WORKSPACE = "00_opportunity_workspace.md"
 MANIFEST = "00_discovery_manifest.json"
 TRACKS = {"commercial", "strategic_creative", "internal_tool"}
@@ -102,7 +103,7 @@ def init_portfolio(destination, code, name, owner, apply=False, package=PACKAGE)
         original = source.read_bytes()
         contents[relative] = core.render(original.decode("utf-8"), values).encode("utf-8")
         hashes[relative] = core.digest(original)
-    manifest = {"schema_version": 1, "extension_version": VERSION, "framework_version": core.VERSION,
+    manifest = {"schema_version": 1, "extension": EXTENSION, "extension_version": VERSION, "framework_version": core.VERSION,
                 "source_hashes": hashes, "baseline_hashes": {p: core.digest(v) for p, v in contents.items()},
                 "source_paths": {p: "11_opportunity_discovery_starter/" + p for p in contents}}
     contents[MANIFEST] = (json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode("utf-8")
@@ -185,7 +186,10 @@ def check(root, today=None):
         add("frontmatter", issue)
     for line, code, message in parse_issues:
         add(code, message, line=line)
-    if header.get("schema_version") != "1" or header.get("extension_version") not in SUPPORTED_WORKSPACE_VERSIONS:
+    version, extension = header.get("extension_version"), header.get("extension")
+    valid_version = isinstance(version, str) and version in SUPPORTED_WORKSPACE_VERSIONS
+    valid_extension = extension is None or (isinstance(extension, str) and extension in {"", EXTENSION, "EAGOS-ODS"})
+    if header.get("schema_version") != "1" or not valid_version or not valid_extension:
         add("schema", "Expected workspace schema 1 and ODS " + " or ".join(sorted(SUPPORTED_WORKSPACE_VERSIONS)))
     prefix = header.get("portfolio_code", "")
     if not isinstance(prefix, str) or not re.fullmatch(r"[A-Z][A-Z0-9-]{1,19}", prefix):

@@ -34,8 +34,8 @@ Preparing this assessment and the supporting setup records is allowed by an appl
 - [ ] Framework, conformance, naming, and numbering profiles declared
 - [ ] Authoritative records and write owners identified
 - [ ] Facts, assumptions, hypotheses, evidence, decisions, risks, and open items distinguishable
-- [ ] Immediate work decomposed to Level 5
-- [ ] Current and next activities, dependencies, and blocker known
+- [ ] Immediate work decomposed to executable Tasks
+- [ ] Current and next tasks, dependencies, and blocker known
 - [ ] Gates and authorization boundaries explicit
 - [ ] Read, write, external-action, and approval authority defined
 - [ ] Sensitive-data and access requirements defined where relevant
@@ -43,7 +43,7 @@ Preparing this assessment and the supporting setup records is allowed by an appl
 - [ ] Version history, backup, or recovery method available
 - [ ] Project root and authoritative records mapped in [reference map](../50_handover/01_reference_map.md)
 - [ ] Handover ownership, cutoff, and acceptance rules active
-- [ ] First activity has readiness and completion criteria
+- [ ] First task has readiness and completion criteria
 - [ ] Final-state evidence can be produced for authorized external actions
 - [ ] Any unresolved fields affecting the intended envelope are resolved or recorded as explicit conditions
 
@@ -73,7 +73,7 @@ Preparing this assessment and the supporting setup records is allowed by an appl
 - **Assessment date:** {{YYYY-MM-DD}}
 - **Evidence of approval:** {{EVIDENCE_OR_NONE}}
 - **Review or expiry trigger:** {{TRIGGER}}
-- **First authorized activity:** {{ACTIVITY_ID_OR_NONE}}
+- **First authorized task:** {{ACTIVITY_ID_OR_NONE}}
 
 Allowed outcomes:
 

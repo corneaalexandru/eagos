@@ -11,7 +11,7 @@ prepared_at: "{{YYYY-MM-DDTHHMMSSZ}}"
 state_cutoff: "{{YYYY-MM-DDTHHMMSSZ}}"
 expires_on:
 acceptance_evidence: []
-framework_version: 3.6.0
+framework_version: 4.0.0
 tags:
   - elaef/handover
 ---
@@ -37,8 +37,8 @@ tags:
 ## Current state
 
 - **Phase:** {{PHASE}}
-- **Current activity:** {{ID_AND_LINK}}
-- **Next ready activity:** {{ID_AND_LINK}}
+- **Current task:** {{ID_AND_LINK}}
+- **Next ready task:** {{ID_AND_LINK}}
 - **Blocker:** {{BLOCKER}}
 - **Gate:** {{GATE}}
 - **Major risk:** {{RISK}}
@@ -51,13 +51,13 @@ tags:
 
 ## Completed
 
-| Activity / change | Output | Evidence | Validation |
+| Task / change | Output | Evidence | Validation |
 |---|---|---|---|
 | {{ITEM}} | {{OUTPUT}} | {{EVIDENCE}} | {{RESULT}} |
 
 ## In progress
 
-| Activity | Exact state | Remaining criteria | Work product | Owner |
+| Task | Exact state | Remaining criteria | Work product | Owner |
 |---|---|---|---|---|
 | {{ITEM}} | {{STATE}} | {{CRITERIA}} | {{LOCATION}} | {{OWNER}} |
 
@@ -112,7 +112,7 @@ tags:
 - **References verified:** {{REFERENCES}}
 - **Differences discovered:** {{DIFFERENCES}}
 - **Conditions / exclusions:** {{CONDITIONS}}
-- **First activity assumed:** {{ACTIVITY}}
+- **First task assumed:** {{ACTIVITY}}
 - **Evidence:** {{EVIDENCE}}
 
 ## Expiry or revalidation

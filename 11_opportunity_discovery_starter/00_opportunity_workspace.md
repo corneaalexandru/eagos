@@ -1,9 +1,10 @@
 ---
 title: "{{PROJECT_NAME}} — discovery workspace"
 type: discovery_workspace
+extension: ELAEF-ODS
 schema_version: "1"
-extension_version: "1.2.0"
-framework_version: "3.6.0"
+extension_version: "1.3.0"
+framework_version: "4.0.0"
 portfolio_code: "{{PROJECT_CODE}}"
 owner: "{{PROJECT_OWNER}}"
 write_owner: "{{PROJECT_OWNER}}"

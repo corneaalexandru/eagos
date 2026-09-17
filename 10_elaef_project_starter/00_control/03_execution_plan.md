@@ -20,9 +20,9 @@ tags:
 - **L3 Phase:** Phase 0 — Setup
 - **L4 Deliverable:** Activation-ready project system
 
-## Immediate Level 5 activities
+## Immediate Tasks
 
-These proposed **setup activities** may proceed under an applicable request to initialize the project. Confirm the actual scope and inputs before marking the first activity ready. The activation gate is their deliverable and successor boundary, not a predecessor. They may prepare records and assess readiness while project-specific execution remains gated.
+These proposed **setup tasks** may proceed under an applicable request to initialize the project. Confirm the actual scope and inputs before marking the first task ready. The activation gate is their deliverable and successor boundary, not a predecessor. They may prepare records and assess readiness while project-specific execution remains gated.
 
 ### {{PROJECT_CODE}}-ACT-0001 — Instantiate project charter
 
@@ -52,7 +52,7 @@ These proposed **setup activities** may proceed under an applicable request to i
 - **Status:** `not-started`
 - **Gate relationship:** Prepares {{PROJECT_CODE}}-GAT-ACTIVATION; authorized setup may proceed before passage
 - **Reversibility:** R1
-- **Completion criteria:** Current activity, next activity, blocker, gate, major risk, authority, and revision are explicit.
+- **Completion criteria:** Current task, next task, blocker, gate, major risk, authority, and revision are explicit.
 
 ### {{PROJECT_CODE}}-ACT-0003 — Establish project reference map
 
@@ -72,29 +72,29 @@ These proposed **setup activities** may proceed under an applicable request to i
 - **Purpose:** Determine whether execution can safely begin.
 - **Expected output:** Evidence-backed outcome in [project activation](02_project_activation.md).
 - **Predecessors:** `{{PROJECT_CODE}}-ACT-0003`.
-- **Successors:** First project-specific execution activity.
+- **Successors:** First project-specific execution task.
 - **Evidence required:** All activation criteria or explicit conditions.
 - **Owner:** {{APPROVAL_OWNER}}
 - **Status:** `not-started`
 - **Gate relationship:** Prepares {{PROJECT_CODE}}-GAT-ACTIVATION; authorized setup may proceed before passage
 - **Reversibility:** R1
-- **Completion criteria:** Outcome, approver, evidence, envelope, prohibited actions, and first authorized activity recorded.
+- **Completion criteria:** Outcome, approver, evidence, envelope, prohibited actions, and first authorized task recorded.
 
-## Blocked activities
+## Blocked tasks
 
 - Project-specific execution is blocked until activation is `READY` or `READY WITH CONDITIONS`.
 
 ## Future work
 
-Define only to Levels 2–4 until activation and early evidence justify Level 5 detail.
+Define only to Levels 2–4 until activation and early evidence justify executable Tasks detail.
 
 ## Dependency rule
 
-An activity becomes `ready` only when predecessors, inputs, evidence, scope, authorization, and applicable gates are satisfied.
+An task becomes `ready` only when predecessors, inputs, evidence, scope, authorization, and applicable gates are satisfied.
 
 ## Cycle budget
 
-- **Active execution limit:** One activity per write owner by default
+- **Active execution limit:** One task per write owner by default
 - **Next useful result:** Completed charter based on supplied information
 - **Research / tool limit:** Stop when the current decision has sufficient evidence; change method after two unchanged failures
 - **Checkpoint:** Record material output, validation, blocker, and next action in the authoritative state

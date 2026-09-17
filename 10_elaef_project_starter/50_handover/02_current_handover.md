@@ -11,7 +11,7 @@ prepared_at: "{{YYYY-MM-DDTHHMMSSZ}}"
 state_cutoff: "{{YYYY-MM-DDTHHMMSSZ}}"
 expires_on:
 acceptance_evidence: []
-framework_version: 3.6.0
+framework_version: 4.0.0
 tags:
   - elaef/handover
 ---
@@ -53,8 +53,8 @@ tags:
 - **Project status:** {{STATUS}}
 - **Phase:** {{PHASE}}
 - **Workstream:** {{WORKSTREAM}}
-- **Current activity:** {{ACTIVITY_ID_AND_LINK}}
-- **Next ready activity:** {{ACTIVITY_ID_AND_LINK}}
+- **Current task:** {{ACTIVITY_ID_AND_LINK}}
+- **Next ready task:** {{ACTIVITY_ID_AND_LINK}}
 - **Critical blocker:** {{BLOCKER}}
 - **Active gate:** {{GATE_ID_AND_LINK}}
 - **Major risk:** {{RISK_ID_AND_LINK}}
@@ -68,19 +68,19 @@ tags:
 
 ## Completed since prior handover
 
-| Activity / change | Output | Evidence | Validation | Authoritative records updated |
+| Task / change | Output | Evidence | Validation | Authoritative records updated |
 |---|---|---|---|---|
 | {{ID_OR_DESCRIPTION}} | {{OUTPUT}} | {{EVIDENCE}} | {{RESULT}} | {{LINKS}} |
 
 ## In progress
 
-| Activity | Exact state | Work product | Remaining completion criteria | Owner | Safe next step |
+| Task | Exact state | Work product | Remaining completion criteria | Owner | Safe next step |
 |---|---|---|---|---|---|
 | {{ACTIVITY_ID}} | {{STATE}} | {{LOCATION}} | {{CRITERIA}} | {{OWNER}} | {{NEXT_STEP}} |
 
 ## Attempted, failed, or rolled back
 
-| Activity | Attempt | Result | External consequence | Recovery state | Evidence |
+| Task | Attempt | Result | External consequence | Recovery state | Evidence |
 |---|---|---|---|---|---|
 | {{ID}} | {{WHAT_WAS_ATTEMPTED}} | {{RESULT}} | {{NONE_OR_CONSEQUENCE}} | {{STATE}} | {{LINKS}} |
 
@@ -142,7 +142,7 @@ tags:
 - **References verified:**
 - **Differences discovered:**
 - **Conditions / exclusions:**
-- **First activity assumed:**
+- **First task assumed:**
 - **Acceptance evidence:**
 
 Allowed outcomes:

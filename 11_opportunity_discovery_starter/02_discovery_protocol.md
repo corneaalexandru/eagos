@@ -2,8 +2,8 @@
 title: Opportunity Discovery and Selection Protocol
 type: extension
 extension: ELAEF-ODS
-extension_version: "1.2.0"
-framework_version: "3.6.0"
+extension_version: "1.3.0"
+framework_version: "4.0.0"
 updated: 2026-09-14
 ---
 
@@ -130,7 +130,7 @@ Every material recommendation includes: current mandate and gaps; a small shortl
 
 An approved selection decision records the owner, date, instruction/evidence reference, candidate, target stage, objective, scope, exclusions, resources, conditions, and expiry/review trigger. Reuse valid authority; do not copy a generic template's example approval.
 
-The handover packet carries the approved decision, source/claim IDs, remaining hypotheses, risks, success/failure criteria, first Level 5 activity, next gate, and proposed receiving state location. The first activity identifies its purpose, inputs, predecessors, required authority, expected output, completion check, and stop condition. Use the receiving ELAEF P0/P1/P2 profile appropriate to that activity's consequence.
+The handover packet carries the approved decision, source/claim IDs, remaining hypotheses, risks, success/failure criteria, first Task, next gate, and proposed receiving state location. The first activity identifies its purpose, inputs, predecessors, required authority, expected output, completion check, and stop condition. Use the receiving ELAEF P0/P1/P2 profile appropriate to that activity's consequence.
 
 1. Prepare a draft/ready-for-review packet. Selection does not itself create acceptance.
 2. Under applicable setup authority, the receiving project inventories its records, checks the packet and permissions, and assesses its own activation.

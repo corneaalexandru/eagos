@@ -1,7 +1,7 @@
 ---
 id: "{{PROJECT_CODE}}-ACT-{{SEQUENCE}}"
 title: "{{ACTIVITY_TITLE}}"
-type: activity
+type: task
 status: proposed
 owner: "{{OWNER}}"
 write_owner: "{{WRITE_OWNER}}"
@@ -14,8 +14,10 @@ updated: "{{YYYY-MM-DD}}"
 revision: 0
 outputs: []
 validation_evidence: []
+evidence_refs: []
+delegation:
 tags:
-  - elaef/activity
+  - elaef/task
 ---
 
 # {{ACTIVITY_TITLE}}
@@ -84,3 +86,7 @@ tags:
 ## Next justified action
 
 {{NEXT_ACTION_OR_STOP_CONDITION}}
+
+## Attempts and recovery
+
+Use `13_task_attempt.md` in this template folder for separate attempts when useful. Preserve Task identity, cumulative limits and previous outcomes. Check actual state before retrying uncertain external effects; a successful attempt alone does not pass a gate.
