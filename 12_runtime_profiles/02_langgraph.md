@@ -1,5 +1,5 @@
 ---
-title: ELAEF LangGraph Profile
+title: EAGOS LangGraph Profile
 type: runtime_profile
 profile_version: "1.0.0"
 framework_version: "4.0.0"

@@ -1,7 +1,7 @@
 ---
 title: "{{PROJECT_NAME}}"
 type: discovery_portfolio
-extension: ELAEF-ODS
+extension: EAGOS-ODS
 extension_version: "1.3.0"
 framework_version: "4.0.0"
 owner: "{{PROJECT_OWNER}}"
@@ -40,6 +40,6 @@ Use public sources when authorized. Read existing project records only when rele
 
 ## Optional checking
 
-From the ELAEF package, run `python3 20_tools/01_discovery.py check PATH_TO_THIS_PORTFOLIO`. The tool reads the workspace and reports selected structural issues. It never fetches sources, updates records, ranks opportunities, grants approval, or checks whether a human truly accepted a handoff. Manual Markdown use remains complete without it.
+From the EAGOS package, run `python3 20_tools/01_discovery.py check PATH_TO_THIS_PORTFOLIO`. The tool reads the workspace and reports selected structural issues. It never fetches sources, updates records, ranks opportunities, grants approval, or checks whether a human truly accepted a handoff. Manual Markdown use remains complete without it.
 
 The baseline manifest records original file hashes and source paths for manual upgrade comparison. Keep it as installation evidence; it is not current project truth. Core project `drift` is not the discovery migration tool. The checker does not validate conversation checkpoints, idea-board prose or agent behavior.

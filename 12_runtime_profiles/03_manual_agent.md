@@ -1,6 +1,6 @@
 # Manual agent profile
 
-Use the portable ELAEF operating guide, hub and applicable records with an agent that can read them. The owner supplies direction and actual authority. The agent advances ready work, reviews results and saves continuity within the host's capabilities.
+Use the portable EAGOS operating guide, hub and applicable records with an agent that can read them. The owner supplies direction and actual authority. The agent advances ready work, reviews results and saves continuity within the host's capabilities.
 
 This method can support a small project without a separate orchestration platform. State which controls the host enforces, which rely on human review, and which are unavailable. A written instruction is not a technical access boundary, budget meter, scheduler or stop mechanism.
 

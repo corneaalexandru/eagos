@@ -1,13 +1,13 @@
 ---
-title: ELAEF Discovery
+title: EAGOS Discovery
 type: extension_guide
-extension: ELAEF-ODS
+extension: EAGOS-ODS
 extension_version: "1.3.0"
 framework_version: "4.0.0"
 updated: 2026-09-16
 ---
 
-# ELAEF Discovery
+# EAGOS Discovery
 
 Use the [shared operating guide](04_operating_guide.md) from discovery through incubation, development, launch, operation, and evolution. This optional module adds detailed opportunity research, comparison, selection, and receipt records withXWin the same conversational experience.
 
@@ -42,7 +42,7 @@ Use the files with an agent that can read them, or supply them as context. Witho
 
 ## Records and lifecycle
 
-Discovery uses Markdown, schema-1 records and optional Python 3.9+ tools. Current extension version: 1.3.0. The extension identifier is `ELAEF-ODS`. Structural checks cannot prove conversation quality, source truth, actual research effort, approval identity or receiving-project acceptance.
+Discovery uses Markdown, schema-1 records and optional Python 3.9+ tools. Current extension version: 1.3.0. The extension identifier is `EAGOS-ODS`. Structural checks cannot prove conversation quality, source truth, actual research effort, approval identity or receiving-project acceptance.
 
 For an existing portfolio, follow the [adoption guide](02_upgrade_guide.md). Preserve the workspace, IDs, evidence, history and original manifest; merge local customizations rather than replacing state with a blank template.
 

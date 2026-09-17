@@ -1,4 +1,4 @@
-"""Read-only ELAEF record diagnostics, not runtime policy enforcement."""
+"""Read-only EAGOS record diagnostics, not runtime policy enforcement."""
 
 import datetime as dt
 from decimal import Decimal, InvalidOperation

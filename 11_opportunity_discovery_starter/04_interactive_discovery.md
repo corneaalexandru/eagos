@@ -35,7 +35,7 @@ These moves are not a compulsory sequence. Combine them, move back, or change di
 | Research | Findings on a named uncertainty or requested scan | Actual scope, authority, sources, and limits recorded |
 | Challenge | Assumptions, substitutes, obstacles, and possible responses | Proportionate challenge; uncertainty can invite exploration |
 | Compare | Tradeoffs and pivotal unknowns | Interest is not viability; no unsupported numerical winner |
-| Prepare | A small investigation or project brief with success/stop criteria | Owner choice and envelope required; execution follows ELAEF |
+| Prepare | A small investigation or project brief with success/stop criteria | Owner choice and envelope required; execution follows EAGOS |
 
 If “continue” has materially different plausible meanings after checking the checkpoint, ask one focused question while progressing independent preparation.
 

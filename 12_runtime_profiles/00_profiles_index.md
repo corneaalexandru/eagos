@@ -1,4 +1,4 @@
-# ELAEF Runtime Profiles
+# EAGOS Runtime Profiles
 
 All profiles in 4.0.0 are **documented**. No supported installation/version combination has yet passed the integration acceptance suite in this distribution.
 

@@ -1,11 +1,11 @@
 ---
-title: Work with ELAEF
+title: Work with EAGOS
 type: operating_guide
 framework_version: "4.0.0"
 updated: 2026-09-16
 ---
 
-# Work with ELAEF
+# Work with EAGOS
 
 Turn an unclear idea, problem, or objective into a practical project with classified knowledge, evidence-backed decisions, authorized activities, measurable outputs, and durable records.
 

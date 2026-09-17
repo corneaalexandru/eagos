@@ -1,11 +1,11 @@
 ---
-title: ELAEF Validation and Assurance
+title: EAGOS Validation and Assurance
 type: assurance_guide
 framework_version: "4.0.0"
 updated: 2026-09-16
 ---
 
-# ELAEF Validation and Assurance
+# EAGOS Validation and Assurance
 
 Match the claim to the evidence actually collected. Keep structural validation, observed agent behavior, runtime enforcement, useful outcomes, and owner acceptance separate.
 

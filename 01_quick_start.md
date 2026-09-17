@@ -1,4 +1,4 @@
-# Start working with ELAEF
+# Start working with EAGOS
 
 Turn an unclear idea, problem, or objective into a practical project with classified knowledge, evidence-backed decisions, authorized activities, measurable outputs, and durable records.
 
@@ -23,7 +23,7 @@ Provide the files to an AI agent, copy the starter, or ask the agent to set up a
 For the agent or maintainer, from this package root:
 
 ```bash
-python3 20_tools/00_elaef.py init ../my_workspace --code DEMO --name "My project" --owner "Your name" --profile P0
+python3 20_tools/00_eagos.py init ../my_workspace --code DEMO --name "My project" --owner "Your name" --profile P0
 ```
 
 This previews the files. Add `--apply` to create them, then run `check ../my_workspace --mode setup`. The parent must exist; existing destinations and symlink components are refused. Facts and approvals remain unresolved. Inspect an interrupted creation before recovery.

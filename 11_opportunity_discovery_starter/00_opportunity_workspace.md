@@ -1,7 +1,7 @@
 ---
 title: "{{PROJECT_NAME}} — discovery workspace"
 type: discovery_workspace
-extension: ELAEF-ODS
+extension: EAGOS-ODS
 schema_version: "1"
 extension_version: "1.3.0"
 framework_version: "4.0.0"

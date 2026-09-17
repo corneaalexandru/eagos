@@ -1,4 +1,4 @@
-"""ELAEF 4 governance diagnostics using synthetic records and no real authority."""
+"""EAGOS 4 governance diagnostics using synthetic records and no real authority."""
 import datetime as dt
 import importlib.util
 import json
@@ -9,7 +9,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("elaef_test_core", ROOT / "20_tools/00_elaef.py")
+spec = importlib.util.spec_from_file_location("eagos_test_core", ROOT / "20_tools/00_eagos.py")
 core = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(core)
 TODAY = dt.date(2026, 9, 16)
@@ -151,7 +151,7 @@ class GovernanceTests(unittest.TestCase):
         manifest = self.root / core.MANIFEST
         data = json.loads(manifest.read_text())
         data["framework_version"] = "4.0.0"
-        data["source_paths"] = {k: v.replace("10_elaef_project_starter/", "10_eagos_project_starter/") for k, v in data["source_paths"].items()}
+        data["source_paths"] = {k: v.replace("10_eagos_project_starter/", "10_elaef_project_starter/") for k, v in data["source_paths"].items()}
         legacy = self.root / core.LEGACY_MANIFEST
         legacy.write_text(json.dumps(data)); manifest.unlink()
         before = legacy.read_bytes()
@@ -161,7 +161,7 @@ class GovernanceTests(unittest.TestCase):
 
     def test_new_and_legacy_cli_return_same_diagnostics(self):
         outputs = []
-        for script in ("00_elaef.py", "00_eagos.py"):
+        for script in ("00_eagos.py", "00_elaef.py"):
             result = subprocess.run([sys.executable, str(ROOT / "20_tools" / script), "check", str(self.root), "--format", "json"], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
             outputs.append(json.loads(result.stdout))

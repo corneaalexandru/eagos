@@ -1,5 +1,5 @@
 ---
-title: ELAEF AI Agent System and Owner Dashboard
+title: EAGOS AI Agent System and Owner Dashboard
 type: implementation_guide
 framework_version: "4.0.0"
 updated: 2026-09-17

@@ -1,4 +1,4 @@
-# Adopt ELAEF in existing work
+# Adopt EAGOS in existing work
 
 Read this guide when changing an existing installation. Everyday work starts with the project contract and current checkpoint.
 
@@ -13,9 +13,9 @@ Read this guide when changing an existing installation. Everyday work starts wit
 | Existing interface | Supported treatment |
 |---|---|
 | Level 5 activity / `type: activity` | Task / `type: task`; ACT IDs and readiness/completion meanings are retained |
-| Original ELAEF manifests | Read unchanged; new installations also use `00_elaef_manifest.json` |
-| Interim EAGOS installation | Its CLI, manifest and starter source paths remain readable without rewriting records |
-| Discovery | Schema 1; supported earlier versions remain readable; new metadata uses `ELAEF-ODS` |
+| Current EAGOS manifests | Read unchanged; new installations also use `00_eagos_manifest.json` |
+| Existing ELAEF installation | Its CLI, manifest and starter source paths remain readable without rewriting records |
+| Discovery | Schema 1; supported earlier versions remain readable; new metadata uses `EAGOS-ODS` |
 
 
 Rollback restores prior instructions/configuration while reconciling subsequent work and external effects. Preserve evidence and attempt history. Retiring a runtime also requires verified shutdown of its jobs and access.

@@ -1,11 +1,11 @@
 ---
-title: ELAEF Agent Organization
+title: EAGOS Agent Organization
 type: governance_guide
 framework_version: "4.0.0"
 updated: 2026-09-16
 ---
 
-# ELAEF Agent Organization
+# EAGOS Agent Organization
 
 An agent organization assigns responsibility, decision rights, work, review, and escalation. Its purpose is to achieve the owner's intended outcomes with classified knowledge, evidence-backed decisions, authorized tasks, measurable outputs, and durable records.
 

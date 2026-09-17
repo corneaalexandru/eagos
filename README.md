@@ -1,16 +1,16 @@
 ---
-title: ELAEF
+title: EAGOS
 type: framework_distribution
 status: active
-framework: ELAEF
+framework: EAGOS
 framework_version: "4.0.0"
 discovery_extension_version: "1.3.0"
 updated: 2026-09-16
 ---
 
-# ELAEF 4.0.0
+# EAGOS 4.0.0
 
-**Evidence-Led Agent Execution Framework**  
+**Evidence-led Agent Governance and Operations System**  
 **From intent to governed action.**
 
 ## Purpose
@@ -40,7 +40,7 @@ Say “continue,” “review,” “change direction,” “pause,” or descri
 | Inspect evidence and acceptance requirements | [Validation and assurance](08_validation_and_assurance.md) |
 | Explore opportunities in more detail | [Optional discovery](03_opportunity_discovery.md) |
 | Adopt 4.0.0 without losing existing records | [Upgrade guide](02_upgrade_guide.md) |
-| Inspect the full rules | [Canonical specification](00_evidence_led_agent_execution_framework.md) |
+| Inspect the full rules | [Canonical specification](00_eagos.md) |
 
 ## A proportionate operating system
 
@@ -58,8 +58,8 @@ Use the table above to retrieve specialist guidance when needed. The full specif
 
 ## Package
 
-ELAEF is a framework with portable records, optional offline tools and documented runtime profiles. OpenClaw and LangGraph profiles define candidate implementations; actual deployment needs configuration, tests and activation evidence.
+EAGOS is a framework with portable records, optional offline tools and documented runtime profiles. OpenClaw and LangGraph profiles define candidate implementations; actual deployment needs configuration, tests and activation evidence.
 
-Use [the project starter](10_elaef_project_starter/README.md) or [offline tools](20_tools/00_tools_index.md). The canonical specification is [00_evidence_led_agent_execution_framework.md](00_evidence_led_agent_execution_framework.md); the operating guide is distributed identically in both starters. The [adoption guide](02_upgrade_guide.md) covers existing installations.
+Use [the project starter](10_eagos_project_starter/README.md) or [offline tools](20_tools/00_tools_index.md). The canonical specification is [00_eagos.md](00_eagos.md); the operating guide is distributed identically in both starters. The [adoption guide](02_upgrade_guide.md) covers existing installations.
 
-ELAEF stands for Evidence-Led Agent Execution Framework. Source repository: [corneaalexandru/evidence-led-agent-execution-framework](https://github.com/corneaalexandru/evidence-led-agent-execution-framework).
+Source repository: [corneaalexandru/eagos](https://github.com/corneaalexandru/eagos).

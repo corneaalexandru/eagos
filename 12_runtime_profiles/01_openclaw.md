@@ -1,5 +1,5 @@
 ---
-title: ELAEF OpenClaw Profile
+title: EAGOS OpenClaw Profile
 type: runtime_profile
 profile_version: "1.0.0"
 framework_version: "4.0.0"
@@ -10,15 +10,15 @@ tested_version: not_selected
 
 # OpenClaw implementation profile
 
-Candidate architecture: a coordinator, bounded specialist agents and an appropriately independent review path, mapped to ELAEF role/delegation records. Add only roles justified by workload and consequence. This is an implementation specification, not an installed configuration.
+Candidate architecture: a coordinator, bounded specialist agents and an appropriately independent review path, mapped to EAGOS role/delegation records. Add only roles justified by workload and consequence. This is an implementation specification, not an installed configuration.
 
 Official documentation describes per-agent workspaces/session state, agent routing/delegation, tool restrictions and sandbox configuration. Workspace selection alone is not a hard filesystem boundary. Review the selected version's effective permissions, cross-agent access, sandbox and host execution paths before claiming isolation.
 
 Sources reviewed 2026-09-16: [multi-agent routing](https://docs.openclaw.ai/concepts/multi-agent), [tool and agent permissions](https://docs.openclaw.ai/gateway/security/tool-permissions), [sandbox and tool policy](https://docs.openclaw.ai/gateway/sandbox-vs-tool-policy-vs-elevated). These live documents can change; pin the installation version and archive the relevant source references for a deployment.
 
-| ELAEF requirement | Proposed implementation route | What remains to prove |
+| EAGOS requirement | Proposed implementation route | What remains to prove |
 |---|---|---|
-| Role/instance mapping | Native agent identities plus ELAEF role register | Actual instances use the reviewed configuration |
+| Role/instance mapping | Native agent identities plus EAGOS role register | Actual instances use the reviewed configuration |
 | Task delegation | Platform delegation controls plus written scopes | Scope survives handoff; unauthorized delegation is denied |
 | Filesystem/tool isolation | Native sandbox and tool policy, explicitly configured | Host/elevated paths and connector access cannot bypass required limits |
 | Business authority | Additional policy/action-boundary adapter or manual approval path | Exact operation/target, expiry, revocation and approval identity checked |

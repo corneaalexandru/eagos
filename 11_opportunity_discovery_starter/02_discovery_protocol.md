@@ -1,7 +1,7 @@
 ---
 title: Opportunity Discovery and Selection Protocol
 type: extension
-extension: ELAEF-ODS
+extension: EAGOS-ODS
 extension_version: "1.3.0"
 framework_version: "4.0.0"
 updated: 2026-09-14
@@ -11,7 +11,7 @@ updated: 2026-09-14
 
 Use the [shared operating guide](03_operating_guide.md) throughout the lifecycle. This protocol supplies detailed discovery methods; after actual handoff, follow the receiving project for development, launch, operation, and evolution.
 
-Begin with the [interactive discovery playbook](04_interactive_discovery.md): explore, shape and challenge possibilities with the owner, and use research when a factual uncertainty matters. This protocol governs research, formal comparison and handoff; it is not a mandatory intake questionnaire or a requirement to research before brainstorming. ELAEF execution develops a selected opportunity through its existing phases and gates. Selection approves only the stated next stage, not business viability or launch.
+Begin with the [interactive discovery playbook](04_interactive_discovery.md): explore, shape and challenge possibilities with the owner, and use research when a factual uncertainty matters. This protocol governs research, formal comparison and handoff; it is not a mandatory intake questionnaire or a requirement to research before brainstorming. EAGOS execution develops a selected opportunity through its existing phases and gates. Selection approves only the stated next stage, not business viability or launch.
 
 ## 1. Research and decision sequence
 
@@ -130,7 +130,7 @@ Every material recommendation includes: current mandate and gaps; a small shortl
 
 An approved selection decision records the owner, date, instruction/evidence reference, candidate, target stage, objective, scope, exclusions, resources, conditions, and expiry/review trigger. Reuse valid authority; do not copy a generic template's example approval.
 
-The handover packet carries the approved decision, source/claim IDs, remaining hypotheses, risks, success/failure criteria, first Task, next gate, and proposed receiving state location. The first activity identifies its purpose, inputs, predecessors, required authority, expected output, completion check, and stop condition. Use the receiving ELAEF P0/P1/P2 profile appropriate to that activity's consequence.
+The handover packet carries the approved decision, source/claim IDs, remaining hypotheses, risks, success/failure criteria, first Task, next gate, and proposed receiving state location. The first activity identifies its purpose, inputs, predecessors, required authority, expected output, completion check, and stop condition. Use the receiving EAGOS P0/P1/P2 profile appropriate to that activity's consequence.
 
 1. Prepare a draft/ready-for-review packet. Selection does not itself create acceptance.
 2. Under applicable setup authority, the receiving project inventories its records, checks the packet and permissions, and assesses its own activation.
@@ -142,6 +142,6 @@ If the packet is rejected, stale, or incomplete, preserve it and revise within a
 
 ## 10. Adaptation and maintenance
 
-This extension adds discovery-specific records and checks; ELAEF core authority and evidence rules continue to apply. Use plain Markdown, flat YAML, relative links, stable IDs, and numbered filenames. Keep personal portfolios separate from reusable distribution files. Manual operation needs no plugins; the optional CLI uses Python 3.9+ and the standard library.
+This extension adds discovery-specific records and checks; EAGOS core authority and evidence rules continue to apply. Use plain Markdown, flat YAML, relative links, stable IDs, and numbered filenames. Keep personal portfolios separate from reusable distribution files. Manual operation needs no plugins; the optional CLI uses Python 3.9+ and the standard library.
 
 To adopt existing ideas, inventory and map their records; do not rewrite history or duplicate current execution state. To upgrade, compare the original manifest hashes and new generic templates, reconcile local edits, and preserve the old manifest and a change note. Core `drift` only supports execution starters. To remove the extension, stop cycles, preserve/export the workspace and handover references, and remove its navigation/tools; receiving projects retain their authority and evidence.

@@ -14,7 +14,7 @@ def load(name, path):
     spec.loader.exec_module(module)
     return module
 
-core = load("unified_core", ROOT / "20_tools/00_elaef.py")
+core = load("unified_core", ROOT / "20_tools/00_eagos.py")
 ods = load("unified_ods", ROOT / "20_tools/01_discovery.py")
 
 
@@ -26,7 +26,7 @@ class UnifiedLifecycleTests(unittest.TestCase):
 
     def test_portable_guides_match_the_maintained_source(self):
         expected = (ROOT / "04_operating_guide.md").read_bytes()
-        for relative in ("10_elaef_project_starter/01_operating_guide.md",
+        for relative in ("10_eagos_project_starter/01_operating_guide.md",
                          "11_opportunity_discovery_starter/03_operating_guide.md"):
             self.assertEqual((ROOT / relative).read_bytes(), expected, relative)
         data, body, issues = core.properties(expected.decode())
@@ -45,7 +45,7 @@ class UnifiedLifecycleTests(unittest.TestCase):
                 guide = root / "01_operating_guide.md"
                 manifest = json.loads((root / core.MANIFEST).read_text())
                 self.assertEqual(manifest["baseline_hashes"][guide.name], core.digest(guide.read_bytes()))
-                self.assertEqual(manifest["source_paths"][guide.name], "10_elaef_project_starter/01_operating_guide.md")
+                self.assertEqual(manifest["source_paths"][guide.name], "10_eagos_project_starter/01_operating_guide.md")
                 result = core.check(root, "setup")
                 self.assertEqual(result["errors"], 0, result)
                 self.assertEqual(core.properties((root / "README.md").read_text())[0]["activation_status"], "not_assessed")
@@ -93,8 +93,8 @@ class UnifiedLifecycleTests(unittest.TestCase):
 
     def test_missing_required_guide_fails_before_creating_a_destination(self):
         package = self.area / "incomplete_package"
-        starter = package / "10_elaef_project_starter"
-        shutil.copytree(ROOT / "10_elaef_project_starter", starter)
+        starter = package / "10_eagos_project_starter"
+        shutil.copytree(ROOT / "10_eagos_project_starter", starter)
         (starter / "01_operating_guide.md").unlink()
         destination = self.area / "project"
         with self.assertRaises(FileNotFoundError):

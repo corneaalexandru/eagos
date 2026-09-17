@@ -1,9 +1,6 @@
-.DS_Store
+# Local maintenance material is not part of the generic public distribution.
+90_local/
+40_outputs/
 __pycache__/
-*.pyc
-.env
-.env.*
-!.env.example
-.obsidian/workspace*.json
-**/80_private/**
-!**/80_private/00_private_index.md
+*.py[cod]
+.DS_Store

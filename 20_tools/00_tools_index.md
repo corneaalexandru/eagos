@@ -1,6 +1,6 @@
-# Offline ELAEF tools
+# Offline EAGOS tools
 
-Run `python3 20_tools/00_elaef.py --help` from the package root. Python 3.9+ and its standard library are sufficient. Tools do not use the network, send information, approve gates, or migrate existing projects.
+Run `python3 20_tools/00_eagos.py --help` from the package root. Python 3.9+ and its standard library are sufficient. Tools do not use the network, send information, approve gates, or migrate existing projects.
 
 | Command | Purpose | Writes |
 |---|---|---|
@@ -23,15 +23,15 @@ The initializer sets the supplied owner as the initial write owner. Other delega
 Run the fixture suite from the package root:
 
 ```bash
-python3 30_tests/01_test_elaef.py -v
-python3 20_tools/00_elaef.py check 10_elaef_project_starter --mode template --fail-on-warnings
+python3 30_tests/01_test_eagos.py -v
+python3 20_tools/00_eagos.py check 10_eagos_project_starter --mode template --fail-on-warnings
 ```
 
-See the [quick start](../01_quick_start.md) and [upgrade guide](../02_upgrade_guide.md). The maintained specification is `00_evidence_led_agent_execution_framework.md` at the package root; Obsidian holds a verified mirror. `ELAEF_SPEC_PATH` selects a candidate in the core tests.
+See the [quick start](../01_quick_start.md) and [upgrade guide](../02_upgrade_guide.md). The maintained specification is `00_eagos.md` at the package root. `EAGOS_SPEC_PATH` selects a candidate in the core tests.
 
 ## Discovery extension
 
-ELAEF Discovery / ODS 1.3.0 uses a separate optional CLI, `python3 20_tools/01_discovery.py --help`, and the existing ELAEF helper module. It leaves execution-project records and activation under the core toolkit. The interactive playbook governs conversation; this tool handles files and structural checks only.
+EAGOS Discovery / ODS 1.3.0 uses a separate optional CLI, `python3 20_tools/01_discovery.py --help`, and the existing EAGOS helper module. It leaves execution-project records and activation under the core toolkit. The interactive playbook governs conversation; this tool handles files and structural checks only.
 
 ```bash
 python3 20_tools/01_discovery.py init ../my_discovery --code IDEAS --name "Opportunity portfolio" --owner "Your name"
@@ -49,7 +49,7 @@ This checker does **not** rank opportunities, verify actual query counts/time, i
 
 See the [discovery guide](../03_opportunity_discovery.md) and [protocol](../11_opportunity_discovery_starter/02_discovery_protocol.md).
 
-Supported extension versions are listed in the adoption guide; unsupported versions are rejected. Prose seeds, conversation checkpoints and journals are intentionally outside the structural checker. A valid empty portfolio can support a conversation without any research records. Preserve the original installation manifest when upgrading; record the migration separately.
+Supported extension versions are defined by the discovery CLI; unsupported versions are rejected. Prose seeds, conversation checkpoints and journals are intentionally outside the structural checker. A valid empty portfolio can support a conversation without any research records. Preserve the original installation manifest when upgrading; record the migration separately.
 
 ## Unified conversational lifecycle
 
@@ -59,9 +59,9 @@ Core records may declare `lifecycle_stage` using `discover`, `shape`, `incubate`
 
 Run `python3 30_tests/03_test_unified.py -v` for portable-guide installation, manifest consistency, optional-stage validation, and non-activation regression checks. The [conversation scenarios](../30_tests/04_conversation_scenarios.md) define separate behavioral evaluation; they require actual responses and review before claiming conversational effectiveness.
 
-## ELAEF 4 governance diagnostics
+## EAGOS 4 governance diagnostics
 
-The maintained CLI is `00_elaef.py`. New projects receive `00_elaef_manifest.json`. Existing interfaces and supported schemas are listed once in the [adoption guide](../02_upgrade_guide.md).
+The maintained CLI is `00_eagos.py`. New projects receive `00_eagos_manifest.json`. Existing interfaces and supported schemas are listed once in the [adoption guide](../02_upgrade_guide.md).
 
 The core `check` command also reads optional Task, role, delegation, deployment, recurring-process and attempt records. It checks Task/legacy-activity completion and readiness, exact delegation operation/target subsets, valid date intervals, parent status and issuer, permitted subdelegation, cycles, finite nonnegative allocations, matching units and summed active child allocations. It checks declared deployment evidence/activation references, attempt-to-Task references, duplicate running/succeeded/uncertain run keys and declared stale/disputed evidence dependencies.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Optional ELAEF Discovery / ODS 1.3 helpers: preview/create a portfolio or check recorded integrity.
+"""Optional EAGOS Discovery / ODS 1.3 helpers: preview/create a portfolio or check recorded integrity.
 
 Python 3.9+, standard library only. No network, research, ranking, or approvals.
 Only init --apply writes, exclusively into a new destination.
@@ -15,11 +15,11 @@ import re
 import sys
 
 PACKAGE = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("elaef_core", PACKAGE / "20_tools/00_elaef.py")
+SPEC = importlib.util.spec_from_file_location("eagos_core", PACKAGE / "20_tools/00_eagos.py")
 core = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(core)
 VERSION = "1.3.0"
-EXTENSION = "ELAEF-ODS"
+EXTENSION = "EAGOS-ODS"
 SUPPORTED_WORKSPACE_VERSIONS = {"1.0.0", "1.1.0", "1.1.1", "1.2.0", "1.3.0"}
 WORKSPACE = "00_opportunity_workspace.md"
 MANIFEST = "00_discovery_manifest.json"
@@ -188,7 +188,7 @@ def check(root, today=None):
         add(code, message, line=line)
     version, extension = header.get("extension_version"), header.get("extension")
     valid_version = isinstance(version, str) and version in SUPPORTED_WORKSPACE_VERSIONS
-    valid_extension = extension is None or (isinstance(extension, str) and extension in {"", EXTENSION, "EAGOS-ODS"})
+    valid_extension = extension is None or (isinstance(extension, str) and extension in {"", EXTENSION, "ELAEF-ODS"})
     if header.get("schema_version") != "1" or not valid_version or not valid_extension:
         add("schema", "Expected workspace schema 1 and ODS " + " or ".join(sorted(SUPPORTED_WORKSPACE_VERSIONS)))
     prefix = header.get("portfolio_code", "")

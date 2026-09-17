@@ -1,4 +1,4 @@
-name: Validate ELAEF
+name: Validate EAGOS
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: elaef-validation-${{ github.ref }}
+  group: eagos-validation-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -27,6 +27,6 @@ jobs:
           python3 30_tests/05_test_governance.py -v
           python3 30_tests/03_test_unified.py -v
           python3 30_tests/02_test_discovery.py -v
-          python3 30_tests/01_test_elaef.py -v
+          python3 30_tests/01_test_eagos.py -v
       - name: Validate starter structure
-        run: python3 20_tools/00_elaef.py check 10_elaef_project_starter --mode template --fail-on-warnings
+        run: python3 20_tools/00_eagos.py check 10_eagos_project_starter --mode template --fail-on-warnings

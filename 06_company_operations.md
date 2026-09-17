@@ -1,11 +1,11 @@
 ---
-title: ELAEF Company Operations
+title: EAGOS Company Operations
 type: operating_model
 framework_version: "4.0.0"
 updated: 2026-09-16
 ---
 
-# ELAEF Company Operations
+# EAGOS Company Operations
 
 Apply the original project purpose to ongoing organizations: agents coordinate, decide, execute and review within defined responsibilities and delegated authority. Human ownership and reserved decisions remain explicit. This guide defines operational governance; it does not appoint legal officers or confer statutory authority.
 

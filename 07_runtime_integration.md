@@ -1,13 +1,13 @@
 ---
-title: ELAEF Runtime Integration
+title: EAGOS Runtime Integration
 type: integration_contract
 framework_version: "4.0.0"
 updated: 2026-09-16
 ---
 
-# ELAEF Runtime Integration
+# EAGOS Runtime Integration
 
-ELAEF defines what must be governed. A runtime executes agents and workflows. A platform profile maps those requirements to a particular version and configuration, and records the controls that still require implementation. A written role or prompt does not prove a technical boundary.
+EAGOS defines what must be governed. A runtime executes agents and workflows. A platform profile maps those requirements to a particular version and configuration, and records the controls that still require implementation. A written role or prompt does not prove a technical boundary.
 
 ## Architecture
 

@@ -89,7 +89,7 @@ class DiscoveryTests(unittest.TestCase):
         self.assertIn("DEMO-SEED-0001", playbook.read_text())
         manifest = json.loads((self.root / ods.MANIFEST).read_text())
         self.assertEqual(manifest["extension_version"], ods.VERSION)
-        self.assertEqual(manifest["extension"], "ELAEF-ODS")
+        self.assertEqual(manifest["extension"], "EAGOS-ODS")
         self.assertEqual(manifest["framework_version"], ods.core.VERSION)
         self.assertEqual(manifest["baseline_hashes"][playbook.name], ods.core.digest(playbook.read_bytes()))
         self.base += "\n## Idea notes\nDEMO-SEED-0001: Unresearched hypothesis; no formal candidate yet.\n"
@@ -107,13 +107,13 @@ class DiscoveryTests(unittest.TestCase):
                 before = (self.root / ods.WORKSPACE).read_bytes()
                 ods.check(self.root, dt.date(2026, 9, 12))
                 self.assertEqual((self.root / ods.WORKSPACE).read_bytes(), before)
-        self.base = original.replace('extension: ELAEF-ODS', 'extension: EAGOS-ODS')
+        self.base = original.replace('extension: EAGOS-ODS', 'extension: ELAEF-ODS')
         self.assertNotIn('schema', self.codes())
-        self.base = original.replace('extension: ELAEF-ODS\n', '')
+        self.base = original.replace('extension: EAGOS-ODS\n', '')
         self.assertNotIn('schema', self.codes())
-        self.base = original.replace('extension: ELAEF-ODS', 'extension: unrelated')
+        self.base = original.replace('extension: EAGOS-ODS', 'extension: unrelated')
         self.assertIn('schema', self.codes())
-        for field, current in [('extension', 'ELAEF-ODS'), ('extension_version', '"' + ods.VERSION + '"')]:
+        for field, current in [('extension', 'EAGOS-ODS'), ('extension_version', '"' + ods.VERSION + '"')]:
             self.base = original.replace(field + ': ' + current, field + ': ["invalid"]')
             self.assertIn('schema', self.codes())
         self.base = original.replace('extension_version: "' + ods.VERSION + '"', 'extension_version: "9.0.0"')
