@@ -17,100 +17,52 @@ lifecycle_stage: discover
 
 # {{PROJECT_NAME}}
 
-This hub is the authoritative P0 project record. Agent instructions are in `AGENTS.md`. Keep one hub until separate ownership, access, or retrieval justifies splitting it. This file is copied to `README.md` when initializing P0.
-
-Use the operating guide (`01_operating_guide.md` in the created project root) to start from curiosity, an idea, or an existing initiative. Say "help me find an idea," "continue," "review," or "pause." The agent actively contributes possibilities and recommends the next useful move. Fill commitment-dependent details when they become relevant.
-
-## Ideas and initiatives
-
-Keep a seed as a brief hypothesis with origin, possible benefit, owner reaction, and next uncertainty. Use stable prose seed IDs such as `{{PROJECT_CODE}}-SEED-0001`. Do not create sources or approvals merely to retain an idea.
-
-| Seed / initiative ID | Title and origin | Authoritative record or seed description |
-|---|---|---|
-
-For one initiative, this hub owns current definition and state. For several, link to each initiative's authoritative record rather than copying its stage, decisions, and current work here. Retain links to existing project records when they already exist. Update the frontmatter lifecycle stage only for the initiative this hub owns; it grants no authority.
-
-## Conversation checkpoint
-
-- **Current focus / authoritative pointer:** Not chosen; use the current owner message
-- **Last completed conversational move:** None recorded
-- **Material owner corrections / alternatives:** None recorded
-- **Next proposed move / open question:** Offer a few useful directions, or resume supplied work
-- **Authority reference:** See Decisions and authorization
-
-Keep current task in State. Save only material continuity changes here; preserve a dated history entry when direction changes. If records cannot be written, return a copyable checkpoint and disclose that it was not saved.
+This hub owns the project's current state. Start with the owner's actual situation and `AGENTS.md`; read `01_operating_guide.md` once. Use ordinary conversation. Unanswered fields block only work that depends on them; authorized exploration needs no completed intake.
 
 ## Definition
 
-- **Objective and beneficiary:** {{OBJECTIVE_AND_BENEFICIARY}}
-- **Success criteria:** {{MEASURABLE_SUCCESS}}
-- **Scope and constraints:** {{SCOPE_AND_CONSTRAINTS}}
-- **Excluded:** {{EXCLUSIONS}}
-- **Failure / pause / stop criteria:** {{FAILURE_PAUSE_STOP}}
+- **Objective, beneficiary and observable success:** {{OBJECTIVE_BENEFICIARY_AND_SUCCESS}}
+- **Scope, exclusions, resource limit and stop conditions:** {{SCOPE_LIMITS_AND_STOP}}
+- **Sensitive information, audience and access:** {{DATA_CONTROLS_OR_NOT_APPLICABLE}}
 
 ## State
 
-- **Phase:** Setup
-- **Current task:** Explore the owner's starting point or define an existing initiative
-- **Next action:** Take the useful conversational move; assess activation before subsequent gated work
-- **Blocker:** Record actual missing input when it blocks work; an incomplete definition does not block authorized brainstorming
+This is the single current Task/checkpoint.
+
+- **Task / state:** No execution Task selected; start from the current owner request.
+- **Expected output and completion check:** Define before execution.
+- **Inputs, predecessors, evidence and gate:** Resolve only those needed for the next action.
+- **Last verified result / output pointer:** None yet.
+- **Current blocker / next action:** Explore the starting point or continue the supplied work.
+- **Owner correction / alternatives:** None recorded; preserve material changes in Change history.
 - **Write owner:** {{PROJECT_OWNER}}
-- **Trusted revision / backup:** {{REVISION_OR_RECOVERY_METHOD}}
+- **Trusted revision, recovery and cutoff:** {{RECOVERY_AND_CUTOFF}}
 
-## Evidence and uncertainty
+Use stable ACT IDs when work becomes material. Keep current state here; use one row per Task only if several Tasks need tracking. An execution attempt is not a new Task. Record output and validation before completion, cumulative limits across retries, and actual state before repeating an uncertain action.
 
-| ID | Statement / source | Classification | Confidence / limitation | Review trigger |
-|---|---|---|---|---|
-| {{PROJECT_CODE}}-EVD-0001 | {{SOURCE_AND_FINDING}} | Unassessed input | Unknown until reviewed | Before relying on it |
+## Evidence, risks and ideas
 
-## Tasks
+Record only real observations or explicitly classified assumptions. Add stable IDs and source/date/limitations when evidence informs a decision; do not create placeholder evidence records. Flag contrary, stale or disputed support before further commitment. Record material risks with owner, response and review trigger.
 
-| ID | Output | Dependency / authority | Status | Completion evidence |
-|---|---|---|---|---|
-| {{PROJECT_CODE}}-ACT-0001 | Defined project and activation assessment | Confirm actual owner setup request and inputs | proposed | Pending owner input and review |
+An idea seed such as `{{PROJECT_CODE}}-SEED-0001` needs only its origin, possible benefit, owner reaction and next uncertainty. For multiple initiatives, link to their authoritative records instead of copying current state into this hub.
 
-Work on one execution task at a time. Prepare later tasks only as far as current evidence warrants. Record outputs and validation before claiming completion.
+## Authority and activation
 
-## Decisions and authorization
+- **Actual setup request and permitted preparation:** {{SETUP_REQUEST_AND_SCOPE}}
+- **Execution envelope, approver and approval evidence:** {{EXECUTION_AUTHORITY}}
+- **Conditions, expiry and reassessment trigger:** {{CONDITIONS_AND_EXPIRY}}
+- **Activation outcome:** NOT READY until assessed; synchronize the frontmatter declaration with the recorded outcome.
 
-- **Setup authority:** {{ACTUAL_SETUP_REQUEST_AND_SCOPE}}. An applicable owner request permits internal preparation; this template supplies no authority.
-- **Execution envelope:** {{AUTHORIZED_SCOPE_AND_APPROVAL_EVIDENCE}}
-- **External commitments:** Require applicable explicit authority and final-state evidence.
-- **Decisions:** None recorded; recommendations remain proposals.
+Assess purpose/success, inputs, evidence, first ready Task, authority, data controls, write ownership, recovery and stop conditions before gated execution. READY maps to `passed`; READY WITH CONDITIONS maps to `conditionally-passed`; NOT READY leaves activation unpassed. Record assessor, evidence and actual authorized decision when applicable. Setup must not depend on the activation it prepares. Stage and structural checks grant no authority.
 
-## Risks and open items
-
-- **Current risk:** Unsupported assumptions could be treated as facts or authority.
-- **Mitigation / owner:** Verify source and authority before commitment; {{PROJECT_OWNER}}.
-- **Blocking question:** {{MOST_IMPORTANT_MISSING_INPUT}}
-
-## Activation
-
-- **State:** not_assessed
-- **Outcome:** NOT READY
-- **Criteria:** Definition, authority, first task, evidence needs, recovery, and stop conditions are explicit.
-- **Approver and approval evidence:** {{APPROVER_AND_EVIDENCE}}
-- **Conditions / expiry:** {{CONDITIONS_OR_NONE_AND_REVIEW_TRIGGER}}
-
-Setup may prepare this gate. An owner-authorized decision is required to change the activation outcome. A tool reporting no structural errors is not an activation decision.
-
-## References
-
-- **Project root:** This folder; relative locations travel with the project.
-- **Authoritative records:** The sections of this hub.
-- **Agent instructions:** `AGENTS.md`.
-- **Sensitive locations and access:** {{CONTROLLED_LOCATOR_OR_NOT_APPLICABLE}}
+Reuse valid scoped authority; external commitments need applicable explicit authority and final-state verification. A newly copied hub creates no approval.
 
 ## Handover
 
-- **State cutoff / trusted revision:** Not yet prepared
-- **Read first:** This hub and `AGENTS.md`
-- **Changed / validated:** Skeleton created; project meaning and authority await assessment
-- **Still unconfirmed:** Project definition and activation
-- **Next action / blocker:** See State
-- **Transfer:** Not recorded
-- **Receiver acceptance:** Not assessed; acknowledgment evidence required
+At a material pause, update the single checkpoint above with output pointers, remaining uncertainty, authority and next action. Read current records before resuming; do not restart intake or reset limits. Split files only for separate ownership, access, retrieval or scale.
+
+For transfer or closure, verify outputs, remaining obligations, reference access, ownership and actual acknowledgment. Record the receiver/date/evidence and any conditions before claiming acceptance. A personal project can finish without launch or monetization.
 
 ## Change history
 
-- {{YYYY-MM-DD}} — Initialized under EAGOS 4.0.0. Setup only; no project execution or activation implied.
+- {{YYYY-MM-DD}} — Initialized under EAGOS 4.0.0. Setup only; no execution or activation implied.

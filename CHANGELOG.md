@@ -1,5 +1,12 @@
 # Release changes
 
+## Practical assurance update — 2026-09-17
+
+- Simplified the P0 hub to one Task/checkpoint and removed placeholder evidence rows while retaining authority, activation, risk, recovery and closure requirements.
+- Added end-to-end offline workflows for output creation, resumption, gate/receipt checks, revocation and evidence classification; CI runs them directly.
+- Added outcome/overhead/resumption measures and explicit evidence states for scoped effectiveness assessment.
+- Extended release review to hosted repository metadata and post-publication state, which file tests cannot verify.
+
 ## Maintenance update — 2026-09-17
 
 - Made setup and templates editor-neutral; new files use `portable_markdown_v1` for the unchanged naming rules. Existing project records and original manifests are preserved.

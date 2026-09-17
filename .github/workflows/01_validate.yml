@@ -24,6 +24,7 @@ jobs:
           persist-credentials: false
       - name: Verify toolkit behavior
         run: |
+          python3 30_tests/06_test_workflows.py -v
           python3 30_tests/05_test_governance.py -v
           python3 30_tests/03_test_unified.py -v
           python3 30_tests/02_test_discovery.py -v

@@ -1,5 +1,7 @@
 # EAGOS regression checks
 
+Run `python3 30_tests/06_test_workflows.py -v` for complete offline paths: preview/setup, reversible output creation, fresh-process resumption after a folder move, missing-output detection, gate correction, receipt, revocation, and investigation without invented selection. Temporary artifacts are real; inputs/authority are synthetic. These checks do not measure an AI conversation or enforce a running worker's permissions.
+
 The fixture suite checks project creation, refusals to overwrite, profile sizes, placeholder handling, link resolution, malformed properties, duplicate IDs, dependency cycles, lifecycle evidence, expiry, drift detection, and read-only behavior. It runs in temporary directories, requires no network or third-party package, and makes no real project commitment.
 
 Run `python3 30_tests/01_test_eagos.py -v` from the package root. Direct execution supports the numbered filename; standard unittest discovery skips module names beginning with digits. These checks validate toolkit behavior; they do not replace a live project pilot or human handover acceptance.

@@ -42,11 +42,33 @@ For a deployed owner interface, observe repeated-trigger deduplication, stale/re
 
 ## Evaluation record
 
+### Measure usefulness before claiming excellence
+
+Evaluate an explicit use case and configuration. A single overall score can hide an untested critical control; a clean file check cannot compensate for missing acceptance or runtime evidence. Use these evidence states for each requirement: **not tested**, **observed in a synthetic exercise**, **observed in a real project**, **repeated with independent review**. Keep failures visible alongside passes.
+
+Before a pilot, record the intended output and acceptance criteria, current way of doing the work, available authority, consequence, effort cap and stopping condition. Choose a baseline appropriate to the same task; do not attribute every change to EAGOS. For a comparison, record both conditions and material differences. If no credible baseline exists, report observations without claiming improvement.
+
+| Question | Record during the work | Evidence needed for a strong conclusion |
+|---|---|---|
+| Did it deliver? | Output, actual completion check, owner acceptance or requested corrections | Accepted intended result; unresolved acceptance stays visible |
+| Was it proportionate? | Total elapsed/active effort and time spent on framework administration, measured consistently | Benefit justifies the observed overhead in this use case |
+| Did continuity work? | Saved checkpoint, fresh-session input, repeated questions and lost state | Another session/reviewer can identify and continue the next authorized action |
+| Did it respect authority? | Scope, actual tool actions, holds and applicable decisions | No out-of-scope action; consequential runtime controls have separate negative tests |
+| Did evidence improve the decision? | Assumptions, contrary findings, changed decision and remaining uncertainty | Traceable reasoning; claims do not outrun their support |
+
+Start with a finite internal task, an investigation with an unresolved assumption, and a recurring or controlled-delivery task if relevant. These are proposed coverage categories, not a universal minimum sample size. Record task difficulty, host/model, tools and reviewer. Repeat the cases that expose failure; expand confidence only to tested scope.
+
+A maximum assessment for a stated scope requires useful accepted outcomes, tolerable observed overhead, successful resumption, no unresolved critical finding, and evidence for every applicable control. A project with no deployed runtime need not implement one to be useful; it must not claim runtime enforcement. Without real outcomes and acceptance, mark effectiveness **not established** rather than assigning it full marks.
+
 For each actual run record scenario/version, input and authority, environment/model/tool versions, expected result, observed response/actions, resulting artifacts, limits, failure/correction, reviewer and outcome. Label synthetic inputs. A planned scenario has status **not run** until evidence exists; a written walkthrough is not an executed test.
 
 Measure time to useful result, task acceptance/rework, cost per accepted output, avoidable approval requests, continuity failures and owner corrections where relevant. Define denominators and sampling before comparing versions. Confidence follows observed coverage; no numeric reliability or efficiency claims are assumed.
 
 ## Release and change discipline
+
+Review the whole delivery surface: exact Git file list, root exclusions, starter paths, installed guide parity, fresh initialization, migration/drift behavior and end-to-end workflows. Compare the selected files with the working tree; local audit logs and archives must stay outside publication.
+
+Repository settings are a separate surface from files. When changing identity or positioning, inspect and verify the hosted name, description, website field and rendered page title after the change. A text search of tracked files cannot validate them. After publishing, record the actual commit, remote branch result and CI status. Preserve prior release evidence; do not leave a superseded “not pushed” statement as current state.
 
 Run affected numbered suites directly, then the core suite after toolkit changes. Check source/portable-guide parity, paths, protected history, and current version declarations. Review prose for lost evidence meaning and implied authority. Publication uses a selected generic package; exclude private workspaces and maintenance outputs.
 

@@ -18,6 +18,10 @@ Conversation and internal setup can precede activation within their actual autho
 
 ## Optional workspace setup
 
+For a small task, begin with one sentence: “The result I need is …; I will know it works when …”. The agent should use known context to define the next output, its check and applicable authority, then do ready work. Add records as they become useful. You do not need to name a lifecycle stage, design an organization chart or fill every hub field first.
+
+The P0 hub has one combined current Task/checkpoint. Record unknowns where they matter; add evidence entries only when evidence exists. If several sections repeat the same fact, keep its current value in one place and link to it. Use P1/P2 when consequence or existing policy requires their controls.
+
 Provide the files to an AI agent, copy the starter, or ask the agent to set up a workspace. Choose P0 for low-consequence reversible work; use P1/P2 when collaboration, policy, or consequence requires stronger controls.
 
 For the agent or maintainer, from this package root:

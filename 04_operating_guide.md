@@ -70,6 +70,10 @@ For one initiative, the hub may own all current state. For several, each initiat
 
 ## Keep work proportionate
 
+Before adding a record, ask what decision, action, ownership or recovery it enables. Start a small task with the intended result, observable completion check, next ready action and applicable authority. Keep one current Task/checkpoint; update it instead of repeating state in several sections. Empty evidence tables and speculative task lists are unnecessary. Remove duplicated administration after checking references, without deleting evidence, history or required controls.
+
+After a useful result, check the cost of the method itself: repeated intake, avoidable approval questions, duplicate edits and effort spent maintaining records. Propose a simpler workflow when these costs do not improve decisions or continuity. Stronger project controls still apply.
+
 | Work | Minimum useful control |
 |---|---|
 | Conversation | Useful contribution, material correction or seed, next point |
