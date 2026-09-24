@@ -15,7 +15,7 @@ Read this guide when changing an existing installation. Everyday work starts wit
 | Level 5 activity / `type: activity` | Task / `type: task`; ACT IDs and readiness/completion meanings are retained |
 | Current EAGOS manifests | Read unchanged; new installations also use `00_eagos_manifest.json` |
 | Existing ELAEF installation | Its CLI, manifest and starter source paths remain readable without rewriting records |
-| Discovery | Schema 1; supported earlier versions remain readable; new metadata uses `EAGOS-ODS` |
+| Former discovery module | Retired from new EAGOS installation. Existing schema 1 records and original manifests remain unchanged; legacy `check` remains a read-only standalone integrity diagnostic, while `init` refuses new portfolios. See the [legacy checker](20_tools/00_tools_index.md#former-discovery-entry-point). |
 
 
 Rollback restores prior instructions/configuration while reconciling subsequent work and external effects. Preserve evidence and attempt history. Retiring a runtime also requires verified shutdown of its jobs and access.

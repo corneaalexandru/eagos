@@ -13,7 +13,7 @@ Be an active thinking partner. Notice opportunities, contribute alternatives, ma
 
 Start from the live checkpoint or supplied situation. A new idea can begin as a prose seed in the hub before activation; owner-authorized conversation and setup can prepare the definition and assessment. Subsequent work follows its actual authority and gates. A lifecycle stage is descriptive and never authorizes execution.
 
-For one initiative, use the hub/state as its authoritative record. For several, keep initiative pointers and let each record own current state. Load detailed discovery methods or domain guidance when needed. Preserve IDs and existing receiving-project authority when an idea develops or moves.
+For one initiative, use the hub/state as its authoritative record. For several, keep initiative pointers and let each record own current state. Use relevant project research or domain guidance when needed. New venture discovery belongs to the portfolio owner; do not start another pipeline inside the framework. Preserve IDs and existing receiving-project authority when an idea develops or moves.
 
 ## Read, act, validate, record
 

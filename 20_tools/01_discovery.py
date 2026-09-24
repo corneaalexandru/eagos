@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Optional EAGOS Discovery / ODS 1.3 helpers: preview/create a portfolio or check recorded integrity.
+"""Read-only compatibility checker for earlier EAGOS Discovery / ODS records.
 
-Python 3.9+, standard library only. No network, research, ranking, or approvals.
-Only init --apply writes, exclusively into a new destination.
+Python 3.9+, standard library only. No portfolio creation or record writes.
 """
 
 import argparse
@@ -76,46 +75,6 @@ def blocks(text):
     if fence:
         issues.append((start, "fence", "Unclosed code fence"))
     return records, issues
-
-
-def init_portfolio(destination, code, name, owner, apply=False, package=PACKAGE):
-    if not re.fullmatch(r"[A-Z][A-Z0-9-]{1,19}", code):
-        raise ValueError("Code must be 2-20 uppercase letters/digits/hyphens, starting with a letter")
-    name, owner = core.validate_text(name, "Name"), core.validate_text(owner, "Owner")
-    destination = Path(os.path.abspath(destination))
-    if any(p.is_symlink() for p in (destination, *destination.parents)):
-        raise ValueError("Destination must not contain symlink components")
-    if destination.exists():
-        raise ValueError("Destination already exists; initialization never overlays records")
-    if not destination.parent.is_dir():
-        raise ValueError("Destination parent must already exist")
-    starter = package / "11_opportunity_discovery_starter"
-    sources = sorted(core.files(starter))
-    if not sources or not (starter / WORKSPACE).is_file():
-        raise ValueError("Discovery starter is missing")
-    values = {"PROJECT_CODE": code, "PROJECT_NAME": name, "PROJECT_OWNER": owner,
-              "YYYY-MM-DD": dt.date.today().isoformat()}
-    contents, hashes = {}, {}
-    for source in sources:
-        if source.is_symlink() or not core.inside(source, starter):
-            raise ValueError("Invalid starter source")
-        relative = source.relative_to(starter).as_posix()
-        original = source.read_bytes()
-        contents[relative] = core.render(original.decode("utf-8"), values).encode("utf-8")
-        hashes[relative] = core.digest(original)
-    manifest = {"schema_version": 1, "extension": EXTENSION, "extension_version": VERSION, "framework_version": core.VERSION,
-                "source_hashes": hashes, "baseline_hashes": {p: core.digest(v) for p, v in contents.items()},
-                "source_paths": {p: "11_opportunity_discovery_starter/" + p for p in contents}}
-    contents[MANIFEST] = (json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode("utf-8")
-    if apply:
-        destination.mkdir(exist_ok=False)
-        for relative, data in sorted(contents.items()):
-            path = destination / relative
-            path.parent.mkdir(parents=True, exist_ok=True)
-            with path.open("xb") as stream:
-                stream.write(data)
-    return {"action": "created" if apply else "preview", "destination": str(destination),
-            "files": sorted(contents), "authority": "No research, selection, promotion, or project activation granted"}
 
 
 def check(root, today=None):
@@ -420,33 +379,25 @@ def check(root, today=None):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    commands = parser.add_subparsers(dest="command", required=True)
-    create = commands.add_parser("init", help="Preview a new portfolio; --apply creates it")
-    create.add_argument("destination", type=Path)
-    create.add_argument("--code", required=True)
-    create.add_argument("--name", required=True)
-    create.add_argument("--owner", required=True)
-    create.add_argument("--apply", action="store_true")
-    validate = commands.add_parser("check", help="Read-only checks on the authoritative workspace")
-    validate.add_argument("root", type=Path)
-    validate.add_argument("--format", choices=("text", "json"), default="text")
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] == "init":
+        print("ODS: Discovery init is retired. Start new opportunity work with the portfolio owner.", file=sys.stderr)
+        return 2
+    parser = argparse.ArgumentParser(description="Read-only structural check for earlier ODS schema 1 workspaces")
+    parser.add_argument("command", choices=["check"])
+    parser.add_argument("root", type=Path)
+    parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args(argv)
     try:
-        if args.command == "init":
-            result = init_portfolio(args.destination, args.code, args.name, args.owner, args.apply)
+        result = check(args.root)
+        if args.format == "text":
+            print("ODS: {errors} error(s), {warnings} warning(s), {records} records".format(**result))
+            for finding in result["findings"]:
+                print("{severity}: line {line}: [{code}] {record}: {message}".format(**finding))
+            print(result["limits"])
         else:
-            result = check(args.root)
-            if args.format == "text":
-                print("ODS: {errors} error(s), {warnings} warning(s), {records} records".format(**result))
-                for f in result["findings"]:
-                    print("{severity}: line {line}: [{code}] {record}: {message}".format(**f))
-                print(result["limits"])
-            else:
-                print(json.dumps(result, indent=2, ensure_ascii=False))
-            return int(bool(result["errors"]))
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-        return 0
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        return int(bool(result["errors"]))
     except (OSError, ValueError, TypeError, RecursionError) as error:
         print("ODS: " + str(error), file=sys.stderr)
         return 2

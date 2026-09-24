@@ -15,7 +15,6 @@ def load(name, path):
     return module
 
 core = load("unified_core", ROOT / "20_tools/00_eagos.py")
-ods = load("unified_ods", ROOT / "20_tools/01_discovery.py")
 
 
 class UnifiedLifecycleTests(unittest.TestCase):
@@ -26,8 +25,7 @@ class UnifiedLifecycleTests(unittest.TestCase):
 
     def test_portable_guides_match_the_maintained_source(self):
         expected = (ROOT / "04_operating_guide.md").read_bytes()
-        for relative in ("10_eagos_project_starter/01_operating_guide.md",
-                         "11_opportunity_discovery_starter/03_operating_guide.md"):
+        for relative in ("10_eagos_project_starter/01_operating_guide.md",):
             self.assertEqual((ROOT / relative).read_bytes(), expected, relative)
         data, body, issues = core.properties(expected.decode())
         self.assertEqual(issues, [])
@@ -49,20 +47,6 @@ class UnifiedLifecycleTests(unittest.TestCase):
                 result = core.check(root, "setup")
                 self.assertEqual(result["errors"], 0, result)
                 self.assertEqual(core.properties((root / "README.md").read_text())[0]["activation_status"], "not_assessed")
-
-    def test_discovery_installs_the_same_lifecycle_without_creating_research_or_approval(self):
-        root = self.area / "discovery"
-        ods.init_portfolio(root, "DEMO", "Ideas", "Owner", True)
-        guide = root / "03_operating_guide.md"
-        self.assertEqual(guide.read_bytes(), (ROOT / "04_operating_guide.md").read_bytes())
-        result = ods.check(root)
-        self.assertEqual(result["errors"], 0, result)
-        self.assertEqual(result["records"], 0)
-        data = core.properties((root / ods.WORKSPACE).read_text())[0]
-        self.assertEqual(data["status"], "setup")
-        self.assertEqual(data["extension_version"], ods.VERSION)
-        manifest = json.loads((root / ods.MANIFEST).read_text())
-        self.assertEqual(manifest["baseline_hashes"][guide.name], core.digest(guide.read_bytes()))
 
     def test_each_stage_remains_descriptive_and_cannot_activate_a_project(self):
         root = self.area / "project"

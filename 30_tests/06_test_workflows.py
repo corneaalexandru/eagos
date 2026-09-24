@@ -25,7 +25,6 @@ def load(name, path):
 
 
 core = load("workflow_core", "20_tools/00_eagos.py")
-discovery_fixtures = load("workflow_discovery", "30_tests/02_test_discovery.py")
 
 
 class WorkflowTests(unittest.TestCase):
@@ -128,25 +127,6 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("delegation_readiness", {f["code"] for f in result["findings"]})
         self.assertEqual(core.properties((self.project / "03_task.md").read_text())[0]["status"], "ready")
 
-    def test_investigation_keeps_unproven_claims_separate_from_selection(self):
-        case = discovery_fixtures.DiscoveryTests()
-        case.setUp()
-        self.addCleanup(case.doCleanups)
-        case.framed()
-        claim = case.add("claim", status="unknown", evidence_level="E0", claim="Synthetic question",
-                         decision_context="Whether to investigate", rationale="No evidence yet")
-        self.assertEqual(case.check()["errors"], 0)
-        claim.update(status="supported", evidence_level="E1")
-        self.assertIn("evidence", case.codes())
-        source = case.add("source", kind="synthetic", status="inspected", title="Synthetic input",
-                          location="fixture", origin="test harness", inspected_on="2026-09-12",
-                          independence_group="one fixture", finding="Preparation example only",
-                          locator="fixture section", limitations="No market evidence")
-        claim.update(context="preparation", supporting_sources=[source["id"]])
-        self.assertEqual(case.check()["errors"], 0)
-        self.assertFalse(any(r["type"] == "decision" for r in case.records))
-        claim["context"] = "market"
-        self.assertIn("evidence", case.codes())
 
 
 if __name__ == "__main__":

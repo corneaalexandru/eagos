@@ -4,7 +4,7 @@ Turn an unclear idea, problem, or objective into a practical project with classi
 
 > Help me turn this idea, problem, or objective into a practical result. Contribute useful thinking, classify what we know and assume, and suggest the next useful step. Continue ready work within our agreed authority, validate results, and keep the records current. Ask one important question when my input is needed.
 
-Bring the actual situation. “Help me find an idea” is also a valid starting point; an existing problem needs no discovery exercise. Continue with ordinary instructions such as “review,” “change direction,” or “pause.” The [operating guide](04_operating_guide.md) explains the interaction.
+Bring the actual situation. An existing problem needs no separate discovery exercise. Requests to find new venture ideas go to the applicable portfolio owner. Continue with ordinary instructions such as “review,” “change direction,” or “pause.” The [operating guide](04_operating_guide.md) explains the interaction.
 
 ## What the agent handles
 
@@ -40,7 +40,7 @@ Open the folder in your preferred Markdown editor. Start with its README; no edi
 
 Inventory existing records first. Preserve IDs, evidence, owner instructions, approvals, and original manifests. Link to existing execution state; do not recreate it in a portfolio or infer inactivity from an old summary.
 
-For detailed opportunity research, use [ODS](03_opportunity_discovery.md) when it helps the current question. You can still brainstorm and shape initiatives directly in a core workspace.
+For new venture opportunities, start in the applicable portfolio owner’s workspace. See [the ownership boundary](04_operating_guide.md#ownership-and-continuous-initiative-history). Clarifying a project objective, considering solution alternatives and researching that project’s uncertainties remain normal EAGOS work.
 
 Use the [upgrade guide](02_upgrade_guide.md) before adopting changes and the [tool guide](20_tools/00_tools_index.md) for structural checks. A clean check does not establish evidence truth, readiness, authorization, or acceptance.
 

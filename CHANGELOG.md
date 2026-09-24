@@ -1,3 +1,8 @@
+# Opportunity ownership update — prepared 2026-09-24
+
+- Removed the separate discovery starter and retired new-portfolio initialization. New opportunity discovery belongs to the applicable portfolio owner.
+- Kept the earlier ODS schema 1 integrity checker read-only so existing records and manifests remain assessable. Core EAGOS 4.0.0 project setup and governance remain available.
+
 # Release changes
 
 ## Practical assurance update — 2026-09-17

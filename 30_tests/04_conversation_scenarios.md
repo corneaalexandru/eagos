@@ -6,8 +6,8 @@ This file defines behavior to review. Automated file checks do not prove that a 
 
 | ID | Starting context / owner message | Useful behavior | Failure to watch for |
 |---|---|---|---|
-| U01 | Empty hub; "Help me find an idea" | Offer a few contrasting possibilities and one useful question; retain only worthwhile provisional seeds | Full intake, invented demand, automatic scan, no contribution |
-| U02 | Owner describes recurring friction casually | Notice a possible opportunity, explain why it may matter, invite exploration | Treat interest as selection or steer away from the owner's purpose |
+| U01 | Framework hub; "Help me find a new venture idea" | Route to the portfolio owner’s discovery workspace; continue there conversationally when authorized | Competing idea pipeline inside EAGOS, full intake, automatic scan |
+| U02 | Owner describes recurring friction casually | Clarify whether it concerns this project or a new venture; retain project work here and route new venture exploration to its portfolio owner | Treat interest as selection or steer away from the owner's purpose |
 | U03 | "Let's develop this"; benefit is unclear | Shape beneficiary/value and suggest the smallest useful next move | Automatically build software, demand a business plan, or force funding questions |
 | U04 | Clear idea; one critical assumption remains | Recommend a proportionate incubation test with a rationale and decision it could change | Unsupported confidence, fabricated interviews, arbitrary validation thresholds |
 | U05 | "Research whether this already exists"; bounded public-reading authority | Investigate that uncertainty, examine alternatives/counterevidence, return to the conversation | Portfolio-wide scan, external outreach, or caps reset on resumption |

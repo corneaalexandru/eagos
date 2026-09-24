@@ -230,7 +230,7 @@ At completion/closure, verify outputs and acceptance, remaining obligations, own
 
 Extensions declare name/version, purpose/scope, verified parent compatibility, added records/states, tools/permissions/external effects, failure behavior, migration and removal. They MUST preserve classification, evidence, authority, provenance and gate rules; project exceptions cannot override non-waivable constraints.
 
-[EAGOS Discovery](03_opportunity_discovery.md) adds optional detailed opportunity research and selection. After accepted handoff, the receiving project owns execution state and authority.
+Opportunity discovery and portfolio selection belong to the applicable portfolio owner. EAGOS supplies the common governance and execution method. Existing projects retain their own clarification, feasibility research, evidence and authority. After accepted handoff, the receiving project owns execution state. For earlier EAGOS Discovery records, use the [upgrade guide](02_upgrade_guide.md) and [read-only compatibility checker](20_tools/00_tools_index.md#former-discovery-entry-point).
 
 Prefer exportable Markdown, flat properties, stable IDs, relative links and original attachments. Optional plugins/runtime stores cannot be required to understand core truth. The tools have a deliberately limited parser and do not execute the prose governance contract.
 

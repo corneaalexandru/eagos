@@ -4,8 +4,9 @@ type: framework_distribution
 status: active
 framework: EAGOS
 framework_version: "4.0.0"
-discovery_extension_version: "1.3.0"
-updated: 2026-09-16
+distribution_revision: "2026-09-24-opportunity-owner"
+discovery_status: retired
+updated: 2026-09-24
 ---
 
 # EAGOS 4.0.0
@@ -19,7 +20,7 @@ Turn an unclear idea, problem, or objective into a practical project with classi
 
 **Build by Evidence, One Gate at a Time.**
 
-Start with an idea, a practical problem, an objective, an existing project, or an operating organization. Use ordinary conversation. The agent helps clarify the outcome, contributes useful thinking, advances authorized work, validates results, and maintains continuity. Discovery, business launch and ongoing operation enter when relevant to the actual purpose.
+Start with an idea, a practical problem, an objective, an existing project, or an operating organization. Use ordinary conversation. The agent helps clarify the outcome, contributes useful thinking, advances authorized work, validates results, and maintains continuity. Clarification, investigation, delivery and ongoing operation enter when relevant to the actual purpose. New venture ideation and opportunity selection belong to the portfolio owner. EAGOS supplies the method while the applicable portfolio owner keeps opportunity discovery and selection.
 
 For organizations, the same principles govern agents that coordinate, decide, execute and review within defined roles and delegated authority. Each commitment remains tied to evidence, applicable gates and actual permission.
 
@@ -38,7 +39,6 @@ Say “continue,” “review,” “change direction,” “pause,” or descri
 | Run an ongoing company or organization | [Company operations](06_company_operations.md) |
 | Implement OpenClaw or another platform | [Runtime integration](07_runtime_integration.md), [profiles](12_runtime_profiles/00_profiles_index.md) |
 | Inspect evidence and acceptance requirements | [Validation and assurance](08_validation_and_assurance.md) |
-| Explore opportunities in more detail | [Optional discovery](03_opportunity_discovery.md) |
 | Adopt 4.0.0 without losing existing records | [Upgrade guide](02_upgrade_guide.md) |
 | Inspect the full rules | [Canonical specification](00_eagos.md) |
 
@@ -60,6 +60,8 @@ Use the table above to retrieve specialist guidance when needed. The full specif
 
 EAGOS is a framework with portable records, optional offline tools and documented runtime profiles. OpenClaw and LangGraph profiles define candidate implementations; actual deployment needs configuration, tests and activation evidence.
 
-Use [the project starter](10_eagos_project_starter/README.md) or [offline tools](20_tools/00_tools_index.md). The canonical specification is [00_eagos.md](00_eagos.md); the operating guide is distributed identically in both starters. The [adoption guide](02_upgrade_guide.md) covers existing installations.
+Use [the project starter](10_eagos_project_starter/README.md) or [offline tools](20_tools/00_tools_index.md). The canonical specification is [00_eagos.md](00_eagos.md); the operating guide is distributed identically in the project starter. The [adoption guide](02_upgrade_guide.md) covers existing installations.
+
+**Ownership update, 2026-09-24:** EAGOS no longer ships a separate opportunity starter or initializer. [Legacy record compatibility](02_upgrade_guide.md#compatibility-reference) remains read-only; use the applicable portfolio owner for new venture opportunities. Core version 4.0.0 is unchanged.
 
 Source repository: [corneaalexandru/eagos](https://github.com/corneaalexandru/eagos).

@@ -29,31 +29,15 @@ python3 20_tools/00_eagos.py check 10_eagos_project_starter --mode template --fa
 
 See the [quick start](../01_quick_start.md) and [upgrade guide](../02_upgrade_guide.md). The maintained specification is `00_eagos.md` at the package root. `EAGOS_SPEC_PATH` selects a candidate in the core tests.
 
-## Discovery extension
+## Former discovery entry point
 
-EAGOS Discovery / ODS 1.3.0 uses a separate optional CLI, `python3 20_tools/01_discovery.py --help`, and the existing EAGOS helper module. It leaves execution-project records and activation under the core toolkit. The interactive playbook governs conversation; this tool handles files and structural checks only.
+New opportunity records belong to the applicable portfolio owner. See the [adoption guide](../02_upgrade_guide.md#compatibility-reference) for older workspaces. The legacy CLI supports read-only `check ROOT [--format json]` without a portfolio-owner installation. Legacy `init` fails without creating files. Core EAGOS initialization and validation remain independent.
 
-```bash
-python3 20_tools/01_discovery.py init ../my_discovery --code IDEAS --name "Opportunity portfolio" --owner "Your name"
-python3 20_tools/01_discovery.py init ../my_discovery --code IDEAS --name "Opportunity portfolio" --owner "Your name" --apply
-python3 20_tools/01_discovery.py check ../my_discovery
-python3 20_tools/01_discovery.py check ../my_discovery --format json
-python3 30_tests/02_test_discovery.py -v
-```
-
-Initialization copies the eight generic Markdown files into a new destination and records a baseline manifest. Preview does not write; `--apply` refuses existing destinations and symlink components. A partial interruption may leave a new incomplete directory; inspect it before deciding how to recover. The manifest supports manual comparison; core `drift` remains specific to the execution starter.
-
-`check` reads flat properties and `discovery` fenced records in the authoritative `00_opportunity_workspace.md`. It checks record IDs/types, required fields, cross-references, vocabulary, reported budget/cap counts, cumulative investigations, portfolio-wide open validation slots, claim/source compatibility, rating ranges, track compatibility, mandatory screens, selection references, and receipt fields. It never edits records or traverses private/raw evidence. Exit codes are 0 for no errors, 1 for integrity findings, and 2 for invalid input/operational failures. Review warnings in context; they do not confer approval.
-
-This checker does **not** rank opportunities, verify actual query counts/time, inspect external sources, establish claim truth or independence, assess complete economics/test methodology, authenticate approvals, check receiving-project activation, or prove acceptance. Prose and search logs still need review. Approved selections and actionable handovers require passing mandatory screens independently of the candidate status label. Superseded selections alone do not impose current screening; retain historical decisions without presenting them as current authority. Supported/refuted/disputed claims cannot use E0; they require usable supporting/opposing/both source declarations respectively, without implying source truth or sufficiency. Additional authoritative workspace files are not silently ingested; retain structured records in the single workspace under schema 1. For an uninstantiated starter, inspect its templates and links; `check` expects an instantiated portfolio identity.
-
-See the [discovery guide](../03_opportunity_discovery.md) and [protocol](../11_opportunity_discovery_starter/02_discovery_protocol.md).
-
-Supported extension versions are defined by the discovery CLI; unsupported versions are rejected. Prose seeds, conversation checkpoints and journals are intentionally outside the structural checker. A valid empty portfolio can support a conversation without any research records. Preserve the original installation manifest when upgrading; record the migration separately.
+Run `python3 30_tests/02_test_discovery.py -v` for retirement and read-only legacy checks. New research workflow tests belong with the portfolio owner. A structural check cannot verify source truth, approval identity, evidence sufficiency or receiver acceptance.
 
 ## Unified conversational lifecycle
 
-The tools install files and check structure; an AI agent uses [the operating guide](../04_operating_guide.md) to conduct the conversation. The root guide is the maintained distribution source; its portable core/discovery copies must match. P0 includes `01_operating_guide.md` alongside its hub and agent contract. Discovery includes the same guide as `03_operating_guide.md`.
+The tools install files and check structure; an AI agent uses [the operating guide](../04_operating_guide.md) to conduct the conversation. The root guide is the maintained distribution source; its portable core copy must match. P0 includes `01_operating_guide.md` alongside its hub and agent contract.
 
 Core records may declare `lifecycle_stage` using `discover`, `shape`, `incubate`, `develop`, `launch`, `operate`, or `evolve`. The checker reports unsupported values in live records; the field is optional for older records and never grants activation or authority. It does not interpret or execute natural-language instructions, assess stage appropriateness, or prove launch completion.
 

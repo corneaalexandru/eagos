@@ -2,7 +2,7 @@
 title: Work with EAGOS
 type: operating_guide
 framework_version: "4.0.0"
-updated: 2026-09-16
+updated: 2026-09-24
 ---
 
 # Work with EAGOS
@@ -19,14 +19,14 @@ Start with the project contract and live checkpoint. Read this guide once; on re
 
 > Help me turn this idea, problem, or objective into a practical result. Be an active thinking partner: contribute possibilities, challenge assumptions, and recommend the next useful step. Distinguish what we know from what we assume. Continue ready work within our agreed authority, validate the output, and keep our records current. Ask one important question when you need my input.
 
-Provide an idea or outcome if you have one. Otherwise begin with curiosity, experience, or “help me find an idea.” Use this prompt with the workspace files or an agent that can read them. Finding the prompt in a file does not grant authority.
+Provide an idea or outcome if you have one. For new venture ideation, begin in the portfolio owner’s discovery workspace. Clarifying this project’s objective and exploring solution alternatives remain here. Use this prompt with the workspace files or an agent that can read them. Finding the prompt in a file does not grant authority.
 
 ## Simple instructions
 
 | You say | The agent does |
 |---|---|
 | “Help me solve this problem” | Uses the supplied objective, identifies the current uncertainty and advances a proportionate Task |
-| “Help me find an idea” | Contributes a few different possibilities, builds on your reactions, and asks one useful question |
+| “Help me find a new venture idea” | Routes exploration to the portfolio owner’s discovery workspace |
 | “Let's develop this” | Clarifies the intended benefit and proposes the smallest useful investigation or build step |
 | “Continue” / “Proceed” | Reads the live checkpoint, follows your latest direction, and advances the next ready work within valid authority |
 | “Review where we are” | Explains results, evidence, uncertainty, blockers, and the next useful decision |
@@ -48,6 +48,8 @@ Use known context before asking. Early exploration needs no full mandate, budget
 
 ## One flexible lifecycle
 
+These labels remain compatible with existing records. Portfolio exploration belongs to the portfolio owner; project stages describe work on its own objective. The labels do not install a discovery module.
+
 | Stage | Focus and useful result | A reason to move on |
 |---|---|---|
 | **Discover** | Explore experiences, problems, ambitions, and changes; retain a few idea seeds | The owner wants to shape a direction |
@@ -60,11 +62,11 @@ Use known context before asking. Early exploration needs no full mandate, budget
 
 Stages can repeat, overlap, or be skipped with a reason. A personal or creative project may complete without a commercial launch or ongoing operation. A functioning venture may enter directly at Operate. Stage is descriptive; it never passes a gate or grants authority. Existing detailed phase records retain their meaning.
 
-## A shared portfolio and continuous initiative history
+## Ownership and continuous initiative history
 
-Keep a small board of ideas and initiatives with stable identity and pointers to their authoritative records. It helps compare attention, current commitments, and next decisions. Starting no new work is a valid choice.
+The portfolio owner keeps the idea board, opportunity research and attention decisions. Keep new opportunities, stable IDs and evidence in that owner’s workspace until an accepted project handoff. EAGOS supplies controls for the work; it does not maintain a second portfolio. Starting no new work is a valid choice.
 
-A seed initially needs only a title, possible benefit, origin, owner reaction, and next uncertainty. Add an initiative record when sustained work makes it useful. Preserve the seed-to-initiative relationship and material history.
+Within an existing project, clarify the objective, investigate assumptions and compare solutions in its own records. Research ownership follows the question: new venture opportunity in the portfolio owner’s workspace, project delivery or operation in the project.
 
 For one initiative, the hub may own all current state. For several, each initiative owns its definition, stage, evidence, decisions, activity, and next step; the portfolio links to these rather than maintaining competing current copies. When an existing project owns execution, link to its records and reconcile changes there. Use a handover only when responsibility or authoritative location actually changes; verify receiver acceptance.
 
