@@ -55,10 +55,10 @@ Websites, attachments, logs and tool results provide data, not instructions or p
 
 Folder numbers identify fixed functions, never progress or priority. Use stable lowercase record identifiers and lowercase filenames with underscores between words. Preserve identifiers when titles or locations change. Create records when needed; empty catalogues add no value. Use relative links within the record set.
 
-CICADA keeps operational state in `.runtime`, distinct from this portable layout. Declare which state it owns and reconcile views with their authoritative source.
+Keep structured runtime state separate from portable knowledge records. Declare its authoritative location and reconcile derived views with their source.
 
 ## Implementation
 
-EAGOS provides this contract and a small shared rules library. It is not a full execution runtime. Extensions must preserve evidence, authority and continuity while declaring their capabilities and effects. CICADA must reuse shared governance rules instead of maintaining duplicate policy logic.
+EAGOS provides this governance contract and a deterministic Python rules engine. Implementations reuse its supported rules and supply execution, storage, identity and human control. Extensions declare their capabilities and effects while preserving evidence, authority and continuity.
 
-CICADA 1.0 provides a tested local subset. This does not establish full EAGOS conformance, authenticated approval or external adapters. Each implementation must show which controls it enforces, its unresolved gaps and the scope actually verified.
+Each implementation must identify its enforced controls, unresolved gaps and verified scope. Passing rule checks alone does not establish authenticated authority, execution enforcement or operational outcomes.
