@@ -1,6 +1,6 @@
 """Evidence-led Agent Governance and Operations System."""
 
-__version__ = "5.0.0"
+__version__ = "5.1.0"
 
 
 class GovernanceError(ValueError):

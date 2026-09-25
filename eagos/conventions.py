@@ -34,11 +34,24 @@ def validate_evidence_path(relative):
     return path.as_posix()
 
 
+def markdown_body(text):
+    """Ignore optional leading YAML metadata; metadata alone is not evidence."""
+    if not isinstance(text, str):
+        raise GovernanceError("Markdown must be text")
+    lines = text.lstrip("\ufeff\n\r").splitlines()
+    if lines and lines[0].strip() == "---":
+        for index, line in enumerate(lines[1:], 1):
+            if line.strip() in ("---", "..."):
+                return "\n".join(lines[index + 1:])
+        raise GovernanceError("Unclosed YAML frontmatter")
+    return text
+
+
 def validate_evidence_text(text):
     """Require content beyond a title; this does not certify a claim's truth."""
-    if not isinstance(text, str) or not any(
+    if not any(
         re.search(r"[\w]", line) and not re.match(r"^\s*#{1,6}(?:\s|$)", line)
-        for line in text.splitlines()
+        for line in markdown_body(text).splitlines()
     ):
         raise GovernanceError("Evidence must contain substantive text beyond headings")
     return text

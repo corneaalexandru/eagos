@@ -6,8 +6,8 @@ from pathlib import Path
 import unittest
 
 from eagos import GovernanceError, __version__
-from eagos.conventions import CONTRACT_VERSION, PATHS, validate_identifier, validate_evidence_path, validate_evidence_text
-from eagos.governance import authority_reasons, validate_decision, validate_policy
+from eagos.conventions import CONTRACT_VERSION, PATHS, markdown_body, validate_identifier, validate_evidence_path, validate_evidence_text
+from eagos.governance import authority_reasons, process_reasons, validate_decision, validate_policy
 
 
 class GovernanceTests(unittest.TestCase):
@@ -97,6 +97,98 @@ class GovernanceTests(unittest.TestCase):
             validate_identifier("Not clean")
         with self.assertRaises(GovernanceError):
             validate_identifier("foundation-task")
+
+    def test_legacy_policy_retains_original_authority_version(self):
+        self.policy.update(framework="EAGOS", framework_version="5.0.0")
+        before = copy.deepcopy(self.policy)
+        self.assertEqual(self.check(), ("builder", []))
+        self.assertEqual(self.policy, before)
+
+    def test_frontmatter_is_not_substantive_evidence(self):
+        metadata = "---\ntitle: Research\ntype: evidence\nstatus: verified\n---\n"
+        with self.assertRaises(GovernanceError):
+            validate_evidence_text(metadata + "# Empty observation\n")
+        validate_evidence_text(metadata + "# Observation\n\nSource reports an observed change.")
+        self.assertEqual(markdown_body(metadata + "Body"), "Body")
+        with self.assertRaises(GovernanceError):
+            markdown_body("---\ntitle: Unclosed")
+
+    def test_declared_authority_kinds_are_enforced(self):
+        self.policy["roles"]["builder"]["authority_kinds"] = ["write"]
+        self.assertTrue(self.check()[1])
+        self.assertEqual(authority_reasons(self.policy, self.task, "agent", "local.write", True, 0,
+                                          authority_kind="write")[1], [])
+        self.assertTrue(authority_reasons(self.policy, self.task, "agent", "local.write", True, 0,
+                                         authority_kind="external")[1])
+
+    def delegate(self):
+        roles = self.policy["roles"]
+        roles["manager"] = copy.deepcopy(roles["builder"])
+        roles["builder"].update(parent_role="manager", budget_minor=6)
+        roles["sibling"] = copy.deepcopy(roles["builder"])
+        return {"manager": 0, "builder": 1, "sibling": 0}
+
+    def test_delegation_cannot_expand_or_cycle(self):
+        self.delegate()
+        valid = copy.deepcopy(self.policy)
+        for key, value in (("capabilities", ["external.send"]), ("max_risk", 2),
+                           ("budget_minor", 11), ("allow_irreversible", True), ("parent_role", "builder")):
+            self.policy = copy.deepcopy(valid)
+            self.policy["roles"]["builder"][key] = value
+            with self.subTest(key=key), self.assertRaises(GovernanceError):
+                validate_policy(self.policy)
+        self.policy = valid
+        self.policy["roles"]["manager"]["expires_at"] = "2026-09-25T12:00:00Z"
+        with self.assertRaises(GovernanceError):
+            validate_policy(self.policy)  # A child cannot claim no expiry beyond an expiring parent.
+
+    def test_delegation_shares_ancestor_budget_and_revocation(self):
+        usage = self.delegate()
+        with self.assertRaises(GovernanceError):
+            self.check(used=1)
+        def evaluate():
+            return authority_reasons(self.policy, self.task, "agent", "local.write", True, 1,
+                                     usage_by_role=usage)[1]
+        self.assertEqual(evaluate(), [])
+        usage["sibling"] = 6
+        self.assertTrue(any("budget" in reason for reason in evaluate()))
+        usage["sibling"] = 0
+        self.policy["roles"]["manager"]["enabled"] = False
+        self.assertTrue(any("disabled" in reason for reason in evaluate()))
+        self.policy["roles"]["manager"]["enabled"] = True
+        for role in self.policy["roles"].values():
+            role["expires_at"] = "2020-01-01T00:00:00Z"
+        self.assertTrue(any("expired" in reason for reason in evaluate()))
+
+    def test_attempt_limits_include_failed_and_sibling_attempts(self):
+        self.policy["roles"]["builder"]["max_attempts"] = 2
+        with self.assertRaises(GovernanceError):
+            self.check()
+        self.assertTrue(authority_reasons(self.policy, self.task, "agent", "local.write", True, 0,
+                                         attempts_by_role={"builder": 2})[1])
+        usage = self.delegate()
+        self.policy["roles"]["manager"]["max_attempts"] = 3
+        counts = {"manager": 0, "builder": 1, "sibling": 2}
+        reasons = authority_reasons(self.policy, self.task, "agent", "local.write", True, 1,
+                                    usage_by_role=usage, attempts_by_role=counts)[1]
+        self.assertTrue(any("attempt limit" in reason for reason in reasons))
+
+    def test_process_limits_are_cumulative_and_do_not_schedule(self):
+        process = {"id": "weekly_review", "status": "active", "max_runs": 3, "budget_minor": 5}
+        self.assertEqual(process_reasons(process, 1, 0, 2, 3), [])
+        for started, active, used, cost in ((3, 0, 0, 0), (1, 1, 0, 0), (1, 0, 3, 3)):
+            self.assertTrue(process_reasons(process, started, active, used, cost))
+        self.assertTrue(process_reasons(dict(process, status="paused"), 0, 0, 0))
+        self.assertTrue(process_reasons(dict(process, expires_at="2020-01-01T00:00:00Z"), 0, 0, 0))
+        with self.assertRaises(GovernanceError):
+            process_reasons(dict(process, max_parallel=0), 0, 0, 0)
+
+    def test_decision_scope_and_optional_expiry(self):
+        decision = {"status": "approved", "task_hash": "a" * 64, "director": "director",
+                    "reason": "Bounded work", "source": "Recorded approval", "expires_at": "2020-01-01T00:00:00Z"}
+        self.assertIn("Decision has expired", validate_decision(decision, self.policy, "a" * 64, "agent"))
+        with self.assertRaises(GovernanceError):
+            validate_decision(decision, self.policy, "", "agent")
 
 
 if __name__ == "__main__":
