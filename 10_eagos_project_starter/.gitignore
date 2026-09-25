@@ -1,9 +1,0 @@
-# Tool-required filename exception to numbered_project_v1.
-.DS_Store
-__pycache__/
-*.pyc
-.env
-.env.*
-!.env.example
-80_private/**
-!80_private/00_private_index.md

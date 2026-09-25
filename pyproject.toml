@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eagos"
+version = "5.0.0"
+description = "Evidence-led Agent Governance and Operations System"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools]
+packages = ["eagos"]
