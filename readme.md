@@ -1,13 +1,13 @@
 ---
-title: EAGOS 5.1.0
+title: EAGOS 5.1.1
 type: overview
 status: active
 framework: EAGOS
-framework_version: "5.1.0"
+framework_version: "5.1.1"
 updated: 2026-09-25
 ---
 
-# EAGOS 5.1.0
+# EAGOS 5.1.1
 
 **Evidence-led Agent Governance and Operations System**
 
