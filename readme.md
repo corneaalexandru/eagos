@@ -45,3 +45,7 @@ python3 check.py
 ```
 
 These checks validate the library and documents, not operational enforcement. [Sources](sources.md) record provenance and compatibility boundaries.
+
+## License
+
+Owner-controlled code and documentation are licensed under [Apache-2.0](LICENSE). [NOTICE](NOTICE) preserves attribution and clarifies trademark and third-party boundaries.
