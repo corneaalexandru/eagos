@@ -8,7 +8,7 @@ from urllib.parse import unquote, urlsplit
 from eagos import GovernanceError
 from eagos.conventions import markdown_body, validate_identifier
 
-VERSION = "5.1.0"
+VERSION = "5.1.1"
 SOURCE_SHA = "bb8136335c5369b9ac9da88d7b91b03dcd1243e8"
 ROOT = Path(__file__).resolve().parent
 DOCUMENTS = ("readme.md", "eagos.md", "sources.md", "examples/project.md")

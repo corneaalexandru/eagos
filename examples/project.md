@@ -5,7 +5,7 @@ type: initiative
 status: proposed
 id: weekly_review
 framework: EAGOS
-framework_version: "5.1.0"
+framework_version: "5.1.1"
 updated: 2026-09-25
 ---
 

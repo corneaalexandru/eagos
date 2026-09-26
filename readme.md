@@ -1,13 +1,13 @@
 ---
-title: EAGOS 5.1.0
+title: EAGOS 5.1.1
 type: overview
 status: active
 framework: EAGOS
-framework_version: "5.1.0"
+framework_version: "5.1.1"
 updated: 2026-09-25
 ---
 
-# EAGOS 5.1.0
+# EAGOS 5.1.1
 
 **Evidence-led Agent Governance and Operations System**
 
@@ -45,3 +45,7 @@ python3 check.py
 ```
 
 These checks validate the library and documents, not operational enforcement. [Sources](sources.md) record provenance and compatibility boundaries.
+
+## License
+
+Owner-controlled code and documentation are licensed under [Apache-2.0](LICENSE). [NOTICE](NOTICE) preserves attribution and clarifies trademark and third-party boundaries.
